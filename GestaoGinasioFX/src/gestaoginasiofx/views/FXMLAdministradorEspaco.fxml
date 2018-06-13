@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="573.0" prefWidth="829.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projetogestaoginasio.views.FXMLAdministradorEspacoController">
+   <children>
+      <Pane layoutX="16.0" layoutY="17.0" prefHeight="539.0" prefWidth="797.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;">
+         <children>
+            <TableView fx:id="tbEspacos" layoutX="18.0" layoutY="250.0" prefHeight="270.0" prefWidth="401.0">
+              <columns>
+                <TableColumn fx:id="colDescicao" prefWidth="162.0" text="Descrição" />
+                <TableColumn fx:id="colTipoEspaco" prefWidth="91.0" text="Tipo" />
+                  <TableColumn fx:id="colVagas" prefWidth="135.0" text="Numero Equipamentos" />
+              </columns>
+            </TableView>
+            <Label layoutX="159.0" layoutY="223.0" text="Lista Espaços">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TableView fx:id="tbEquipamento" layoutX="439.0" layoutY="42.0" prefHeight="477.0" prefWidth="350.0">
+               <columns>
+                  <TableColumn fx:id="colDescicaoEqui" prefWidth="135.0" text="Descrição" />
+                  <TableColumn fx:id="colCategoria" prefWidth="118.0" text="Categoria" />
+                  <TableColumn fx:id="colAtivo" prefWidth="68.0" text="Ativo" />
+               </columns>
+            </TableView>
+            <Label layoutX="530.0" layoutY="13.0" text="Lista Equipamentos">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Pane layoutX="14.0" layoutY="23.0" prefHeight="169.0" prefWidth="401.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;">
+               <children>
+                  <Label layoutX="52.0" layoutY="24.0" text="Descrição: " />
+                  <Label layoutX="45.0" layoutY="65.0" text="Tipo Espaço: " />
+                  <TextField fx:id="txtDescricao" layoutX="137.0" layoutY="20.0" onKeyPressed="#clearBackground" onKeyReleased="#clearBackground" prefHeight="25.0" prefWidth="219.0" />
+                  <ComboBox fx:id="cbTipoEspaco" layoutX="137.0" layoutY="61.0" onMouseClicked="#clearBackground" prefHeight="25.0" prefWidth="219.0" />
+                  <Button layoutX="255.0" layoutY="124.0" mnemonicParsing="false" onAction="#updateData" prefHeight="25.0" prefWidth="114.0" text="Gravar" />
+                  <Button layoutX="32.0" layoutY="124.0" mnemonicParsing="false" onAction="#clearField" prefHeight="25.0" prefWidth="114.0" text="Limpar Seleção" />
+                  <Label layoutX="12.0" layoutY="-10.0" style="-fx-background-color: #ffffff;" text=" Inserir / Editar Espaço " />
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

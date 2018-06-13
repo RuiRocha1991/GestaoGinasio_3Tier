@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="335.0" prefWidth="629.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestaoginasiofx.views.FXMLGerirEquipamentoController">
+   <children>
+      <Pane layoutX="14.0" layoutY="40.0" prefHeight="238.0" prefWidth="262.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;">
+         <children>
+            <Label layoutX="11.0" layoutY="-10.0" style="-fx-background-color: #ffffff;" text=" Gerir Equipamento ">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="11.0" layoutY="45.0" text="Descrição" />
+            <Label layoutX="11.0" layoutY="79.0" text="Categoria" />
+            <Label layoutX="11.0" layoutY="114.0" text="Espaço" />
+            <Label layoutX="11.0" layoutY="145.0" text="Ativo" />
+            <TextField fx:id="txtDescricao" layoutX="72.0" layoutY="41.0" prefHeight="25.0" prefWidth="176.0" />
+            <ComboBox fx:id="cbCategoria" layoutX="72.0" layoutY="75.0" prefHeight="25.0" prefWidth="176.0" />
+            <ComboBox fx:id="cbEspaco" layoutX="72.0" layoutY="110.0" prefHeight="25.0" prefWidth="176.0" />
+            <CheckBox fx:id="ckAtivo" layoutX="73.0" layoutY="145.0" mnemonicParsing="false" />
+            <Button fx:id="btGravar" layoutX="167.0" layoutY="199.0" mnemonicParsing="false" onAction="#atualizarLista" prefHeight="25.0" prefWidth="81.0" text="Gravar" />
+         </children>
+      </Pane>
+      <TableView fx:id="tbEquipamentos" layoutX="286.0" layoutY="41.0" prefHeight="284.0" prefWidth="329.0">
+        <columns>
+          <TableColumn fx:id="colDescricao" prefWidth="84.0" text="Descrição" />
+          <TableColumn fx:id="colCategoria" prefWidth="91.0" text="Categoria" />
+            <TableColumn fx:id="colEspaco" text="Espaço" />
+            <TableColumn fx:id="colAtivo" prefWidth="57.0" text="Ativo" />
+        </columns>
+      </TableView>
+      <Label layoutX="300.0" layoutY="21.0" style="-fx-background-color: #ffffff;" text="Lista Equipamentos">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="btCancelar" layoutX="14.0" layoutY="296.0" mnemonicParsing="false" onAction="#closeWindow" text="Voltar" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="340.0" prefWidth="470.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestaoginasiofx.views.FXMLClientePlanoTreinoNovoController">
+   <children>
+      <Label layoutX="137.0" layoutY="10.0" text="Novo Plano Treino">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="33.0" layoutY="58.0" text="Personal Trainer">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="196.0" layoutY="58.0" text="Descrição objetivo plano treino">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <ListView fx:id="ltvPersonalTrainer" layoutX="14.0" layoutY="77.0" prefHeight="200.0" prefWidth="152.0" />
+      <TextArea fx:id="txtDescricao" layoutX="186.0" layoutY="77.0" prefHeight="200.0" prefWidth="269.0" />
+      <Button fx:id="btCancelar" layoutX="14.0" layoutY="295.0" mnemonicParsing="false" onAction="#comeBackInicial" prefHeight="25.0" prefWidth="75.0" text="Cancelar" />
+      <Button fx:id="btNovo" layoutX="186.0" layoutY="295.0" mnemonicParsing="false" onAction="#addNewPlanoTreino" prefHeight="25.0" prefWidth="136.0" text="Pedir Plano Treino" />
+   </children>
+</AnchorPane>
