@@ -53,7 +53,9 @@ public class FXMLIniciarSessaoController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         this.txtSenha.textProperty().setValue("12");
-        this.txtUtilizador.textProperty().setValue("Admin");
+        //this.txtUtilizador.textProperty().setValue("Admin");
+        //this.txtUtilizador.textProperty().setValue("Instrutor");
+        this.txtUtilizador.textProperty().setValue("Professor");
     }    
     
 //    private Object verificaInicioSessao(){
@@ -89,8 +91,6 @@ public class FXMLIniciarSessaoController implements Initializable {
         
     }
     
-    
-    
     private void iniciarSessaoUtente(Stage stage, Utente utente){
         try{
             FXMLLoader loader=new FXMLLoader(getClass().getResource("FXMLClienteInicial.fxml"));
@@ -119,12 +119,12 @@ public class FXMLIniciarSessaoController implements Initializable {
                     stage.setScene(scene);
                     stage.show();
            }
-           if(colaborador.getTipofuncionario().equals(EnumTipoFuncionario.INSTRUTOR)){
-                    FXMLLoader loader=new FXMLLoader(getClass().getResource("FXMLAdministrador.fxml"));
-                    Pane centerPane=FXMLLoader.load(getClass().getResource("FXMLAdministradorUtente.fxml"));
+           if(colaborador.getTipofuncionario().equals("INSTRUTOR")|| colaborador.getTipofuncionario().equals("PROFESSOR")){
+                    FXMLLoader loader=new FXMLLoader(getClass().getResource("FXMLInstrutor.fxml"));
+                    Pane centerPane=FXMLLoader.load(getClass().getResource("FXMLInstrutorNotasAvarias.fxml"));
                     Parent parent =loader.load();
-                    FXMLAdministradorController controllerAdmin=loader.getController();
-                    controllerAdmin.setColaborador(colaborador);
+                    FXMLInstrutorController controller=loader.getController();
+                    controller.setColaborador(colaborador);
                     ((BorderPane)parent).setCenter(centerPane);
                     FXMLIniciarSessaoController.ROOT=(BorderPane)parent;
                     Scene scene= new Scene(parent);
@@ -132,18 +132,6 @@ public class FXMLIniciarSessaoController implements Initializable {
                     stage.show();
            }
            if(colaborador.getTipofuncionario().equals(EnumTipoFuncionario.PERSONALTRAINER)){
-                    FXMLLoader loader=new FXMLLoader(getClass().getResource("FXMLAdministrador.fxml"));
-                    Pane centerPane=FXMLLoader.load(getClass().getResource("FXMLAdministradorUtente.fxml"));
-                    Parent parent =loader.load();
-                    FXMLAdministradorController controllerAdmin=loader.getController();
-                    controllerAdmin.setColaborador(colaborador);
-                    ((BorderPane)parent).setCenter(centerPane);
-                    FXMLIniciarSessaoController.ROOT=(BorderPane)parent;
-                    Scene scene= new Scene(parent);
-                    stage.setScene(scene);
-                    stage.show();
-           }
-           if(colaborador.getTipofuncionario().equals(EnumTipoFuncionario.PROFESSOR)){
                     FXMLLoader loader=new FXMLLoader(getClass().getResource("FXMLAdministrador.fxml"));
                     Pane centerPane=FXMLLoader.load(getClass().getResource("FXMLAdministradorUtente.fxml"));
                     Parent parent =loader.load();

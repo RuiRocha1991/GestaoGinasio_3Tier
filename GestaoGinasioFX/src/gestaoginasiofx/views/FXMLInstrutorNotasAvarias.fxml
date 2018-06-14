@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="546.0" prefWidth="740.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestaoginasiofx.views.FXMLInstrutorNotasAvariasController">
+   <children>
+      <Pane layoutX="330.0" layoutY="13.0" prefHeight="521.0" prefWidth="352.0" style="-fx-border-color: #000000; -fx-background-color: #ffffff;">
+         <children>
+            <Label layoutX="11.0" layoutY="-11.0" style="-fx-background-color: #ffffff;" text=" Listar Equipamentos ">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <ListView fx:id="lvCategoria" layoutX="194.0" layoutY="52.0" prefHeight="182.0" prefWidth="136.0" />
+            <ListView fx:id="lvEspaco" layoutX="21.0" layoutY="52.0" prefHeight="182.0" prefWidth="136.0" />
+            <Label layoutX="65.0" layoutY="32.0" text="Espaços">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="229.0" layoutY="32.0" text="Categorias">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Pane layoutY="242.0" prefHeight="280.0" prefWidth="352.0">
+               <children>
+                  <TableView fx:id="tbEquipamentos" layoutX="13.0" layoutY="66.0" prefHeight="200.0" prefWidth="327.0">
+                     <columns>
+                        <TableColumn fx:id="colDescricao" prefWidth="97.0" text="Descrição" />
+                        <TableColumn fx:id="colCategoria" prefWidth="76.0" text="Categoria" />
+                        <TableColumn fx:id="colEspaco" prefWidth="100.0" text="Espaço" />
+                        <TableColumn fx:id="colAtivo" prefWidth="53.0" text="Ativo" />
+                     </columns>
+                  </TableView>
+                  <TextField fx:id="txtProcura" layoutX="13.0" layoutY="41.0" onKeyPressed="#searchToDescricao" onKeyReleased="#searchToDescricao" prefHeight="25.0" prefWidth="327.0" />
+                  <Pane layoutX="13.0" layoutY="14.0" prefHeight="25.0" prefWidth="327.0" style="-fx-background-color: #ffffff;">
+                     <children>
+                        <Label layoutX="98.0" prefHeight="25.0" prefWidth="132.0" text="Lista Equipamentos">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <ImageView fx:id="imSearch" fitHeight="20.0" fitWidth="16.0" layoutX="16.0" layoutY="45.0" opacity="0.56" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../picture/search.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <Pane layoutX="59.0" layoutY="13.0" prefHeight="324.0" prefWidth="255.0" style="-fx-border-color: #000000; -fx-background-color: #ffffff;">
+         <children>
+            <Label layoutX="12.0" layoutY="-10.0" style="-fx-background-color: #ffffff;" text=" Criar Nota Avaria ">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtEquipamento" editable="false" layoutX="26.0" layoutY="54.0" prefHeight="25.0" prefWidth="199.0" />
+            <Label layoutX="26.0" layoutY="24.0" text="Equipamento">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="25.0" layoutY="89.0" text="Data">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="25.0" layoutY="152.0" text="Descrição">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextArea fx:id="txtDescricao" layoutX="25.0" layoutY="180.0" prefHeight="93.0" prefWidth="200.0" />
+            <DatePicker fx:id="dpDate" layoutX="25.0" layoutY="117.0" prefHeight="25.0" prefWidth="200.0" />
+            <Button layoutX="159.0" layoutY="286.0" mnemonicParsing="false" onAction="#saveNotaAvaria" prefHeight="25.0" prefWidth="66.0" text="Gravar" />
+            <Button layoutX="25.0" layoutY="286.0" mnemonicParsing="false" text="Cancelar" />
+         </children>
+      </Pane>
+      <Button layoutX="213.0" layoutY="349.0" mnemonicParsing="false" onAction="#limparSelecao" prefHeight="25.0" prefWidth="101.0" text="Limpar Seleção" />
+   </children>
+</AnchorPane>

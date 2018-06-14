@@ -81,20 +81,10 @@ public class FXMLClienteInscreverAulaGrupoController implements Initializable {
     
     
     
-    public Utente getUtente() {
-        return utente;
-        
-    }    
-    
-    public void setUtente(Utente utente) {
-        this.utente = utente;
-        //this.contrato=utente.getContratoAtivo();
-        
-    }
+   
     /**
      * Initializes the controller class.
      */
-    
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -114,7 +104,16 @@ public class FXMLClienteInscreverAulaGrupoController implements Initializable {
         this.fillTable();
         
         
+    }  
+    
+    public Utente getUtente() {
+        return utente;
     }    
+    
+    public void setUtente(Utente utente) {
+        this.utente = utente;
+        this.contrato=utente.getContratoAtivo();
+    }
     
     @FXML
     private void limpaSelecao(){

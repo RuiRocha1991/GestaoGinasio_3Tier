@@ -67,3 +67,4 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
+/JavaApplication9/nbproject/private/

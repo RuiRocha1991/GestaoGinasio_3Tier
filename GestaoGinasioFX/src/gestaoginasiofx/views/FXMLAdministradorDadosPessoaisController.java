@@ -23,7 +23,7 @@ import services.ColaboradorService;
  * @author Rui
  */
 public class FXMLAdministradorDadosPessoaisController implements Initializable {
-    @FXML private ComboBox cbTipoFuncionario;
+    @FXML private TextField txtTipoFuncionario;
     @FXML private TextField txtNome;
     @FXML private TextField txtUtilizador;
     @FXML private PasswordField txtSenha;
@@ -46,14 +46,19 @@ public class FXMLAdministradorDadosPessoaisController implements Initializable {
     }    
     
     private void started() {
-       this.cbTipoFuncionario.setItems(FillComboBox.fillTipoFuncionarioComboBox());
-       this.colaborador=FXMLAdministradorController.getCt();
+       if(FXMLAdministradorController.getCt()!=null){
+           this.colaborador=FXMLAdministradorController.getCt();
+       }else{
+           if(FXMLInstrutorController.getCt()!=null){
+                this.colaborador=FXMLInstrutorController.getCt();
+           }
+       }
        this.fillFields();
     }
     
     private void fillFields(){
         this.txtNome.textProperty().setValue(this.colaborador.getNome());  
-        this.cbTipoFuncionario.setValue(this.colaborador.getTipofuncionario());
+        this.txtTipoFuncionario.textProperty().setValue(this.colaborador.getTipofuncionario());
         this.txtUtilizador.textProperty().setValue(this.colaborador.getUtilizador());
             
     }
@@ -63,7 +68,6 @@ public class FXMLAdministradorDadosPessoaisController implements Initializable {
         if(this.txtSenha.getText().equals(this.colaborador.getSenha())&& !this.txtSenha.getText().equals("")&& this.txtNovaSenha.getText().equals(this.txtSenhaConfirma.getText())){
             if(ShowMessage.showConfirmation("Confirmação de alteração", "Tem a certeza que pretende salvar?")){
                     this.colaborador.setSenha(this.txtNovaSenha.getText());
-                    this.colaborador.setTipofuncionario((String)this.cbTipoFuncionario.getValue().toString());
                     ColaboradorService.updateObjectColaborador(this.colaborador);
                     this.txtSenha.setText("");
                     this.txtNovaSenha.setText("");
@@ -75,7 +79,7 @@ public class FXMLAdministradorDadosPessoaisController implements Initializable {
             this.txtSenha.setStyle("-fx-background-color: #f44336;");
             this.txtSenhaConfirma.setStyle("-fx-background-color:#f44336;");
             this.txtNovaSenha.setStyle("-fx-background-color:#f44336;");
-            ShowMessage.showConfirmation("Senha Inválida", "Os campos Senha e Confirmar Senha invalidos");
+            ShowMessage.showError("Senha Inválida", "Os campos Senha e Confirmar Senha invalidos");
             this.txtSenhaConfirma.setText("");
             this.txtSenha.setText("");
             this.txtNovaSenha.setText("");

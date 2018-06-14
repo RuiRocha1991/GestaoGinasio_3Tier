@@ -10,6 +10,7 @@ import java.util.List;
 import gestaoginasiohibernate.model.Categoriaequipamento;
 import gestaoginasiohibernate.model.Equipamento;
 import gestaoginasiohibernate.model.Espaco;
+import java.util.ArrayList;
 
 /**
  *
@@ -19,6 +20,26 @@ public class EquipamentoService {
     public static List<Equipamento> getAllEquipamento(){
         List<Equipamento> lista=HibernateGenericLib.executeHQLQuery("From Equipamento");
         return lista;
+    }
+    
+    public static List<Equipamento> getEquipamentoEspacoAndCategoria(List<Equipamento> lista,Espaco esp, Categoriaequipamento cat){
+        List<Equipamento> list = new ArrayList<>();
+        for(Equipamento equi: lista){
+            if(equi.getCategoriaequipamento().equals(cat) && equi.getEspaco().equals(esp)){
+                list.add(equi);
+            }
+        }
+        return list;
+    }
+    
+    public static List<Equipamento> getEquipamentoToName(List<Equipamento> lista,String name){
+        List<Equipamento> list = new ArrayList<>();
+        for(Equipamento equi: lista){
+            if(equi.getDescricao().toLowerCase().contains(name.toLowerCase())){
+                list.add(equi);
+            }
+        }
+        return list;
     }
     
     public static Equipamento createEquipamento( Espaco espaco, Categoriaequipamento categoriaequipamento, String descricao, char ativo){

@@ -140,8 +140,10 @@ public class FXMLAdministradorEquipamentoController implements Initializable {
             int tot=0;
             if(equip.getNotaavarias()!=null && equip.getNotaavarias().size()>0){
                 for(Notaavaria nota:(Set<Notaavaria>) equip.getNotaavarias()){
-                    int valor=nota.getValor().intValue();
-                    tot= tot+valor;
+                    if(nota.getValor()!=null){
+                        int valor=nota.getValor().intValue();
+                        tot= tot+valor;
+                    }
                 }
             }
             total= new SimpleStringProperty(String.valueOf(tot)+"€");
@@ -304,8 +306,8 @@ public class FXMLAdministradorEquipamentoController implements Initializable {
             Stage stage = new Stage();
             stage.setTitle("Atualizar Nota Avaria");
             stage.setScene(scene);
-            //FXMLResolverNotaAvariaController controller= fxmlLoader.getController();
-            //controller.setNotaAvaria(this.selectedNotaAvaria);
+            FXMLResolverNotaAvariaController controller= fxmlLoader.getController();
+            controller.setNotaAvaria(this.selectedNotaAvaria);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.initOwner(this.btGerirEquipamentos.getScene().getWindow());
             stage.showAndWait();

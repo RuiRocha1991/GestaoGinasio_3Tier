@@ -330,7 +330,6 @@ public class FXMLAdministradorAulasGrupoController implements Initializable {
             stage.setTitle("New Window");
             stage.setScene(scene);
             stage.show();
-            //((Node)(event.getSource())).getScene().getWindow().hide();
         }
         catch (IOException e) {
             e.printStackTrace();

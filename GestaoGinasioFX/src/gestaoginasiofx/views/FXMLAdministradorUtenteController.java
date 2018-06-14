@@ -174,8 +174,8 @@ public class FXMLAdministradorUtenteController implements Initializable {
             Stage stage = new Stage();
             stage.setTitle("New Window");
             stage.setScene(scene);
-            //FXMLRecessionistaCriarContratosController controller= fxmlLoader.getController();
-           // controller.setUtente(this.selectedUtente);
+            FXMLRecessionistaCriarContratosController controller= fxmlLoader.getController();
+            controller.setUtente(this.selectedUtente);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.initOwner(this.btCriarContrato.getScene().getWindow());
             stage.showAndWait();
@@ -297,7 +297,8 @@ public class FXMLAdministradorUtenteController implements Initializable {
         this.tbUtente.getSelectionModel().clearSelection();
         this.tbPagamento.getSelectionModel().clearSelection();
         this.rbTodos.setSelected(true);
-        this.pagamentoObservableList.clear();
+        if(this.pagamentoObservableList!=null)
+            this.pagamentoObservableList.clear();
     }
     
 }

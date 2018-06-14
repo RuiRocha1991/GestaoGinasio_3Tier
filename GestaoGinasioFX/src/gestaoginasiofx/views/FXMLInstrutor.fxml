@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1008.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestaoginasiofx.views.FXMLInstrutorController">
+   <top>
+      <Pane prefHeight="50.0" prefWidth="1140.0" style="-fx-border-color: #000000; -fx-background-color: #a4a4a4;" BorderPane.alignment="CENTER">
+         <children>
+            <TextField fx:id="txtNome" editable="false" layoutX="6.0" layoutY="10.0" prefHeight="30.0" prefWidth="343.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txtMenu" editable="false" layoutX="362.0" layoutY="10.0" prefHeight="30.0" prefWidth="633.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+         </children>
+      </Pane>
+   </top>
+   <left>
+      <Pane minHeight="-Infinity" minWidth="-Infinity" prefHeight="545.0" prefWidth="145.0" style="-fx-border-color: #000000; -fx-background-color: #a4a4a4;">
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+         <children>
+            <Button fx:id="btNotaAvaria" layoutX="17.0" layoutY="25.0" mnemonicParsing="false" onAction="#switchCenter" prefHeight="40.0" prefWidth="110.0" text="Notas Avaria" />
+            <Button fx:id="btHorario" layoutX="17.0" layoutY="87.0" mnemonicParsing="false" onAction="#switchCenter" prefHeight="40.0" prefWidth="110.0" text="Horário" />
+            <Button fx:id="btDadosPessoais" layoutX="17.0" layoutY="422.0" mnemonicParsing="false" onAction="#switchCenter" prefHeight="40.0" prefWidth="110.0" text="Dados Pessoais" />
+            <Button fx:id="btCloseSession" layoutX="17.0" layoutY="480.0" mnemonicParsing="false" onAction="#closeSession" prefHeight="40.0" prefWidth="110.0" text="Terminar Sessão" />
+         </children>
+      </Pane>
+   </left>
+</BorderPane>

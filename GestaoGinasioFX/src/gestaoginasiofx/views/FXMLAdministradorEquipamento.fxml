@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="567.0" prefWidth="900.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projetogestaoginasio.views.FXMLAdministradorEquipamentoController">
+<AnchorPane id="AnchorPane" prefHeight="567.0" prefWidth="900.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestaoginasiofx.views.FXMLAdministradorEquipamentoController">
    <children>
       <ListView fx:id="lvCategorias" layoutX="17.0" layoutY="28.0" prefHeight="206.0" prefWidth="140.0" />
       <Label layoutX="56.0" layoutY="6.0" prefHeight="17.0" prefWidth="63.0" text="Categorias" />

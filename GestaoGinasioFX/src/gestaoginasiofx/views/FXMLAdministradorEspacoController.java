@@ -99,7 +99,7 @@ public class FXMLAdministradorEspacoController implements Initializable {
             Espaco esp= param.getValue();
             ObservableValue<String>ov=null;
             if(esp.getEspacocomum()!=null){
-                 ov=new SimpleStringProperty("0");
+                 ov=new SimpleStringProperty(String.valueOf(esp.getEquipamentos().size()));
             }else{
                 ov=new SimpleStringProperty(String.valueOf(esp.getSala().getNumerovagas()));
             }

@@ -78,6 +78,16 @@ public class FXMLGerirEquipamentoController implements Initializable {
     
     public void setEquipamento(Equipamento equipamento){
         this.equipamento=equipamento;
+        this.txtDescricao.textProperty().setValue(equipamento.getDescricao());
+        this.cbCategoria.getSelectionModel().select(equipamento.getCategoriaequipamento());
+        this.cbEspaco.getSelectionModel().select(equipamento.getEspaco());
+        if(equipamento.getAtivo()=='1'){
+            this.ckAtivo.setSelected(true);
+        }else{
+            this.ckAtivo.setSelected(false);
+        }
+        
+        
     }
     
     private void initializeTable(){
@@ -124,7 +134,7 @@ public class FXMLGerirEquipamentoController implements Initializable {
                return;
            }
         }else{
-                EquipamentoService.updateEquipamento(this.equipamento, this.espacoSelected, categoriaSelected, this.txtDescricao.getText(), (this.ckAtivo.isSelected()?'1':'0'));
+            EquipamentoService.updateEquipamento(this.equipamento, this.espacoSelected, categoriaSelected, this.txtDescricao.getText(), (this.ckAtivo.isSelected()?'1':'0'));
             Stage stage = (Stage) this.btGravar.getScene().getWindow();
             // do what you have to do
             stage.close();

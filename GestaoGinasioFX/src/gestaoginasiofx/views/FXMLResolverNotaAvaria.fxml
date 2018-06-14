@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="467.0" prefWidth="421.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestaoginasiofx.views.FXMLResolverNotaAvariaController">
+   <children>
+      <Label layoutX="164.0" layoutY="14.0" text="Nota de Avaria">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="44.0" layoutY="50.0" text="Data Avaria" />
+      <Label layoutX="44.0" layoutY="84.0" text="Equipamento" />
+      <Label layoutX="44.0" layoutY="119.0" text="Categoria" />
+      <Label layoutX="44.0" layoutY="153.0" text="Descrição" />
+      <Label layoutX="44.0" layoutY="189.0" text="Espaço" />
+      <Label layoutX="44.0" layoutY="223.0" text="Data Resolução" />
+      <Label layoutX="44.0" layoutY="259.0" text="Valor" />
+      <Label layoutX="46.0" layoutY="290.0" text="Observações" />
+      <TextField fx:id="txtEquipamento" editable="false" layoutX="130.0" layoutY="80.0" prefHeight="25.0" prefWidth="247.0" />
+      <TextField fx:id="txtCategoria" editable="false" layoutX="130.0" layoutY="115.0" prefHeight="25.0" prefWidth="247.0" />
+      <TextField fx:id="txtDescricao" editable="false" layoutX="130.0" layoutY="150.0" prefHeight="25.0" prefWidth="247.0" />
+      <TextField fx:id="txtEspaco" editable="false" layoutX="130.0" layoutY="185.0" prefHeight="25.0" prefWidth="247.0" />
+      <TextField fx:id="txtValor" layoutX="130.0" layoutY="255.0" onKeyPressed="#clearBackground" onKeyReleased="#clearBackground" prefHeight="25.0" prefWidth="247.0" />
+      <TextArea fx:id="txtObs" layoutX="130.0" layoutY="290.0" onKeyPressed="#clearBackground" onKeyReleased="#clearBackground" prefHeight="123.0" prefWidth="247.0" />
+      <DatePicker fx:id="dpDate" layoutX="130.0" layoutY="220.0" prefHeight="25.0" prefWidth="247.0" />
+      <TextField fx:id="txtDataAvaria" editable="false" layoutX="130.0" layoutY="46.0" prefHeight="25.0" prefWidth="247.0" />
+      <Button fx:id="btSave" layoutX="306.0" layoutY="422.0" mnemonicParsing="false" onAction="#saveChange" prefHeight="34.0" prefWidth="71.0" text="Gravar" />
+      <Button fx:id="btCancel" layoutX="131.0" layoutY="422.0" mnemonicParsing="false" onAction="#CloseWindowAndCancel" prefHeight="34.0" prefWidth="71.0" text="Cancelar" />
+   </children>
+</AnchorPane>

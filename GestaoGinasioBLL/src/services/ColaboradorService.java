@@ -49,4 +49,11 @@ public class ColaboradorService {
     }
     
     
+    public static void newColaborador(Colaborador colaborador, String utilizador, String nome, String senha, String tipofuncionario){
+        colaborador.setUtilizador(utilizador);
+        colaborador.setNome(nome);
+        colaborador.setSenha(senha);
+        colaborador.setTipofuncionario(tipofuncionario);  
+    }
+    
 }

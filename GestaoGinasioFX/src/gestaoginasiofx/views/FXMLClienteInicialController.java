@@ -94,7 +94,7 @@ public class FXMLClienteInicialController implements Initializable {
     
     public void setUtente(Utente utente){
         this.utente=utente;
-        //this.setContrato(utente.getContratoAtivo());
+        this.setContrato(utente.getContratoAtivo());
         this.txtUltimoPagamento.textProperty().setValue(this.contrato.getMesultimopagamento()+" / "+this.contrato.getAnoultimopagamento());
         this.txtDataUltimoPagamento.textProperty().setValue(ContratoService.consultaDataUltimoPagamento(this.contrato));
         this.txtValorDivida.textProperty().setValue( ContratoService.calculaValorDivida(this.contrato)+"€");

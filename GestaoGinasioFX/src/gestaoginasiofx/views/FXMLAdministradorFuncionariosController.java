@@ -192,8 +192,8 @@ public class FXMLAdministradorFuncionariosController implements Initializable {
         Colaborador newColaborador = new Colaborador();
         Professor newProfessor = new Professor();
         Personaltrainer newpt= new Personaltrainer();
-        //newColaborador.setAll(this.txtUtilizador.getText(),this.txtNome.getText(),
-                 // this.txtSenha.getText(), this.cbTipoFuncionario.getValue().toString());
+        ColaboradorService.newColaborador(newColaborador,this.txtUtilizador.getText(),this.txtNome.getText(),
+                  this.txtSenha.getText(), this.cbTipoFuncionario.getValue().toString());
         newProfessor.setColaborador(newColaborador);
         newProfessor.setCodigo(this.txtUtilizador.getText());
         newpt.setCodigo(this.txtUtilizador.getText());
@@ -203,7 +203,7 @@ public class FXMLAdministradorFuncionariosController implements Initializable {
         newColaborador.setProfessor(newProfessor);
         ColaboradorService.createPersonalTrainer(newColaborador);
         this.colaboradorObservableList.add(newColaborador);
-       // this.colaboradorObservableListFiltro.add(newColaborador);
+        this.colaboradorObservableListFiltro.add(newColaborador);
         this.clearFields();
     }
     
@@ -213,22 +213,22 @@ public class FXMLAdministradorFuncionariosController implements Initializable {
         newProfessor.setColaborador(newColaborador);
         newProfessor.setCodigo(this.txtUtilizador.getText());
         newColaborador.setProfessor(newProfessor);
-       // newColaborador.setAll(this.txtUtilizador.getText(),this.txtNome.getText(),
-             //     this.txtSenha.getText(), this.cbTipoFuncionario.getValue().toString());
+        ColaboradorService.newColaborador(newColaborador,this.txtUtilizador.getText(),this.txtNome.getText(),
+                  this.txtSenha.getText(), this.cbTipoFuncionario.getValue().toString());
         ColaboradorService.createProfessor(newColaborador);
         this.colaboradorObservableList.add(newColaborador);
-//        this.colaboradorObservableListFiltro.add(newColaborador);
+        this.colaboradorObservableListFiltro.add(newColaborador);
         this.clearFields();
     }
     
     
     private void addOthers(){
         Colaborador newColaborador = new Colaborador();
-        //newColaborador.setAll(this.txtUtilizador.getText(),this.txtNome.getText(),
-                 // this.txtSenha.getText(), this.cbTipoFuncionario.getValue().toString());
+        ColaboradorService.newColaborador(newColaborador,this.txtUtilizador.getText(),this.txtNome.getText(),
+                  this.txtSenha.getText(), this.cbTipoFuncionario.getValue().toString());
         ColaboradorService.createColaborador(newColaborador);
         this.colaboradorObservableList.add(newColaborador);
-        //this.colaboradorObservableListFiltro.add(newColaborador);
+        this.colaboradorObservableListFiltro.add(newColaborador);
         this.clearFields();
     }
     

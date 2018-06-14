@@ -40,7 +40,7 @@ public class FXMLAdministradorController implements Initializable {
     @FXML private Button btDadosPessoais;
     @FXML private TextField txtNome;
     @FXML private TextField txtMenu;
-    private static Colaborador ct;
+    private static Colaborador COLABORADOR;
     private Colaborador colaborador;
     
     /**
@@ -52,12 +52,12 @@ public class FXMLAdministradorController implements Initializable {
     }      
     
    public static Colaborador getCt(){
-        return FXMLAdministradorController.ct;
+        return FXMLAdministradorController.COLABORADOR;
     }
     
     public void setColaborador(Colaborador colaborador){
         this.colaborador= colaborador;
-        this.ct=this.colaborador;
+        this.COLABORADOR=this.colaborador;
         this.txtNome.setText("Administrador: "+this.colaborador.getNome());
         this.txtMenu.setText("Menu: Utentes");
     }
@@ -72,6 +72,7 @@ public class FXMLAdministradorController implements Initializable {
         Stage stage =(Stage) ((Node)event.getSource()).getScene().getWindow();
         FXMLLoader loader= new FXMLLoader(getClass().getResource("FXMLDocument.fxml"));
         this.colaborador=null;
+        FXMLAdministradorController.COLABORADOR=null;
         try{
             Parent parent =loader.load();
             Scene scene= new Scene(parent);
@@ -88,12 +89,12 @@ public class FXMLAdministradorController implements Initializable {
       
         switch(((Button)event.getSource()).getId()){
             case "btUtente":
-                /*switchCenterPane("FXMLAdministradorUtente.fxml");*/
+                switchCenterPane("FXMLAdministradorUtente.fxml");
                 this.txtMenu.setText("Menu: Utentes");
                 break;
             case "btTipoContrato":
                 switchCenterPane("FXMLAdministradorTipoContrato.fxml");
-                this.txtMenu.setText("Menu: Tipos de Contraro");
+                this.txtMenu.setText("Menu: Tipos de Contrato");
                 break;
             case "btEquipamento":
                 switchCenterPane("FXMLAdministradorEquipamento.fxml");
