@@ -11,19 +11,19 @@
    <children>
       <Pane layoutX="47.0" layoutY="46.0" prefHeight="324.0" prefWidth="658.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;">
          <children>
-            <Button layoutX="479.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="160.0" text="Cancelar Aula Individual" />
-            <Button layoutX="280.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="160.0" text="Criar Aula Individual" />
-            <DatePicker layoutX="38.0" layoutY="14.0" />
-            <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="&lt;" />
-            <Button layoutX="212.0" layoutY="14.0" mnemonicParsing="false" text="&gt;" />
-            <TableView layoutX="14.0" layoutY="52.0" prefHeight="254.0" prefWidth="625.0">
+            <Button fx:id="btCancelarAula" layoutX="479.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="160.0" text="Cancelar Aula Individual" />
+            <Button fx:id="btCriarAula" layoutX="280.0" layoutY="14.0" mnemonicParsing="false" onAction="#criarAulaIndividual" prefHeight="25.0" prefWidth="160.0" text="Criar Aula Individual" />
+            <DatePicker fx:id="dpDate" layoutX="38.0" layoutY="14.0" />
+            <Button fx:id="btPrevious" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#nextOrPreviousDay" text="&lt;" />
+            <Button fx:id="btNext" layoutX="212.0" layoutY="14.0" mnemonicParsing="false" onAction="#nextOrPreviousDay" text="&gt;" />
+            <TableView fx:id="tbAulas" layoutX="14.0" layoutY="52.0" prefHeight="254.0" prefWidth="625.0">
                <columns>
-                  <TableColumn prefWidth="78.0" text="Hora" />
-                  <TableColumn prefWidth="191.0" text="Descrição" />
-                  <TableColumn prefWidth="104.0" text="Tipo Aula" />
-                  <TableColumn prefWidth="84.0" text="Sala" />
-                  <TableColumn prefWidth="96.0" text="Duração" />
-                  <TableColumn prefWidth="70.0" text="Inscritos" />
+                  <TableColumn fx:id="colHora" prefWidth="78.0" text="Hora" />
+                  <TableColumn fx:id="colDescricao" prefWidth="191.0" text="Descrição" />
+                  <TableColumn fx:id="colTipoAula" prefWidth="104.0" text="Tipo Aula" />
+                  <TableColumn fx:id="colSala" prefWidth="84.0" text="Sala" />
+                  <TableColumn fx:id="colDuracao" prefWidth="96.0" text="Duração" />
+                  <TableColumn fx:id="colInscritos" prefWidth="70.0" text="Inscritos" />
                </columns>
             </TableView>
          </children>

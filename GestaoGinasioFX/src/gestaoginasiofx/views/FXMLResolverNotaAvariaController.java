@@ -20,9 +20,9 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import projetogestaoginasio.ConvertType;
+import gestaoginasiobll.ConvertType;
 import projetogestaoginasio.ShowMessage;
-import services.exception.NumericException;
+import gestaoginasiobll.exception.NumericException;
 
 
 /**

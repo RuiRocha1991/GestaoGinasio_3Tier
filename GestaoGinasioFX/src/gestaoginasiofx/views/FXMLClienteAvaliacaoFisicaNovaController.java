@@ -35,8 +35,8 @@ import gestaoginasiohibernate.model.Avaliacaofisica;
 import gestaoginasiohibernate.model.Contrato;
 import gestaoginasiohibernate.model.Personaltrainer;
 import projetogestaoginasio.ShowMessage;
-import services.AvaliacaoFisicaService;
-import services.PersonalTrainerService;
+import gestaoginasiobll.services.AvaliacaoFisicaService;
+import gestaoginasiobll.services.PersonalTrainerService;
 
 
 /**

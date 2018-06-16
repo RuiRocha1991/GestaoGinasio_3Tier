@@ -36,8 +36,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import projetogestaoginasio.ShowMessage;
-import services.EquipamentoService;
-import services.NotaAvariaService;
+import gestaoginasiobll.services.EquipamentoService;
+import gestaoginasiobll.services.NotaAvariaService;
 import sun.plugin2.message.ShowDocumentMessage;
 
 /**

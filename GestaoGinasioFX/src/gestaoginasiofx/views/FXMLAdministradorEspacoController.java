@@ -26,7 +26,7 @@ import gestaoginasiohibernate.model.Espaco;
 import gestaoginasiohibernate.model.Espacocomum;
 import gestaoginasiohibernate.model.Sala;
 import projetogestaoginasio.ShowMessage;
-import services.EspacoService;
+import gestaoginasiobll.services.EspacoService;
 
 
 /**

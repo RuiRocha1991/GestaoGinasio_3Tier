@@ -35,8 +35,8 @@ import gestaoginasiohibernate.model.Categoriaequipamento;
 import gestaoginasiohibernate.model.Equipamento;
 import gestaoginasiohibernate.model.Espaco;
 import gestaoginasiohibernate.model.Notaavaria;
-import services.EquipamentoService;
-import services.NotaAvariaService;
+import gestaoginasiobll.services.EquipamentoService;
+import gestaoginasiobll.services.NotaAvariaService;
 
 
 
@@ -187,8 +187,8 @@ public class FXMLAdministradorEquipamentoController implements Initializable {
         this.notasAvariaObservableList=FXCollections.observableArrayList(listNotaAvaria);
         
         this.notasAvariaObservableListFiltro=FXCollections.observableArrayList(listNotaAvaria);
-        this.fillTableEquipamentos();
-        this.fillTableNotasAvaria();
+        this.filtrarTableEquipamento();
+        this.filtrarTableNotaAvaria();
     }
     
     private void fillTableEquipamentos(){
@@ -290,6 +290,7 @@ public class FXMLAdministradorEquipamentoController implements Initializable {
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.initOwner(this.btGerirEquipamentos.getScene().getWindow());
             stage.showAndWait();
+            this.initialize(null, null);
         }
         catch (IOException e) {
             e.printStackTrace();

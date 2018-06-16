@@ -15,7 +15,7 @@ import javafx.scene.control.TextField;
 import gestaoginasiofx.FillComboBox;
 import gestaoginasiohibernate.model.Colaborador;
 import projetogestaoginasio.ShowMessage;
-import services.ColaboradorService;
+import gestaoginasiobll.services.ColaboradorService;
 
 /**
  * FXML Controller class

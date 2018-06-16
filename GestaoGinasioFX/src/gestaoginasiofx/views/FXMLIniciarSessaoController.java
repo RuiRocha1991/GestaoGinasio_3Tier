@@ -24,9 +24,13 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import projetogestaoginasio.ShowMessage;
-import services.LoginService;
-import services.exception.PagamentoEmAtrasoException;
-import services.exception.UtilizadorInvalidoException;
+import gestaoginasiobll.services.LoginService;
+import gestaoginasiobll.exception.PagamentoEmAtrasoException;
+import gestaoginasiobll.exception.UtilizadorInvalidoException;
+import javafx.concurrent.Task;
+import javafx.scene.control.ProgressBar;
+import javafx.scene.control.ProgressIndicator;
+import javafx.scene.layout.AnchorPane;
 
 /**
  * FXML Controller class
@@ -38,11 +42,20 @@ public class FXMLIniciarSessaoController implements Initializable {
     @FXML private Button btCancelar;
     @FXML private TextField txtUtilizador;
     @FXML private TextField txtSenha;
+
+    
+//    final Float[] values = new Float[] {-1.0f, 0f, 0.6f, 1.0f};
+//    final Label [] labels = new Label[values.length];
+//    final ProgressBar[] pbs = new ProgressBar[values.length];
+//    final ProgressIndicator[] pins = new ProgressIndicator[values.length];
+//    final HBox hbs [] = new HBox [values.length];
+  
     
     private static BorderPane ROOT;
     public static BorderPane getRoot(){
         return FXMLIniciarSessaoController.ROOT;
     };
+    
     
     
     
@@ -56,6 +69,7 @@ public class FXMLIniciarSessaoController implements Initializable {
         //this.txtUtilizador.textProperty().setValue("Admin");
         //this.txtUtilizador.textProperty().setValue("Instrutor");
         this.txtUtilizador.textProperty().setValue("Professor");
+       
     }    
     
 //    private Object verificaInicioSessao(){
@@ -73,22 +87,23 @@ public class FXMLIniciarSessaoController implements Initializable {
         Stage stage =(Stage) ((Node)event.getSource()).getScene().getWindow();
         String user= this.txtUtilizador.getText();
         String senha = this.txtSenha.getText();
-        try{
-            Utente utente= LoginService.getUtenteLogin(user, senha);
-            if(utente!=null){
-                this.iniciarSessaoUtente( stage,utente);
-            }else{
-               Colaborador colaborador=LoginService.getColaboradorLogin(user, senha);
-               if(colaborador!=null){
-                   this.iniciarSessaoColaborador(stage, colaborador);
-               }
-        }
-        }catch(PagamentoEmAtrasoException e){
-            ShowMessage.showError("Pagamentos em atraso", "Contem pagamentos em atraso");
-        }catch(UtilizadorInvalidoException e){
-             ShowMessage.showError("Utilizador não exite ou dados estão incorretos", "Erro de Inicio de Sessão");
-        }
-        
+       
+            try {
+                Utente utente= LoginService.getUtenteLogin(user, senha);
+                if(utente!=null){
+                    this.iniciarSessaoUtente( stage,utente);
+                }else{
+                    Colaborador colaborador=LoginService.getColaboradorLogin(user, senha);
+                    if(colaborador!=null){
+                        this.iniciarSessaoColaborador(stage, colaborador);
+                    }
+                }
+            } catch (PagamentoEmAtrasoException ex) {
+                ShowMessage.showError("Pagamentos em atraso", "Contem pagamentos em atraso");
+            } catch (UtilizadorInvalidoException ex) {
+                ShowMessage.showError("Utilizador não exite ou dados estão incorretos", "Erro de Inicio de Sessão");
+            }
+           
     }
     
     private void iniciarSessaoUtente(Stage stage, Utente utente){
@@ -105,6 +120,7 @@ public class FXMLIniciarSessaoController implements Initializable {
         }
     }
     
+    
     private void iniciarSessaoColaborador(Stage stage, Colaborador colaborador){
         try{
            if(colaborador.getTipofuncionario().equals("ADMINISTRADOR")){
@@ -119,24 +135,12 @@ public class FXMLIniciarSessaoController implements Initializable {
                     stage.setScene(scene);
                     stage.show();
            }
-           if(colaborador.getTipofuncionario().equals("INSTRUTOR")|| colaborador.getTipofuncionario().equals("PROFESSOR")){
+           if(colaborador.getTipofuncionario().equals("INSTRUTOR")|| colaborador.getTipofuncionario().equals("PROFESSOR")||colaborador.getTipofuncionario().equals("PERSONALTRAINER")){
                     FXMLLoader loader=new FXMLLoader(getClass().getResource("FXMLInstrutor.fxml"));
                     Pane centerPane=FXMLLoader.load(getClass().getResource("FXMLInstrutorNotasAvarias.fxml"));
                     Parent parent =loader.load();
                     FXMLInstrutorController controller=loader.getController();
                     controller.setColaborador(colaborador);
-                    ((BorderPane)parent).setCenter(centerPane);
-                    FXMLIniciarSessaoController.ROOT=(BorderPane)parent;
-                    Scene scene= new Scene(parent);
-                    stage.setScene(scene);
-                    stage.show();
-           }
-           if(colaborador.getTipofuncionario().equals(EnumTipoFuncionario.PERSONALTRAINER)){
-                    FXMLLoader loader=new FXMLLoader(getClass().getResource("FXMLAdministrador.fxml"));
-                    Pane centerPane=FXMLLoader.load(getClass().getResource("FXMLAdministradorUtente.fxml"));
-                    Parent parent =loader.load();
-                    FXMLAdministradorController controllerAdmin=loader.getController();
-                    controllerAdmin.setColaborador(colaborador);
                     ((BorderPane)parent).setCenter(centerPane);
                     FXMLIniciarSessaoController.ROOT=(BorderPane)parent;
                     Scene scene= new Scene(parent);

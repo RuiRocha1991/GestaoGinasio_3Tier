@@ -20,16 +20,16 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import projetogestaoginasio.ConvertType;
+import gestaoginasiobll.ConvertType;
 import gestaoginasiofx.FillComboBox;
 import gestaoginasiohibernate.model.Colaborador;
 import gestaoginasiohibernate.model.Personaltrainer;
 import gestaoginasiohibernate.model.Professor;
 import projetogestaoginasio.ShowMessage;
-import services.ColaboradorService;
-import services.exception.FieldsEmptyException;
-import services.exception.NumericException;
-import services.exception.PasswordInvalidException;
+import gestaoginasiobll.services.ColaboradorService;
+import gestaoginasiobll.exception.FieldsEmptyException;
+import gestaoginasiobll.exception.NumericException;
+import gestaoginasiobll.exception.PasswordInvalidException;
 
 
 /**

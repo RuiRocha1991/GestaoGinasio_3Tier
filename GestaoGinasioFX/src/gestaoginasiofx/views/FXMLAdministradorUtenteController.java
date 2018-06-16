@@ -33,8 +33,8 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import projetogestaoginasio.ValidarStrings;
-import services.UtenteService;
+import gestaoginasiobll.ValidarStrings;
+import gestaoginasiobll.services.UtenteService;
 
 
 /**
@@ -90,7 +90,6 @@ public class FXMLAdministradorUtenteController implements Initializable {
         this.rbDesativos.setToggleGroup(this.toggleGroup);
         this.rbTodos.setToggleGroup(this.toggleGroup);
         this.rbTodos.setSelected(true);
-        this.btCriarContrato.setDisable(true);
         this.initializaTable();
         
     }    
@@ -168,17 +167,29 @@ public class FXMLAdministradorUtenteController implements Initializable {
     private void OpenWindowNewContrato(ActionEvent event) {
         Parent root;
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("FXMLRecessionistaCriarContratos.fxml"));
-            Scene scene = new Scene(fxmlLoader.load());
-            Stage stage = new Stage();
-            stage.setTitle("New Window");
-            stage.setScene(scene);
-            FXMLRecessionistaCriarContratosController controller= fxmlLoader.getController();
-            controller.setUtente(this.selectedUtente);
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.initOwner(this.btCriarContrato.getScene().getWindow());
-            stage.showAndWait();
+           if(this.selectedUtente!=null){
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("FXMLRecessionistaCriarContratos.fxml"));
+                Scene scene = new Scene(fxmlLoader.load());
+                Stage stage = new Stage();
+                stage.setTitle("New Window");
+                stage.setScene(scene);
+                FXMLRecessionistaCriarContratosController controller= fxmlLoader.getController();
+                controller.setUtente(this.selectedUtente);
+                stage.initModality(Modality.APPLICATION_MODAL);
+                stage.initOwner(this.btCriarContrato.getScene().getWindow());
+                stage.showAndWait();
+           }else{
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("FXMLRecessionistaCriarUtente.fxml"));
+                Scene scene = new Scene(fxmlLoader.load());
+                Stage stage = new Stage();
+                stage.setTitle("New Window");
+                stage.setScene(scene);
+                stage.initModality(Modality.APPLICATION_MODAL);
+                stage.initOwner(this.btCriarContrato.getScene().getWindow());
+                stage.showAndWait();
+           }
         }
         catch (IOException e) {
             e.printStackTrace();
@@ -254,6 +265,8 @@ public class FXMLAdministradorUtenteController implements Initializable {
             this.txtContacto.textProperty().setValue(utente.getContacto());
             this.txtLocalidade.textProperty().setValue(utente.getLocalidade());
             this.txtMorada.textProperty().setValue(utente.getMorada());
+        }else{
+            this.btCriarContrato.setDisable(false);
         }
         if(this.selectedContrato!=null){
             this.colData.setCellValueFactory(new PropertyValueFactory<>("datapagamento"));

@@ -41,9 +41,9 @@ import gestaoginasiohibernate.model.Sala;
 import gestaoginasiohibernate.model.Tipoaula;
 import gestaoginasiohibernate.model.Utente;
 import projetogestaoginasio.ShowMessage;
-import services.AulaService;
-import services.ContratoService;
-import services.InscricaoService;
+import gestaoginasiobll.services.AulaService;
+import gestaoginasiobll.services.ContratoService;
+import gestaoginasiobll.services.InscricaoService;
 
 
 /**

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="320.0" prefWidth="471.0" style="-fx-background-color: #ffffff;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/9.0.1" fx:controller="gestaoginasiofx.views.FXMLCategoriasEquipamentoController">
+   <children>
+      <Pane layoutX="14.0" layoutY="14.0" prefHeight="292.0" prefWidth="444.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;">
+         <children>
+            <Pane layoutX="14.0" layoutY="30.0" prefHeight="159.0" prefWidth="200.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;">
+               <children>
+                  <Label layoutX="16.0" layoutY="36.0" text="Categoria">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtCategoria" layoutX="16.0" layoutY="63.0" prefHeight="25.0" prefWidth="169.0" />
+                  <Button fx:id="btGravar" layoutX="16.0" layoutY="110.0" mnemonicParsing="false" onAction="#updateCategoria" prefHeight="35.0" prefWidth="169.0" text="Gravar" />
+               </children>
+            </Pane>
+            <Label layoutX="25.0" layoutY="21.0" style="-fx-background-color: #ffffff;" text=" Criar / Editar Categorias ">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="282.0" layoutY="11.0" text="Lista Categorias">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Button layoutX="14.0" layoutY="253.0" mnemonicParsing="false" onAction="#clearFields" prefHeight="20.0" prefWidth="97.0" text="Limpar Seleção" />
+            <TextField fx:id="txtSearch" layoutX="231.0" layoutY="31.0" onKeyPressed="#fillTable" onKeyReleased="#fillTable" prefHeight="25.0" prefWidth="200.0" />
+            <TableView fx:id="tbCategorias" layoutX="231.0" layoutY="56.0" prefHeight="200.0" prefWidth="200.0">
+              <columns>
+                <TableColumn fx:id="colDescricao" prefWidth="189.0" text="Categoria" />
+              </columns>
+            </TableView>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

@@ -5,6 +5,7 @@
  */
 package gestaoginasiofx;
 
+import gestaoginasiobll.services.CategoriaEquipamentoService;
 import gestaoginasiohibernate.model.Categoriaequipamento;
 import gestaoginasiohibernate.model.Espaco;
 import gestaoginasiohibernate.model.Linhaplanotreino;
@@ -13,6 +14,7 @@ import gestaoginasiohibernate.model.Planotreino;
 import gestaoginasiohibernate.model.Sala;
 import gestaoginasiohibernate.model.Tipoaula;
 import hibernate.HibernateGenericLib;
+import java.util.ArrayList;
 import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -96,8 +98,38 @@ public class FillListView {
     
     public static Callback<ListView<Categoriaequipamento>, ListCell<Categoriaequipamento>> fillCategoriasEquiListView(ListView list){
         ObservableList<Categoriaequipamento> categoriaObservableList;
-        String hql="from Categoriaequipamento";
-        List<Categoriaequipamento> lista = (List<Categoriaequipamento>)HibernateGenericLib.executeHQLQuery(hql);
+        List<Categoriaequipamento> lista = CategoriaEquipamentoService.getAllCategorias();
+        categoriaObservableList=FXCollections.observableList(lista);
+        list.setItems(categoriaObservableList);
+        return(new Callback<ListView<Categoriaequipamento>, ListCell<Categoriaequipamento>>(){
+            public ListCell<Categoriaequipamento> call(ListView<Categoriaequipamento> p) {
+                ListCell<Categoriaequipamento> cell = new ListCell<Categoriaequipamento>(){
+                    @Override
+                    protected void updateItem(Categoriaequipamento t, boolean bln) {
+                        super.updateItem(t, bln);
+                        if (t != null) {
+                            setText(t.getDesignacao());
+                        }
+                    }
+                };
+                return cell;
+            }
+        });
+    }
+    
+    public static Callback<ListView<Categoriaequipamento>, ListCell<Categoriaequipamento>> fillCategoriasEquiFiltraListView(ListView list, String descricao){
+        ObservableList<Categoriaequipamento> categoriaObservableList;
+        List<Categoriaequipamento> lista = new ArrayList<>();
+        lista.addAll(CategoriaEquipamentoService.getAllCategorias());
+        if(descricao != null){
+            System.out.println(lista.size());
+            for(Categoriaequipamento cat: lista){
+                if(!cat.getDesignacao().toLowerCase().contains(descricao.toLowerCase())){
+                    lista.remove(cat);
+                }
+            }
+        }
+        
         categoriaObservableList=FXCollections.observableList(lista);
         list.setItems(categoriaObservableList);
         return(new Callback<ListView<Categoriaequipamento>, ListCell<Categoriaequipamento>>(){

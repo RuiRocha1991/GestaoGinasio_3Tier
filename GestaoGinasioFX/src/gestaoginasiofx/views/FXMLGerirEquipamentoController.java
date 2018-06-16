@@ -28,7 +28,13 @@ import gestaoginasiohibernate.model.Categoriaequipamento;
 import gestaoginasiohibernate.model.Equipamento;
 import gestaoginasiohibernate.model.Espaco;
 import projetogestaoginasio.ShowMessage;
-import services.EquipamentoService;
+import gestaoginasiobll.services.EquipamentoService;
+import java.io.IOException;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Modality;
 
 
 /**
@@ -51,6 +57,7 @@ public class FXMLGerirEquipamentoController implements Initializable {
     
     @FXML private Button btGravar;
     @FXML private Button btCancelar;
+    @FXML private Button btGerirCategorias;
     
     @FXML private TableView<Equipamento> tbEquipamentos;
     @FXML private TableColumn<Equipamento, String> colDescricao;
@@ -173,6 +180,26 @@ public class FXMLGerirEquipamentoController implements Initializable {
         this.cbEspaco.getSelectionModel().clearSelection();
         this.ckAtivo.setSelected(false);
         
+    }
+    
+    @FXML
+    private void gerirCategoriasEquipamentos(ActionEvent event){
+        Parent root;
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("FXMLCategoriasEquipamento.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            Stage stage = new Stage();
+            stage.setTitle("Gerir Categotias");
+            stage.setScene(scene);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initOwner(this.btGerirCategorias.getScene().getWindow());
+            stage.showAndWait();
+            this.initialize(null, null);
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     
 }

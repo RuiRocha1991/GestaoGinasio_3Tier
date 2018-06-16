@@ -24,14 +24,14 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import projetogestaoginasio.ShowMessage;
-import projetogestaoginasio.ValidarStrings;
-import services.UtenteService;
-import services.exception.CodPostInvalidException;
-import services.exception.EmailInvalidException;
-import services.exception.FieldsEmptyException;
-import services.exception.NumericException;
-import services.exception.PassInvalidaException;
-import services.exception.PasswordInvalidException;
+import gestaoginasiobll.ValidarStrings;
+import gestaoginasiobll.services.UtenteService;
+import gestaoginasiobll.exception.CodPostInvalidException;
+import gestaoginasiobll.exception.EmailInvalidException;
+import gestaoginasiobll.exception.FieldsEmptyException;
+import gestaoginasiobll.exception.NumericException;
+import gestaoginasiobll.exception.PassInvalidaException;
+import gestaoginasiobll.exception.PasswordInvalidException;
 
 
 /**

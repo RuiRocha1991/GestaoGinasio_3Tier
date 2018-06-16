@@ -32,11 +32,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import projetogestaoginasio.AulaContrato;
+import gestaoginasiobll.AulaContrato;
 import projetogestaoginasio.ShowMessage;
-import services.AulaIndividualService;
-import services.ContratoService;
-import services.InscricaoService;
+import gestaoginasiobll.services.AulaIndividualService;
+import gestaoginasiobll.services.ContratoService;
+import gestaoginasiobll.services.InscricaoService;
 
 
 /**

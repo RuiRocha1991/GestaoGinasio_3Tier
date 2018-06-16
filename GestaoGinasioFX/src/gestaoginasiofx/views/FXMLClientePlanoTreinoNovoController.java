@@ -26,7 +26,7 @@ import gestaoginasiohibernate.model.Contrato;
 import gestaoginasiohibernate.model.Personaltrainer;
 import gestaoginasiohibernate.model.Planotreino;
 import projetogestaoginasio.ShowMessage;
-import services.PlanoTreinoService;
+import gestaoginasiobll.services.PlanoTreinoService;
 
 
 /**

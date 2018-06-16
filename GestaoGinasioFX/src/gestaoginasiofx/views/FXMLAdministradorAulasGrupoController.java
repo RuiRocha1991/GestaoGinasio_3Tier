@@ -38,7 +38,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import projetogestaoginasio.ShowMessage;
-import services.AulaService;
+import gestaoginasiobll.services.AulaService;
 
 
 /**

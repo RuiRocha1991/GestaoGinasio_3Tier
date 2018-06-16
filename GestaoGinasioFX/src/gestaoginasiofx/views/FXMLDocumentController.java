@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,6 +19,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
+import javafx.scene.control.ProgressIndicator;
 import javafx.stage.Stage;
 
 /**
@@ -27,6 +30,8 @@ import javafx.stage.Stage;
 public class FXMLDocumentController implements Initializable {
     
     @FXML private Button btIniciar;
+   /* @FXML private ProgressBar pb ;
+    @FXML private ProgressIndicator pi;*/
     
     @FXML
     private void iniciar(ActionEvent event) {
@@ -45,6 +50,23 @@ public class FXMLDocumentController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+       /* Task task = taskWorker(10);
+        pb.progressProperty().bind(task.progressProperty());
+        pi.progressProperty().bind(task.progressProperty());*/
+    }  
+    
+     private Task taskWorker(int seconds){
+        return new Task(){
+            @Override
+            protected Object call() throws Exception {
+                for(int i=0; i<seconds; i++){
+                    updateProgress(i, seconds);
+                    Thread.sleep(1000);
+                }
+                return true;
+            };
+            
+        };
+    }
     
 }

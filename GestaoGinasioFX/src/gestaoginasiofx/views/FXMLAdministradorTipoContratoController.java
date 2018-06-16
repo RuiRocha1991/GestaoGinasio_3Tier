@@ -21,12 +21,12 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Tooltip;
 import javafx.scene.control.cell.PropertyValueFactory;
-import projetogestaoginasio.ConvertType;
+import gestaoginasiobll.ConvertType;
 import projetogestaoginasio.ShowMessage;
-import projetogestaoginasio.ValidarStrings;
-import services.TipoContratoService;
-import services.exception.FieldsEmptyException;
-import services.exception.NumericException;
+import gestaoginasiobll.ValidarStrings;
+import gestaoginasiobll.services.TipoContratoService;
+import gestaoginasiobll.exception.FieldsEmptyException;
+import gestaoginasiobll.exception.NumericException;
 
 
 /**
