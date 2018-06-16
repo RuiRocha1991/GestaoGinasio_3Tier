@@ -126,7 +126,8 @@ public class FXMLClientePlanoTreinoController implements Initializable {
         this.lvDiasSemana.setCellFactory(FillListView.fillLinhaPlanoTreinoListView(this.lvDiasSemana, this.linhaPlanoObservable));
         this.lvDiasSemana.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             this.linhaPlanoSelected=(Linhaplanotreino) newValue;
-            this.showLinhaPlano();
+            if(this.linhaPlanoSelected!=null)
+                this.showLinhaPlano();
         });
     }
     

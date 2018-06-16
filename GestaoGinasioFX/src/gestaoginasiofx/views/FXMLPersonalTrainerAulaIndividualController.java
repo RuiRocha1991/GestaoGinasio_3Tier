@@ -33,7 +33,7 @@ import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.util.StringConverter;
+import javafx.stage.Stage;
 import projetogestaoginasio.ShowMessage;
 
 /**
@@ -204,12 +204,18 @@ public class FXMLPersonalTrainerAulaIndividualController implements Initializabl
         this.horasObservableList.clear();
         this.dateSelected=LocalDate.now();
         this.dpDate.setValue(this.dateSelected);
-        System.out.println(this.dateSelected);
         this.contratoSelected=null;
         this.txtUtente.setText("");
         this.txtValor.setText("");
         this.txtSearch.setText("");
         this.spDuracao.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1,4,1));
+    }
+    
+    @FXML 
+    private void closeWindow(){
+        Stage stage = (Stage) this.btCancelar.getScene().getWindow();
+        // do what you have to do
+        stage.close();
     }
     
     

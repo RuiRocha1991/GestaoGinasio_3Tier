@@ -5,6 +5,7 @@
  */
 package gestaoginasiofx;
 
+import enumerados.Dados;
 import gestaoginasiobll.services.CategoriaEquipamentoService;
 import gestaoginasiohibernate.model.Categoriaequipamento;
 import gestaoginasiohibernate.model.Espaco;
@@ -14,7 +15,9 @@ import gestaoginasiohibernate.model.Planotreino;
 import gestaoginasiohibernate.model.Sala;
 import gestaoginasiohibernate.model.Tipoaula;
 import hibernate.HibernateGenericLib;
+import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -203,7 +206,7 @@ public class FillListView {
             }
         });
     }
-    
+     
  
     
 }

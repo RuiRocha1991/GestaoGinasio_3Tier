@@ -5,16 +5,15 @@
  */
 package gestaoginasiobll.services;
 
-import enumerados.Dados;
+import gestaoginasiohibernate.model.Avaliacaofisica;
 import hibernate.HibernateGenericLib;
 import java.util.List;
 import gestaoginasiohibernate.model.Colaborador;
 import gestaoginasiohibernate.model.Personaltrainer;
+import gestaoginasiohibernate.model.Planotreino;
 import gestaoginasiohibernate.model.Professor;
-import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Set;
 
 /**
  *
@@ -59,6 +58,26 @@ public class ColaboradorService {
         colaborador.setNome(nome);
         colaborador.setSenha(senha);
         colaborador.setTipofuncionario(tipofuncionario);  
+    }
+    
+    public static List<Planotreino> getNewsPlanoTreinoPT(Personaltrainer pt){
+        List<Planotreino> lista= new ArrayList<>();
+        for(Planotreino plano: (Set<Planotreino>)pt.getPlanotreinos()){
+            if(plano.getLinhaplanotreinos().isEmpty()){
+                lista.add(plano);
+            }
+        }
+        return lista;
+    }
+    
+    public static List<Avaliacaofisica> getNewsAvaliacaoFisicaPT(Personaltrainer pt){
+        List<Avaliacaofisica> lista= new ArrayList<>();
+        for(Avaliacaofisica avaliacao: (Set<Avaliacaofisica>)pt.getAvaliacaofisicas()){
+            if(avaliacao.getAltura()==null){
+                lista.add(avaliacao);
+            }
+        }
+        return lista;
     }
     
 }

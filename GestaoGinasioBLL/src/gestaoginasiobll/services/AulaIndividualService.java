@@ -5,6 +5,7 @@
  */
 package gestaoginasiobll.services;
 
+import gestaoginasiobll.AulaProfessor;
 import gestaoginasiobll.ConvertType;
 import gestaoginasiobll.exception.NumericException;
 import gestaoginasiohibernate.model.Aulaindividual;
@@ -14,6 +15,7 @@ import hibernate.HibernateGenericLib;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
 
 
 /**
@@ -40,4 +42,14 @@ public class AulaIndividualService {
     public static void deleteAulaIndividual(Aulaindividual aula){
         HibernateGenericLib.deleteObject(aula);
     }
+    
+    public static void deleteAulaIndividual(AulaProfessor aula){
+        Aulaindividual aulaDelete = (Aulaindividual) HibernateGenericLib.executeHQLQuery("from Aulaindividual where idaula="+aula.getCodigo()).get(0);
+        aulaDelete.getPersonaltrainer().getAulaindividuals().remove(aulaDelete);
+        aulaDelete.getContrato().getAulaindividuals().remove(aulaDelete);
+        HibernateGenericLib.deleteObject(aulaDelete);
+    }
+    
+    
+    
 }

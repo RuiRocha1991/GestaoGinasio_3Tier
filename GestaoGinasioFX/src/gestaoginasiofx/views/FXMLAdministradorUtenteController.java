@@ -44,6 +44,7 @@ import gestaoginasiobll.services.UtenteService;
  */
 public class FXMLAdministradorUtenteController implements Initializable {
     @FXML private Button btCriarContrato;
+    @FXML private Button btPagamento;
     
     @FXML private RadioButton rbAtivos;
     @FXML private RadioButton rbDesativos;
@@ -195,6 +196,31 @@ public class FXMLAdministradorUtenteController implements Initializable {
             e.printStackTrace();
         }
     }
+    
+    @FXML 
+    private void OpenWindowPagamento(ActionEvent event) {
+        Parent root;
+        try {
+           if(this.selectedContrato!=null ){
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("FXMLRecessionistaPagamentos.fxml"));
+                Scene scene = new Scene(fxmlLoader.load());
+                Stage stage = new Stage();
+                stage.setTitle("New Window");
+                stage.setScene(scene);
+                FXMLRecessionistaPagamentosController controller= fxmlLoader.getController();
+                //controller.setUtente(this.selectedUtente);
+                stage.initModality(Modality.APPLICATION_MODAL);
+                stage.initOwner(this.btPagamento.getScene().getWindow());
+                stage.showAndWait();
+                this.initialize(null, null);
+           }
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
     
     private void initializaTable() {
         this.colNome.setCellValueFactory(new PropertyValueFactory<>("nome"));

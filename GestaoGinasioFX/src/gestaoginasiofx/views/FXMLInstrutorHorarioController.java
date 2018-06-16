@@ -7,6 +7,7 @@ package gestaoginasiofx.views;
 
 import gestaoginasiobll.AulaContrato;
 import gestaoginasiobll.AulaProfessor;
+import gestaoginasiobll.services.AulaIndividualService;
 import gestaoginasiobll.services.ContratoService;
 import gestaoginasiobll.services.ProfessorService;
 import gestaoginasiohibernate.model.Colaborador;
@@ -149,6 +150,15 @@ public class FXMLInstrutorHorarioController implements Initializable {
         catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    
+    @FXML
+    private void cancelAulaIndividual(){
+        AulaIndividualService.deleteAulaIndividual(this.aulaSelected);
+        this.aulasFiltradasObservableList.remove(this.aulaSelected);
+        this.aulaSelected=null;
+        this.btCancelarAula.setDisable(true);
+        this.tbAulas.getSelectionModel().clearSelection();
     }
     
 }

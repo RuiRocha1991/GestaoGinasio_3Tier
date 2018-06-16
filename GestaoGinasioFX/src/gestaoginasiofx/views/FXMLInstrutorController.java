@@ -37,6 +37,8 @@ public class FXMLInstrutorController implements Initializable {
     @FXML private Button btNotaAvaria;
     @FXML private Button btHorario;
     @FXML private Button btDadosPessoais;
+    @FXML private Button btPlanosTreino;
+    @FXML private Button btAvaliacaoFisica;
     /**
      * Initializes the controller class.
      */
@@ -60,6 +62,8 @@ public class FXMLInstrutorController implements Initializable {
         this.txtMenu.setText("Menu: Utentes");
         if(this.colaboradorSelected.getTipofuncionario().equals("INSTRUTOR")){
             this.btHorario.setVisible(false);
+            this.btPlanosTreino.setVisible(false);
+            this.btAvaliacaoFisica.setVisible(false);
         }
     }
     
@@ -78,6 +82,14 @@ public class FXMLInstrutorController implements Initializable {
                 switchCenterPane("FXMLAdministradorDadosPessoais.fxml");
                 this.txtMenu.setText("Menu: Dados Pessoais");
                 break;    
+            case "btPlanosTreino":
+                switchCenterPane("FXMLPersonalTrainerPlanoTreino.fxml");
+                this.txtMenu.setText("Menu: Planos Treino");
+                break; 
+            case "btAvaliacaoFisica":
+                switchCenterPane("FXMLPersonalTrainerAvaliacaoFisica.fxml");
+                this.txtMenu.setText("Menu: Avaliação Física");
+                break;   
         }
     }
     

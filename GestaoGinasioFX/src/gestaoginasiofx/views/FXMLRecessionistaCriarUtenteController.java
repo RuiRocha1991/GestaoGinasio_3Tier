@@ -16,7 +16,15 @@ import javafx.scene.control.TextField;
 import gestaoginasiofx.FillComboBox;
 import gestaoginasiohibernate.model.Tipocontrato;
 import gestaoginasiohibernate.model.Utente;
+import java.io.IOException;
 import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 
 /**
@@ -28,6 +36,7 @@ public class FXMLRecessionistaCriarUtenteController implements Initializable {
     private Tipocontrato tipoContrato;
     private Utente utente;
     
+    @FXML private Button btPagamento;
     @FXML private ComboBox<Tipocontrato> cbTipoContrato;
     @FXML private TextField txtMensalidade;
     @FXML private TextField txtNome;
@@ -71,7 +80,29 @@ public class FXMLRecessionistaCriarUtenteController implements Initializable {
         this.dpDateNascimento.setValue(LocalDate.parse(this.utente.getDatanascimento().toString()));
     }
     
-    
+    @FXML 
+    private void OpenWindowPagamento(ActionEvent event) {
+        Parent root;
+        try {
+           //if(this.selectedContrato!=null ){
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("FXMLRecessionistaPagamentos.fxml"));
+                Scene scene = new Scene(fxmlLoader.load());
+                Stage stage = new Stage();
+                stage.setTitle("New Window");
+                stage.setScene(scene);
+                FXMLRecessionistaPagamentosController controller= fxmlLoader.getController();
+                //controller.setUtente(this.selectedUtente);
+                stage.initModality(Modality.APPLICATION_MODAL);
+                stage.initOwner(this.btPagamento.getScene().getWindow());
+                stage.showAndWait();
+                this.initialize(null, null);
+           //}
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     
     
     
