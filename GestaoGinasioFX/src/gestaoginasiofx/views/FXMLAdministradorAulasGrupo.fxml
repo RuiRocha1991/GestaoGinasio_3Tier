@@ -37,9 +37,9 @@
             <DatePicker fx:id="dpDate" layoutX="78.0" layoutY="55.0" prefHeight="25.0" prefWidth="150.0" />
             <Label layoutX="11.0" layoutY="59.0" text="Data" />
             <ComboBox fx:id="cbProfessor" layoutX="347.0" layoutY="55.0" prefWidth="150.0" />
-            <Button layoutX="11.0" layoutY="171.0" mnemonicParsing="false" onAction="#deleteAula" prefHeight="25.0" prefWidth="113.0" text="Eliminar Aula" />
-            <Button fx:id="btAddAula" layoutX="384.0" layoutY="171.0" mnemonicParsing="false" onAction="#updateData" prefHeight="25.0" prefWidth="113.0" text="Atualizar Aula" />
-            <Button fx:id="btGerirTipoAula" layoutX="129.0" layoutY="171.0" mnemonicParsing="false" onAction="#OpenWindowTipoAula" prefHeight="25.0" prefWidth="113.0" text="Gerir Tipo Aula" />
+            <Button layoutX="11.0" layoutY="171.0" mnemonicParsing="false" onAction="#deleteAula" prefHeight="30.0" prefWidth="113.0" stylesheets="@../../Styles.css" text="Eliminar Aula" />
+            <Button fx:id="btAddAula" layoutX="384.0" layoutY="171.0" mnemonicParsing="false" onAction="#updateData" prefHeight="30.0" prefWidth="113.0" stylesheets="@../../Styles.css" text="Atualizar Aula" />
+            <Button fx:id="btGerirTipoAula" layoutX="129.0" layoutY="171.0" mnemonicParsing="false" onAction="#OpenWindowTipoAula" prefHeight="30.0" prefWidth="113.0" stylesheets="@../../Styles.css" text="Gerir Tipo Aula" />
          </children>
       </Pane>
       <Pane layoutX="14.0" layoutY="231.0" prefHeight="334.0" prefWidth="751.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;">
@@ -81,7 +81,7 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <Button fx:id="btGerirTipoAula1" layoutX="625.0" layoutY="39.0" mnemonicParsing="false" onAction="#limparSelecao" prefHeight="25.0" prefWidth="113.0" text="Limpar Seleção" />
+            <Button fx:id="btGerirTipoAula1" layoutX="620.0" layoutY="28.0" mnemonicParsing="false" onAction="#limparSelecao" prefHeight="30.0" prefWidth="113.0" stylesheets="@../../Styles.css" text="Limpar Seleção" />
          </children>
       </Pane>
    </children>

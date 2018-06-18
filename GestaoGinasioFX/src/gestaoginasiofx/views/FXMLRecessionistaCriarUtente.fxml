@@ -23,7 +23,7 @@
             <TextField fx:id="txtCodPostal" layoutX="188.0" layoutY="291.0" prefHeight="25.0" prefWidth="108.0" />
             <ComboBox fx:id="cbTipoContrato" layoutX="188.0" layoutY="328.0" prefHeight="25.0" prefWidth="217.0" />
             <TextField fx:id="txtMensalidade" editable="false" layoutX="187.0" layoutY="367.0" prefHeight="25.0" prefWidth="219.0" />
-            <Button fx:id="btUtente11" layoutX="188.0" layoutY="410.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="140.0" text="Atualizar Dados Cliente" />
+            <Button fx:id="btUtente11" layoutX="188.0" layoutY="410.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="158.0" stylesheets="@../../Styles.css" text="Atualizar Dados Cliente" />
             <Label layoutX="42.0" layoutY="42.0" prefHeight="20.0" prefWidth="24.0" text="NIF">
                <font>
                   <Font size="14.0" />
@@ -74,9 +74,9 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <Button fx:id="btPagamento" layoutX="471.0" layoutY="368.0" mnemonicParsing="false" onAction="#OpenWindowPagamento" prefHeight="25.0" prefWidth="124.0" text="Receber Pagamento" />
-            <Button fx:id="btUtente1" layoutX="471.0" layoutY="410.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="124.0" text="Concluir Registo" />
-            <Button fx:id="btUtente111" layoutX="18.0" layoutY="410.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="93.0" text="Cancelar" />
+            <Button fx:id="btPagamento" layoutX="455.0" layoutY="368.0" mnemonicParsing="false" onAction="#OpenWindowPagamento" prefHeight="30.0" prefWidth="140.0" stylesheets="@../../Styles.css" text="Receber Pagamento" />
+            <Button fx:id="btUtente1" layoutX="455.0" layoutY="410.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="140.0" stylesheets="@../../Styles.css" text="Concluir Registo" />
+            <Button fx:id="btUtente111" layoutX="18.0" layoutY="410.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="93.0" stylesheets="@../../Styles.css" text="Cancelar" />
             <Label layoutX="42.0" layoutY="-10.0" prefHeight="20.0" prefWidth="108.0" style="-fx-background-color: #ffffff;" text="Dados do Cliente">
                <font>
                   <Font size="14.0" />

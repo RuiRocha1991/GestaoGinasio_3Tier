@@ -14,8 +14,8 @@
    <children>
       <Pane prefHeight="448.0" prefWidth="573.0" style="-fx-border-color: #000000; -fx-background-color: #ffffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Button layoutX="194.0" layoutY="397.0" mnemonicParsing="false" text="Cancelar" />
-            <Button layoutX="451.0" layoutY="397.0" mnemonicParsing="false" text="Atualizar Dados" />
+            <Button layoutX="194.0" layoutY="397.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" stylesheets="@../../Styles.css" text="Cancelar" />
+            <Button layoutX="451.0" layoutY="397.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="112.0" stylesheets="@../../Styles.css" text="Atualizar Dados" />
             <Label layoutX="52.0" layoutY="16.0" prefHeight="20.0" prefWidth="24.0" text="NIF">
                <font>
                   <Font size="14.0" />

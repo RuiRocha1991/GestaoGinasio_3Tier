@@ -14,11 +14,11 @@
    <children>
       <Pane layoutX="16.0" layoutY="17.0" prefHeight="539.0" prefWidth="797.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;">
          <children>
-            <TableView fx:id="tbEspacos" layoutX="18.0" layoutY="250.0" prefHeight="270.0" prefWidth="401.0">
+            <TableView fx:id="tbEspacos" layoutX="18.0" layoutY="250.0" prefHeight="270.0" prefWidth="401.0" stylesheets="@../../Styles.css">
               <columns>
                 <TableColumn fx:id="colDescicao" prefWidth="162.0" text="Descrição" />
                 <TableColumn fx:id="colTipoEspaco" prefWidth="91.0" text="Tipo" />
-                  <TableColumn fx:id="colVagas" prefWidth="135.0" text="Numero Equipamentos" />
+                  <TableColumn fx:id="colVagas" prefWidth="147.0" text="Numero Equipamentos" />
               </columns>
             </TableView>
             <Label layoutX="159.0" layoutY="223.0" text="Lista Espaços">
@@ -26,11 +26,11 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <TableView fx:id="tbEquipamento" layoutX="439.0" layoutY="42.0" prefHeight="477.0" prefWidth="350.0">
+            <TableView fx:id="tbEquipamento" layoutX="439.0" layoutY="42.0" prefHeight="477.0" prefWidth="350.0" stylesheets="@../../Styles.css">
                <columns>
                   <TableColumn fx:id="colDescicaoEqui" prefWidth="135.0" text="Descrição" />
                   <TableColumn fx:id="colCategoria" prefWidth="118.0" text="Categoria" />
-                  <TableColumn fx:id="colAtivo" prefWidth="68.0" text="Ativo" />
+                  <TableColumn fx:id="colAtivo" prefWidth="95.0" text="Ativo" />
                </columns>
             </TableView>
             <Label layoutX="530.0" layoutY="13.0" text="Lista Equipamentos">
@@ -44,8 +44,8 @@
                   <Label layoutX="45.0" layoutY="65.0" text="Tipo Espaço: " />
                   <TextField fx:id="txtDescricao" layoutX="137.0" layoutY="20.0" onKeyPressed="#clearBackground" onKeyReleased="#clearBackground" prefHeight="25.0" prefWidth="219.0" />
                   <ComboBox fx:id="cbTipoEspaco" layoutX="137.0" layoutY="61.0" onMouseClicked="#clearBackground" prefHeight="25.0" prefWidth="219.0" />
-                  <Button layoutX="255.0" layoutY="124.0" mnemonicParsing="false" onAction="#updateData" prefHeight="25.0" prefWidth="114.0" text="Gravar" />
-                  <Button layoutX="32.0" layoutY="124.0" mnemonicParsing="false" onAction="#clearField" prefHeight="25.0" prefWidth="114.0" text="Limpar Seleção" />
+                  <Button layoutX="255.0" layoutY="124.0" mnemonicParsing="false" onAction="#updateData" prefHeight="32.0" prefWidth="114.0" stylesheets="@../../Styles.css" text="Gravar" />
+                  <Button layoutX="32.0" layoutY="124.0" mnemonicParsing="false" onAction="#clearField" prefHeight="32.0" prefWidth="114.0" stylesheets="@../../Styles.css" text="Limpar Seleção" />
                   <Label layoutX="12.0" layoutY="-10.0" style="-fx-background-color: #ffffff;" text=" Inserir / Editar Espaço " />
                </children>
             </Pane>

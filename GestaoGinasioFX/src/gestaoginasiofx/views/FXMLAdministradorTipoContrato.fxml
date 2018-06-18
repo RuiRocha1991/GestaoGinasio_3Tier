@@ -27,8 +27,8 @@
                   <TextField fx:id="txtDescricao" layoutX="173.0" layoutY="35.0" onKeyPressed="#clearBackgroundField" onKeyReleased="#clearBackgroundField" prefHeight="25.0" prefWidth="227.0" />
                   <TextField fx:id="txtMensalidade" layoutX="173.0" layoutY="71.0" onKeyPressed="#clearBackgroundField" onKeyReleased="#clearBackgroundField" prefHeight="25.0" prefWidth="227.0" />
                   <CheckBox fx:id="cbAtivo" layoutX="173.0" layoutY="107.0" mnemonicParsing="false" />
-                  <Button fx:id="btGravar" layoutX="365.0" layoutY="161.0" mnemonicParsing="false" onAction="#updateData" prefHeight="25.0" prefWidth="120.0" text="Gravar" />
-                  <Button fx:id="btLimpaSelecao" layoutX="14.0" layoutY="161.0" mnemonicParsing="false" onAction="#clearSelectionAndFields" prefHeight="25.0" prefWidth="120.0" text="Limpar Seleção" />
+                  <Button fx:id="btGravar" layoutX="365.0" layoutY="161.0" mnemonicParsing="false" onAction="#updateData" prefHeight="30.0" prefWidth="120.0" stylesheets="@../../Styles.css" text="Gravar" />
+                  <Button fx:id="btLimpaSelecao" layoutX="14.0" layoutY="161.0" mnemonicParsing="false" onAction="#clearSelectionAndFields" prefHeight="30.0" prefWidth="120.0" stylesheets="@../../Styles.css" text="Limpar Seleção" />
                </children>
             </Pane>
             <TableView fx:id="tbTiposContrato" layoutX="215.0" layoutY="242.0" prefHeight="266.0" prefWidth="499.0">

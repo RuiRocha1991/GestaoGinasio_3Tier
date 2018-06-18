@@ -10,8 +10,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="547.0" prefWidth="711.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/9.0.1" fx:controller="gestaoginasiofx.views.FXMLPersonalTrainerPlanoTreinoController">
+<AnchorPane id="AnchorPane" prefHeight="547.0" prefWidth="711.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestaoginasiofx.views.FXMLPersonalTrainerPlanoTreinoController">
    <children>
       <Pane layoutX="14.0" layoutY="14.0" prefHeight="258.0" prefWidth="320.0" style="-fx-border-color: #000000;">
          <children>
@@ -26,7 +25,7 @@
                 <TableColumn fx:id="colDescricao" prefWidth="141.0" text="Descricao" />
               </columns>
             </TableView>
-            <Button fx:id="btLimparSelecao" layoutX="205.0" layoutY="222.0" mnemonicParsing="false" text="Limpar Seleção" />
+            <Button fx:id="btLimparSelecao" layoutX="205.0" layoutY="222.0" mnemonicParsing="false" prefHeight="30.0" stylesheets="@../../Styles.css" text="Limpar Seleção" />
          </children>
       </Pane>
       <Pane layoutX="23.0" layoutY="289.0" prefHeight="251.0" prefWidth="665.0" style="-fx-border-color: #000000;">
@@ -42,9 +41,9 @@
                   <TableColumn fx:id="colExercicios" prefWidth="356.0" text="Exercicios" />
                </columns>
             </TableView>
-            <Button fx:id="btGravar" layoutX="554.0" layoutY="39.0" mnemonicParsing="false" onAction="#saveListLinhaPlanoTreino" prefHeight="44.0" prefWidth="96.0" text="Gravar" />
-            <Button fx:id="btCancelar" layoutX="554.0" layoutY="172.0" mnemonicParsing="false" onAction="#clearListLinhaPlanoTreino" prefHeight="44.0" prefWidth="96.0" text="Cancelar" />
-            <Button fx:id="btRemoverLinha" layoutX="554.0" layoutY="105.0" mnemonicParsing="false" onAction="#removeLinhaPlanoTreino" prefHeight="44.0" prefWidth="96.0" text="Eliminar Linha" />
+            <Button fx:id="btGravar" layoutX="554.0" layoutY="39.0" mnemonicParsing="false" onAction="#saveListLinhaPlanoTreino" prefHeight="44.0" prefWidth="96.0" stylesheets="@../../Styles.css" text="Gravar" />
+            <Button fx:id="btCancelar" layoutX="554.0" layoutY="172.0" mnemonicParsing="false" onAction="#clearListLinhaPlanoTreino" prefHeight="44.0" prefWidth="96.0" stylesheets="@../../Styles.css" text="Cancelar" />
+            <Button fx:id="btRemoverLinha" layoutX="554.0" layoutY="105.0" mnemonicParsing="false" onAction="#removeLinhaPlanoTreino" prefHeight="44.0" prefWidth="96.0" stylesheets="@../../Styles.css" text="Eliminar Linha" />
          </children>
       </Pane>
       <Pane layoutX="356.0" layoutY="14.0" prefHeight="258.0" prefWidth="348.0" style="-fx-border-color: #000000;">
@@ -66,7 +65,7 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <Button fx:id="btAdicionarLinha" layoutX="267.0" layoutY="220.0" mnemonicParsing="false" onAction="#addLinhaPlanoTreino" text="Adicionar" />
+            <Button fx:id="btAdicionarLinha" layoutX="267.0" layoutY="220.0" mnemonicParsing="false" onAction="#addLinhaPlanoTreino" prefHeight="30.0" stylesheets="@../../Styles.css" text="Adicionar" />
          </children>
       </Pane>
    </children>

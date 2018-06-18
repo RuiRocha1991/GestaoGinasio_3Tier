@@ -9,8 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="320.0" prefWidth="471.0" style="-fx-background-color: #ffffff;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/9.0.1" fx:controller="gestaoginasiofx.views.FXMLCategoriasEquipamentoController">
+<AnchorPane id="AnchorPane" prefHeight="320.0" prefWidth="471.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestaoginasiofx.views.FXMLCategoriasEquipamentoController">
    <children>
       <Pane layoutX="14.0" layoutY="14.0" prefHeight="292.0" prefWidth="444.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;">
          <children>
@@ -22,7 +21,7 @@
                      </font>
                   </Label>
                   <TextField fx:id="txtCategoria" layoutX="16.0" layoutY="63.0" prefHeight="25.0" prefWidth="169.0" />
-                  <Button fx:id="btGravar" layoutX="16.0" layoutY="110.0" mnemonicParsing="false" onAction="#updateCategoria" prefHeight="35.0" prefWidth="169.0" text="Gravar" />
+                  <Button fx:id="btGravar" layoutX="34.0" layoutY="115.0" mnemonicParsing="false" onAction="#updateCategoria" prefHeight="30.0" prefWidth="132.0" stylesheets="@../../Styles.css" text="Gravar" />
                </children>
             </Pane>
             <Label layoutX="25.0" layoutY="21.0" style="-fx-background-color: #ffffff;" text=" Criar / Editar Categorias ">
@@ -35,7 +34,7 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <Button layoutX="14.0" layoutY="253.0" mnemonicParsing="false" onAction="#clearFields" prefHeight="20.0" prefWidth="97.0" text="Limpar Seleção" />
+            <Button layoutX="14.0" layoutY="253.0" mnemonicParsing="false" onAction="#clearFields" prefHeight="30.0" prefWidth="111.0" stylesheets="@../../Styles.css" text="Limpar Seleção" />
             <TextField fx:id="txtSearch" layoutX="231.0" layoutY="31.0" onKeyPressed="#fillTable" onKeyReleased="#fillTable" prefHeight="25.0" prefWidth="200.0" />
             <TableView fx:id="tbCategorias" layoutX="231.0" layoutY="56.0" prefHeight="200.0" prefWidth="200.0">
               <columns>

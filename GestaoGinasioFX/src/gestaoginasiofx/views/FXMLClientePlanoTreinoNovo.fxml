@@ -26,7 +26,7 @@
       </Label>
       <ListView fx:id="ltvPersonalTrainer" layoutX="14.0" layoutY="77.0" prefHeight="200.0" prefWidth="152.0" />
       <TextArea fx:id="txtDescricao" layoutX="186.0" layoutY="77.0" prefHeight="200.0" prefWidth="269.0" />
-      <Button fx:id="btCancelar" layoutX="14.0" layoutY="295.0" mnemonicParsing="false" onAction="#comeBackInicial" prefHeight="25.0" prefWidth="75.0" text="Cancelar" />
-      <Button fx:id="btNovo" layoutX="186.0" layoutY="295.0" mnemonicParsing="false" onAction="#addNewPlanoTreino" prefHeight="25.0" prefWidth="136.0" text="Pedir Plano Treino" />
+      <Button fx:id="btCancelar" layoutX="14.0" layoutY="295.0" mnemonicParsing="false" onAction="#comeBackInicial" prefHeight="30.0" prefWidth="75.0" stylesheets="@../../Styles.css" text="Cancelar" />
+      <Button fx:id="btNovo" layoutX="186.0" layoutY="295.0" mnemonicParsing="false" onAction="#addNewPlanoTreino" prefHeight="30.0" prefWidth="136.0" stylesheets="@../../Styles.css" text="Pedir Plano Treino" />
    </children>
 </AnchorPane>

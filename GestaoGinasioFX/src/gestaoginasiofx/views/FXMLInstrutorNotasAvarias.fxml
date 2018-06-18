@@ -89,10 +89,10 @@
             </Label>
             <TextArea fx:id="txtDescricao" layoutX="25.0" layoutY="180.0" prefHeight="93.0" prefWidth="200.0" />
             <DatePicker fx:id="dpDate" layoutX="25.0" layoutY="117.0" prefHeight="25.0" prefWidth="200.0" />
-            <Button layoutX="159.0" layoutY="286.0" mnemonicParsing="false" onAction="#saveNotaAvaria" prefHeight="25.0" prefWidth="66.0" text="Gravar" />
-            <Button layoutX="25.0" layoutY="286.0" mnemonicParsing="false" text="Cancelar" />
+            <Button layoutX="159.0" layoutY="286.0" mnemonicParsing="false" onAction="#saveNotaAvaria" prefHeight="30.0" prefWidth="66.0" stylesheets="@../../Styles.css" text="Gravar" />
+            <Button layoutX="25.0" layoutY="286.0" mnemonicParsing="false" prefHeight="30.0" stylesheets="@../../Styles.css" text="Cancelar" />
          </children>
       </Pane>
-      <Button layoutX="213.0" layoutY="349.0" mnemonicParsing="false" onAction="#limparSelecao" prefHeight="25.0" prefWidth="101.0" text="Limpar Seleção" />
+      <Button layoutX="201.0" layoutY="349.0" mnemonicParsing="false" onAction="#limparSelecao" prefHeight="30.0" prefWidth="113.0" stylesheets="@../../Styles.css" text="Limpar Seleção" />
    </children>
 </AnchorPane>

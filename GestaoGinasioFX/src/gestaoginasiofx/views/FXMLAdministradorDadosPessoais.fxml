@@ -15,7 +15,7 @@
             <PasswordField fx:id="txtSenha" layoutX="178.0" layoutY="158.0" />
             <PasswordField fx:id="txtNovaSenha" layoutX="178.0" layoutY="195.0" />
             <PasswordField fx:id="txtSenhaConfirma" layoutX="178.0" layoutY="230.0" />
-            <Button layoutX="212.0" layoutY="273.0" mnemonicParsing="false" onAction="#updateColaborador" prefHeight="25.0" prefWidth="117.0" text="Guardar" />
+            <Button layoutX="212.0" layoutY="273.0" mnemonicParsing="false" onAction="#updateColaborador" prefHeight="30.0" prefWidth="117.0" stylesheets="@../../Styles.css" text="Guardar" />
             <Label layoutX="137.0" layoutY="14.0" text="Dados Pessoais">
                <font>
                   <Font size="18.0" />

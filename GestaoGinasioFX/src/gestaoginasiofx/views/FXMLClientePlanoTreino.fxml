@@ -45,7 +45,7 @@
             <TextArea fx:id="txtDescriçaoDia" editable="false" layoutX="180.0" layoutY="38.0" prefHeight="169.0" prefWidth="328.0" />
          </children>
       </Pane>
-      <Button fx:id="btCancelar" layoutX="14.0" layoutY="461.0" mnemonicParsing="false" onAction="#comeBackInicial" prefHeight="25.0" prefWidth="95.0" text="Voltar" />
-      <Button fx:id="btNovoPlano" layoutX="417.0" layoutY="460.0" mnemonicParsing="false" onAction="#openNovoPlanoTreino" prefHeight="25.0" prefWidth="177.0" text="Pedir Plano Treino" />
+      <Button fx:id="btCancelar" layoutX="14.0" layoutY="461.0" mnemonicParsing="false" onAction="#comeBackInicial" prefHeight="30.0" prefWidth="95.0" stylesheets="@../../Styles.css" text="Voltar" />
+      <Button fx:id="btNovoPlano" layoutX="417.0" layoutY="460.0" mnemonicParsing="false" onAction="#openNovoPlanoTreino" prefHeight="30.0" prefWidth="177.0" stylesheets="@../../Styles.css" text="Pedir Plano Treino" />
    </children>
 </AnchorPane>

@@ -26,7 +26,7 @@
             </TableView>
          </children>
       </Pane>
-      <Button layoutX="580.0" layoutY="432.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="139.0" text="Confirmar Pagamento" />
+      <Button layoutX="564.0" layoutY="432.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="155.0" stylesheets="@../../Styles.css" text="Confirmar Pagamento" />
       <Pane layoutX="327.0" layoutY="228.0" prefHeight="187.0" prefWidth="392.0" style="-fx-border-color: #000000; -fx-background-color: #ffffff;">
          <children>
             <Label layoutX="40.0" layoutY="46.0" prefHeight="20.0" prefWidth="115.0" text="Mensalidade:">
@@ -82,7 +82,7 @@
             <TextField editable="false" layoutX="219.0" layoutY="135.0" prefHeight="25.0" prefWidth="341.0" />
          </children>
       </Pane>
-      <Button layoutX="14.0" layoutY="432.0" mnemonicParsing="false" text="Cancelar" />
+      <Button layoutX="14.0" layoutY="432.0" mnemonicParsing="false" prefHeight="30.0" stylesheets="@../../Styles.css" text="Cancelar" />
       <Label layoutX="469.0" layoutY="218.0" prefHeight="20.0" prefWidth="85.0" style="-fx-background-color: #ffffff;" text="Total a Pagar">
          <font>
             <Font size="14.0" />
