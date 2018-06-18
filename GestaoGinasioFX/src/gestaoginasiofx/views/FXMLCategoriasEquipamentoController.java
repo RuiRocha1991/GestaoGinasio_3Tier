@@ -6,7 +6,7 @@
 package gestaoginasiofx.views;
 
 import gestaoginasiobll.services.CategoriaEquipamentoService;
-import gestaoginasiofx.FillListView;
+import gestaoginasiofx.Notificacao;
 import gestaoginasiohibernate.model.Categoriaequipamento;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,13 +15,10 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.ListCell;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.util.Callback;
 import projetogestaoginasio.ShowMessage;
 
 /**
@@ -58,14 +55,10 @@ public class FXMLCategoriasEquipamentoController implements Initializable {
     private void fillTable(){
         this.observableListCategoriaFiltrada.clear();
         if(this.txtSearch.getText().length()>0){
-            for(Categoriaequipamento cat : this.observableListCategoria){
-                if(cat.getDesignacao().toLowerCase().contains(this.txtSearch.getText().toLowerCase())){
-                    this.observableListCategoriaFiltrada.add(cat);
-                }
-            }
+            this.observableListCategoriaFiltrada=FXCollections.observableArrayList(
+                    CategoriaEquipamentoService.getCategoriasFiltrada(observableListCategoria, this.txtSearch.getText()));
         }else{
             this.observableListCategoriaFiltrada.setAll(this.observableListCategoria);
-            //this.lvCategorias.setItems(this.observableListCategoriaFiltrada);
         }
         this.tbCategorias.setItems(this.observableListCategoriaFiltrada);
         this.tbCategorias.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
@@ -96,6 +89,7 @@ public class FXMLCategoriasEquipamentoController implements Initializable {
             if(ShowMessage.showConfirmation("Inserir Nova Categoria", "Tem a certeza que pretende inserir nova categoria?")){
                 if(this.txtCategoria.getText().length()>0){
                     this.observableListCategoria.add(CategoriaEquipamentoService.createCategoria(this.txtCategoria.getText()));
+                    Notificacao.successNotification("Categoria Equipamento", "Adicionada Categoria com sucesso.");
                     this.clearFields();
                     this.fillTable();
                 }else{
@@ -108,6 +102,7 @@ public class FXMLCategoriasEquipamentoController implements Initializable {
             if(ShowMessage.showConfirmation("Atualizar Categoria", "Tem a certeza que pretende atualizar categoria?")){
                 if(this.txtCategoria.getText().length()>0){
                     CategoriaEquipamentoService.updateCategoria(this.categoriaSelected,this.txtCategoria.getText());
+                    Notificacao.successNotification("Categoria Equipamento", "Atualizada Categoria com sucesso.");
                     this.clearFields();
                     this.fillTable();
                 }else{

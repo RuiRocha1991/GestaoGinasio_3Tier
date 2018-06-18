@@ -7,7 +7,6 @@ package gestaoginasiofx.views;
 
 import gestaoginasiohibernate.model.Notaavaria;
 import hibernate.HibernateGenericLib;
-import java.math.BigDecimal;
 import java.net.URL;
 import java.sql.Date;
 import java.time.LocalDate;
@@ -23,6 +22,8 @@ import javafx.stage.Stage;
 import gestaoginasiobll.ConvertType;
 import projetogestaoginasio.ShowMessage;
 import gestaoginasiobll.exception.NumericException;
+import gestaoginasiobll.services.NotaAvariaService;
+import gestaoginasiofx.Notificacao;
 
 
 /**
@@ -71,13 +72,9 @@ public class FXMLResolverNotaAvariaController implements Initializable {
         if(ShowMessage.showConfirmation("Atualizar Nota Avaria", "Tem a certeza que pretende atualizar a nota de avaria?")){
             if(this.txtValor.getText().length()>0 && this.txtObs.getText().length()>0){
                 try{
-                    this.notaSelected.setDataresolusao(Date.valueOf(this.dpDate.getValue()));
-                    this.notaSelected.setValor(ConvertType.stringToBigDecimal(this.txtValor.getText()));
-                    this.notaSelected.setObservacoes(this.txtObs.getText());
-                    this.notaSelected.setEstado('0');
-                    HibernateGenericLib.saveObject(this.notaSelected);
-                    this.notaSelected.getEquipamento().setAtivo('1');
-                     // get a handle to the stage
+                    NotaAvariaService.updateNotaAvaria(this.notaSelected, this.dpDate.getValue(), this.txtValor.getText(), this.txtObs.getText());
+                    Notificacao.successNotification("Nota Avaria", "Atualizado com Sucesso");
+                    // get a handle to the stage
                     Stage stage = (Stage) this.btSave.getScene().getWindow();
                     // do what you have to do
                     stage.close();

@@ -30,6 +30,7 @@ import gestaoginasiobll.services.ColaboradorService;
 import gestaoginasiobll.exception.FieldsEmptyException;
 import gestaoginasiobll.exception.NumericException;
 import gestaoginasiobll.exception.PasswordInvalidException;
+import gestaoginasiofx.Notificacao;
 
 
 /**
@@ -111,7 +112,6 @@ public class FXMLAdministradorFuncionariosController implements Initializable {
         this.txtConfirmaSenha.textProperty().setValue("");
         this.cbTipoFuncionario.getSelectionModel().clearSelection();
         this.txtPrecoHora.textProperty().setValue("");
-        
     }
     
     @FXML
@@ -126,17 +126,6 @@ public class FXMLAdministradorFuncionariosController implements Initializable {
         this.tblColaborador.getSelectionModel().clearSelection();
     }
     
-    
-    private boolean verificaUtilizador(){
-        String user=this.txtUtilizador.getText().toLowerCase();
-        for(Colaborador c:this.colaboradorObservableList){
-            if(user.equals(c.getUtilizador().toLowerCase())){
-                return true;
-            }
-        }
-        return false;
-    }
-    
     @FXML 
     private void updateData(){
         if(ShowMessage.showConfirmation("Confirmação de alteração", "Tem a certeza que pretende salvar?")){
@@ -145,18 +134,22 @@ public class FXMLAdministradorFuncionariosController implements Initializable {
                     if(!this.txtNome.getText().equals("")&& !this.txtUtilizador.getText().equals("") 
                             &&!this.txtSenha.getText().equals("")&& !this.txtConfirmaSenha.getText().equals("") 
                             && !this.cbTipoFuncionario.getValue().equals("")){
-                        if(!this.verificaUtilizador()){
+                        if(!ColaboradorService.verificaUtilizador(this.txtUtilizador.getText(), this.colaboradorObservableList)){
                             if(this.txtSenha.getText().equals(this.txtConfirmaSenha.getText())){
                                 if(this.cbTipoFuncionario.getValue().equals(EnumTipoFuncionario.PERSONALTRAINER)){
-                                    if(!this.txtPrecoHora.getText().equals(""))
+                                    if(!this.txtPrecoHora.getText().equals("")){
                                         this.addPersonalTrainer();
-                                    else
+                                        Notificacao.successNotification("Adicionar Colaborador", "Personal Trainer Adicionado com sucesso");
+                                    }else
                                         throw new FieldsEmptyException();
                                 }else{
-                                    if(this.cbTipoFuncionario.getValue().equals(EnumTipoFuncionario.PROFESSOR))
+                                    if(this.cbTipoFuncionario.getValue().equals(EnumTipoFuncionario.PROFESSOR)){
                                         this.addProfessor();
-                                    else
+                                        Notificacao.successNotification("Adicionar Colaborador", "Professor Adicionado com sucesso");
+                                    }else{
                                         this.addOthers();
+                                        Notificacao.successNotification("Adicionar Colaborador", this.cbTipoFuncionario.getValue().toString()+" Adicionado com sucesso");
+                                    }
                                 }
                             }else
                                 throw new PasswordInvalidException();
@@ -309,11 +302,14 @@ public class FXMLAdministradorFuncionariosController implements Initializable {
                 this.cbTipoFuncionario.getValue().equals(EnumTipoFuncionario.RECECIONISTA)||
                 this.cbTipoFuncionario.getValue().equals(EnumTipoFuncionario.INSTRUTOR)){
             this.updateOthers();
+            Notificacao.successNotification("Atualizar Colaborador", "Colaborador atualizado com sucesso");
         }else{
             if(this.cbTipoFuncionario.getValue().equals(EnumTipoFuncionario.PROFESSOR)){
                 this.updateProfessor();
+                Notificacao.successNotification("Atualizar Colaborador", "Colaborador atualizado com sucesso");
             }else{
-                    this.updatePersonalTrainer();
+                this.updatePersonalTrainer();
+                Notificacao.successNotification("Atualizar Colaborador", "Colaborador atualizado com sucesso");
             }
         }
         this.colaboradorObservableList.set(this.colaboradorObservableList.indexOf(this.selectedColaborador),this.selectedColaborador);
@@ -354,15 +350,8 @@ public class FXMLAdministradorFuncionariosController implements Initializable {
     private void pesquisa(){
         if(this.txtProcura.getText().length()>0){
             this.colaboradorObservableListFiltro.clear();
-            for(Colaborador c: this.colaboradorObservableList){
-                String nomeLista= c.getNome().toLowerCase();
-                String procura= this.txtProcura.getText().toLowerCase();
-                String userLista= c.getUtilizador().toLowerCase();
-                String tipoFuncLista=c.getTipofuncionario().toLowerCase();
-                if(nomeLista.contains(procura) ||userLista.contains(procura)||tipoFuncLista.contains(procura) ){
-                    this.colaboradorObservableListFiltro.add(c);
-                }
-            }
+            this.colaboradorObservableListFiltro=FXCollections.observableArrayList(
+                    ColaboradorService.getListaColaboradorFiltro(this.colaboradorObservableList, this.txtProcura.getText()));
             this.setTableList();
         }else{
             this.colaboradorObservableListFiltro.setAll(this.colaboradorObservableList);

@@ -9,7 +9,7 @@ import enumerados.Dados;
 import gestaoginasiobll.exception.DiaExistenteException;
 import gestaoginasiobll.services.ColaboradorService;
 import gestaoginasiobll.services.PlanoTreinoService;
-import gestaoginasiofx.FillListView;
+import gestaoginasiofx.Notificacao;
 import gestaoginasiohibernate.model.Linhaplanotreino;
 import gestaoginasiohibernate.model.Personaltrainer;
 import gestaoginasiohibernate.model.Planotreino;
@@ -18,8 +18,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -131,9 +129,8 @@ public class FXMLPersonalTrainerPlanoTreinoController implements Initializable {
         if(this.linhaSelected!=null){
             PlanoTreinoService.removeLinhaPlanoTreino(this.linhaSelected, this.planoSelected);
             this.observableListLinha.remove(this.linhaSelected);
-            System.out.println(this.planoSelected.getLinhaplanotreinos().size());
             this.tbLinhaPlanoTreino.getSelectionModel().clearSelection();
-            
+            Notificacao.successNotification("Atividade Plano Treino", "Removida Atividade Plano Treino.");
         }
     }
     
@@ -147,6 +144,7 @@ public class FXMLPersonalTrainerPlanoTreinoController implements Initializable {
                     this.txtDescricao.setText("");
                     this.diaSelected=null;
                     this.lvDiasSemana.getSelectionModel().clearSelection();
+                    Notificacao.successNotification("Atividade Plano Treino", "Adicionada Atividade Plano Treino.");
                 } catch (DiaExistenteException ex) {
                     ShowMessage.showError("Dia Inválido", "Dia da já existe no Plano.");
                 }
@@ -161,6 +159,7 @@ public class FXMLPersonalTrainerPlanoTreinoController implements Initializable {
     @FXML 
     private void saveListLinhaPlanoTreino(){
         PlanoTreinoService.saveLinhasPlanoTreino(this.planoSelected);
+        Notificacao.successNotification("Atividade Plano Treino", "Atividades adicionadas Plano Treino.");
         this.planoSelected=null;
         this.observableListLinha.clear();
         this.fillTableLinhaPlanoTreino();
@@ -170,6 +169,7 @@ public class FXMLPersonalTrainerPlanoTreinoController implements Initializable {
     @FXML
     private void clearListLinhaPlanoTreino(){
         this.planoSelected.getLinhaplanotreinos().clear();
+        Notificacao.successNotification("Atividade Plano Treino", "Removidas todas as atividades Plano Treino.");
         this.observableListLinha.clear();
         this.fillTableLinhaPlanoTreino();
         this.fillTablePlanoTreino();

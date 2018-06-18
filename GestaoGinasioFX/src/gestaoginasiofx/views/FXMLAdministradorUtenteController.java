@@ -33,7 +33,6 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import gestaoginasiobll.ValidarStrings;
 import gestaoginasiobll.services.UtenteService;
 
 
@@ -92,34 +91,24 @@ public class FXMLAdministradorUtenteController implements Initializable {
         this.rbTodos.setToggleGroup(this.toggleGroup);
         this.rbTodos.setSelected(true);
         this.initializaTable();
-        
     }    
  
     @FXML 
     private void rbDesativosSelected(){
         this.utenteObservableListFiltro.clear();
         if(this.rbDesativos.isSelected()){
-            for(Utente ut: this.utenteObservableList){
-               
-                if(ut.getContratoAtivo()==null){
-                    this.utenteObservableListFiltro.add(ut);
-                }
-            }
+            this.utenteObservableListFiltro=FXCollections.observableArrayList(
+                    UtenteService.getUtentesContratoDesativo(this.utenteObservableList));
             this.setTableList();
         }
-            
     }
     
     @FXML 
     private void rbAtivosSelected(){
         this.utenteObservableListFiltro.clear();
         if(this.rbAtivos.isSelected()){
-            for(Utente ut: this.utenteObservableList){
-               
-                if(ut.getContratoAtivo()!=null){
-                    this.utenteObservableListFiltro.add(ut);
-                }
-            }
+           this.utenteObservableListFiltro=FXCollections.observableArrayList(
+                   UtenteService.getUtentesContratoAtivo(this.utenteObservableList));
             this.setTableList();
         }
             
@@ -138,25 +127,10 @@ public class FXMLAdministradorUtenteController implements Initializable {
     private void pesquisa(){
         this.selectedUtente=null;
         this.selectedContrato=null;
-        ValidarStrings va = new ValidarStrings();
-        String procura="";
         if(this.txtProcura.getText().length()>0){
             this.utenteObservableListFiltro.clear();
-            for(Utente c: this.utenteObservableList){
-                String nomeLista= c.getNome().toLowerCase();
-                if(va.validarNifTEL(this.txtProcura.getText())){
-                    procura=String.valueOf(this.txtProcura.getText());
-                }else{
-                    procura=this.txtProcura.getText().toLowerCase();
-                }
-                String contactoLista= c.getContacto();
-                String emailLista= c.getEmail().toLowerCase();
-                String nifLista=String.valueOf(c.getNif());
-                if(nomeLista.contains(procura) ||contactoLista.contains(procura)||
-                        emailLista.contains(procura) ||nifLista.contains(procura)){
-                    this.utenteObservableListFiltro.add(c);
-                }
-            }
+            this.utenteObservableListFiltro=FXCollections.observableArrayList(
+                    UtenteService.getUtentePesquisa(this.utenteObservableList, this.txtProcura.getText()));
             this.setTableList();
         }else{
             this.utenteObservableListFiltro.setAll(this.utenteObservableList);
@@ -169,23 +143,37 @@ public class FXMLAdministradorUtenteController implements Initializable {
         Parent root;
         try {
            if(this.selectedUtente!=null){
-                FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("FXMLRecessionistaCriarContratos.fxml"));
-                Scene scene = new Scene(fxmlLoader.load());
-                Stage stage = new Stage();
-                stage.setTitle("New Window");
-                stage.setScene(scene);
-                FXMLRecessionistaCriarContratosController controller= fxmlLoader.getController();
-                controller.setUtente(this.selectedUtente);
-                stage.initModality(Modality.APPLICATION_MODAL);
-                stage.initOwner(this.btCriarContrato.getScene().getWindow());
-                stage.showAndWait();
+                if(UtenteService.getContratoAtivo(this.selectedUtente)!=null){
+                    FXMLLoader fxmlLoader = new FXMLLoader();
+                    fxmlLoader.setLocation(getClass().getResource("FXMLRecessionistaEditClientes.fxml"));
+                    Scene scene = new Scene(fxmlLoader.load());
+                    Stage stage = new Stage();
+                    stage.setTitle("New Window");
+                    stage.setScene(scene);
+                    FXMLRecessionistaEditClientesController controller= fxmlLoader.getController();
+                    controller.setContrato(this.selectedContrato);
+                    stage.initModality(Modality.APPLICATION_MODAL);
+                    stage.initOwner(this.btCriarContrato.getScene().getWindow());
+                    stage.showAndWait();
+                }else{
+                    FXMLLoader fxmlLoader = new FXMLLoader();
+                    fxmlLoader.setLocation(getClass().getResource("FXMLRecessionistaCriarContratos.fxml"));
+                    Scene scene = new Scene(fxmlLoader.load());
+                    Stage stage = new Stage();
+                    stage.setTitle("New Window");
+                    stage.setScene(scene);
+                    FXMLRecessionistaCriarContratosController controller= fxmlLoader.getController();
+                    controller.setUtente(this.selectedUtente);
+                    stage.initModality(Modality.APPLICATION_MODAL);
+                    stage.initOwner(this.btCriarContrato.getScene().getWindow());
+                    stage.showAndWait();
+                }
            }else{
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("FXMLRecessionistaCriarUtente.fxml"));
                 Scene scene = new Scene(fxmlLoader.load());
                 Stage stage = new Stage();
-                stage.setTitle("New Window");
+                stage.setTitle("Criar Novo Utente");
                 stage.setScene(scene);
                 stage.initModality(Modality.APPLICATION_MODAL);
                 stage.initOwner(this.btCriarContrato.getScene().getWindow());
@@ -195,6 +183,9 @@ public class FXMLAdministradorUtenteController implements Initializable {
         catch (IOException e) {
             e.printStackTrace();
         }
+        this.utenteObservableList.clear();
+        this.initialize(null, null);
+        this.clearFields();
     }
     
     @FXML 
@@ -206,10 +197,10 @@ public class FXMLAdministradorUtenteController implements Initializable {
                 fxmlLoader.setLocation(getClass().getResource("FXMLRecessionistaPagamentos.fxml"));
                 Scene scene = new Scene(fxmlLoader.load());
                 Stage stage = new Stage();
-                stage.setTitle("New Window");
+                stage.setTitle("Receber Pagamento");
                 stage.setScene(scene);
                 FXMLRecessionistaPagamentosController controller= fxmlLoader.getController();
-                //controller.setUtente(this.selectedUtente);
+                controller.setContrato(this.selectedContrato);
                 stage.initModality(Modality.APPLICATION_MODAL);
                 stage.initOwner(this.btPagamento.getScene().getWindow());
                 stage.showAndWait();
@@ -232,7 +223,7 @@ public class FXMLAdministradorUtenteController implements Initializable {
             SimpleStringProperty mensalidade=null;
             ObservableValue<String>ov=null;
             if(!utente.getContratos().isEmpty()){
-                Contrato contrato=utente.getContratoAtivo();
+                Contrato contrato=UtenteService.getContratoAtivo(utente);
                 if(contrato!=null){
                     mensalidade= new SimpleStringProperty(contrato.getValormensalidade().toString());
                     ov = mensalidade;
@@ -248,7 +239,7 @@ public class FXMLAdministradorUtenteController implements Initializable {
             SimpleStringProperty ativo=null;
             ObservableValue<String>ov=null;
             if(!utente.getContratos().isEmpty()){
-                Contrato contrato=utente.getContratoAtivo();
+                Contrato contrato=UtenteService.getContratoAtivo(utente);
                 if(contrato!=null){
                     if(contrato.getAtivo()=='1'){
                         ativo= new SimpleStringProperty("Ativo");
@@ -272,19 +263,24 @@ public class FXMLAdministradorUtenteController implements Initializable {
         this.tbUtente.setItems(this.utenteObservableListFiltro);
         this.tbUtente.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             this.selectedUtente=newValue;
-            showUtente(newValue);
+            if(this.selectedUtente!=null){
+                showUtente(newValue);
+            }
         });
     }
     
     private void showUtente(Utente utente){
         if(this.selectedUtente!=null){
             if(!this.selectedUtente.getContratos().isEmpty()){
-                if(this.selectedUtente.getContratoAtivo()!=null){
-                    this.selectedContrato= this.selectedUtente.getContratoAtivo();
-                    this.btCriarContrato.setDisable(true);
+                if(UtenteService.getContratoAtivo(this.selectedUtente)!=null){
+                    this.selectedContrato= UtenteService.getContratoAtivo(this.selectedUtente);
+                    this.btCriarContrato.setText("Editar Contrato");
+                }else{
+                    this.btCriarContrato.setText("Criar Contrato");
+                    this.selectedContrato=null;
                 }
             }else{
-                this.btCriarContrato.setDisable(false);
+                this.btCriarContrato.setText("Criar Contrato");
                 this.selectedContrato=null;
             }
             this.txtCodPostal.textProperty().setValue(utente.getCodpostal());
@@ -292,7 +288,10 @@ public class FXMLAdministradorUtenteController implements Initializable {
             this.txtLocalidade.textProperty().setValue(utente.getLocalidade());
             this.txtMorada.textProperty().setValue(utente.getMorada());
         }else{
-            this.btCriarContrato.setDisable(false);
+            this.btCriarContrato.setText("Criar Utente");
+        }
+        if(this.pagamentoObservableList!=null){
+            this.pagamentoObservableList.clear();
         }
         if(this.selectedContrato!=null){
             this.colData.setCellValueFactory(new PropertyValueFactory<>("datapagamento"));
@@ -336,6 +335,7 @@ public class FXMLAdministradorUtenteController implements Initializable {
         this.tbUtente.getSelectionModel().clearSelection();
         this.tbPagamento.getSelectionModel().clearSelection();
         this.rbTodos.setSelected(true);
+        this.btCriarContrato.setText("Criar Utente");
         if(this.pagamentoObservableList!=null)
             this.pagamentoObservableList.clear();
     }

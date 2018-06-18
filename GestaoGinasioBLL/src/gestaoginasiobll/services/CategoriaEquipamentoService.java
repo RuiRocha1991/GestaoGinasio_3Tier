@@ -7,6 +7,7 @@ package gestaoginasiobll.services;
 
 import gestaoginasiohibernate.model.Categoriaequipamento;
 import hibernate.HibernateGenericLib;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -27,5 +28,15 @@ public class CategoriaEquipamentoService {
     public static void updateCategoria(Categoriaequipamento categoria, String descricao){
         categoria.setDesignacao(descricao);
         HibernateGenericLib.saveObject(categoria);
+    }
+    
+    public static List<Categoriaequipamento> getCategoriasFiltrada(List<Categoriaequipamento> lista, String nome){
+        List<Categoriaequipamento> listaFiltro= new ArrayList<>();
+        for(Categoriaequipamento cat : lista){
+                if(cat.getDesignacao().toLowerCase().contains(nome.toLowerCase())){
+                    listaFiltro.add(cat);
+                }
+            }
+        return listaFiltro;
     }
 }

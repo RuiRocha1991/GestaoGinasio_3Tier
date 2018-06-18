@@ -101,7 +101,7 @@ public class FXMLClientePlanoTreinoController implements Initializable {
     }
     
     private void preencheLista(){
-         List<Planotreino> listPlanoTreino= (List<Planotreino>) this.contrato.getPlanotreinos().stream().collect(Collectors.toList());
+        List<Planotreino> listPlanoTreino= (List<Planotreino>) this.contrato.getPlanotreinos().stream().collect(Collectors.toList());
         this.planoObservable=FXCollections.observableList(listPlanoTreino);
         this.fillFields();
     }

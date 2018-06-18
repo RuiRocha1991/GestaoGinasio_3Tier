@@ -8,13 +8,12 @@ package gestaoginasiofx.views;
 import gestaoginasiobll.exception.NumericException;
 import gestaoginasiobll.services.AvaliacaoFisicaService;
 import gestaoginasiobll.services.ColaboradorService;
+import gestaoginasiofx.Notificacao;
 import gestaoginasiohibernate.model.Avaliacaofisica;
 import gestaoginasiohibernate.model.Personaltrainer;
 import java.net.URL;
 import java.sql.Date;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -110,6 +109,7 @@ public class FXMLPersonalTrainerAvaliacaoFisicaController implements Initializab
                             , this.txtDCSI.getText(), this.txtDCTO.getText(), this.txtDCC.getText(), this.txtDCA.getText()
                             , this.txtDCPM.getText());
                     this.clearFields();
+                    Notificacao.successNotification("Avaliação Física", "Atualizada Avaliação Física.");
                 } catch (NumericException ex) {
                     ShowMessage.showError("Erro Inserir", "Altura inválida");
                 }

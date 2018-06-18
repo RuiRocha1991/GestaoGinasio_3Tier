@@ -34,4 +34,24 @@ public class EspacoService {
     public static void updateEspaco(Espaco esp){
         HibernateGenericLib.saveObject(esp);
     }
+    
+    public static Espaco createEspaco(String descricao, int espacoSelected ){
+        Espaco newEsp= new Espaco();
+        newEsp.setDescricao(descricao);
+        if(espacoSelected==0){
+            Espacocomum espCom = new Espacocomum();
+            espCom.setCodigo(newEsp.getCodigo());
+            espCom.setEspaco(newEsp);
+            newEsp.setEspacocomum(espCom);
+            EspacoService.createEspacoComum(newEsp, espCom);
+        }else{
+            Sala sala= new Sala();
+            sala.setCodigo(newEsp.getCodigo());
+            sala.setNumerovagas(Byte.valueOf("0"));
+            sala.setEspaco(newEsp);
+            newEsp.setSala(sala);
+            EspacoService.createSala(newEsp, sala);
+        }
+        return newEsp;
+    }
 }

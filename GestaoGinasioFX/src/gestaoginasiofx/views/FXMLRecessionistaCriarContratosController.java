@@ -5,6 +5,7 @@
  */
 package gestaoginasiofx.views;
 
+import gestaoginasiobll.services.ContratoService;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
@@ -14,6 +15,8 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import gestaoginasiofx.FillComboBox;
+import gestaoginasiofx.Notificacao;
+import gestaoginasiohibernate.model.Contrato;
 import gestaoginasiohibernate.model.Tipocontrato;
 import gestaoginasiohibernate.model.Utente;
 import java.io.IOException;
@@ -34,6 +37,7 @@ import javafx.stage.Stage;
 public class FXMLRecessionistaCriarContratosController implements Initializable {
     private Tipocontrato tipoContrato;
     private Utente utente;
+    private Contrato contrato;
     
     @FXML private Button btPagamento;
     @FXML private ComboBox cbTipoContrato;
@@ -63,7 +67,8 @@ public class FXMLRecessionistaCriarContratosController implements Initializable 
         });
         this.cbTipoContrato.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue)->{
             this.tipoContrato=(Tipocontrato) newValue;
-            this.txtMensalidade.textProperty().setValue(String.valueOf(this.tipoContrato.getValor()));
+            if(this.tipoContrato!=null)
+                this.txtMensalidade.textProperty().setValue(String.valueOf(this.tipoContrato.getValor()));
         });
     }    
 
@@ -87,15 +92,19 @@ public class FXMLRecessionistaCriarContratosController implements Initializable 
     private void OpenWindowPagamento(ActionEvent event) {
         Parent root;
         try {
-           if(this.utente!=null ){
+            if(this.tipoContrato!=null){
+               this.contrato= ContratoService.createContrato(this.utente, this.tipoContrato);
+               Notificacao.successNotification("Criar Contrato", "Criado com sucesso");
+            }
+           if(this.contrato!=null ){
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("FXMLRecessionistaPagamentos.fxml"));
                 Scene scene = new Scene(fxmlLoader.load());
                 Stage stage = new Stage();
-                stage.setTitle("New Window");
+                stage.setTitle("Receber Pagamento");
                 stage.setScene(scene);
                 FXMLRecessionistaPagamentosController controller= fxmlLoader.getController();
-                //controller.setUtente(this.selectedUtente);
+                controller.setContrato(this.contrato);
                 stage.initModality(Modality.APPLICATION_MODAL);
                 stage.initOwner(this.btPagamento.getScene().getWindow());
                 stage.showAndWait();

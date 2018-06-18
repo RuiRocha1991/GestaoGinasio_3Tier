@@ -65,7 +65,7 @@ public class PersonalTrainerService {
         List<Aula> aulasGrupo=getAulasGrupoData(pt.getProfessor(),date);
         List<Aulaindividual> aulasIndividuais=getAulasIndividualData(pt ,date);
         List<Avaliacaofisica> avaliacoes=getAvaliacaoFisicasData(pt,date);
-        for(int i=8; i<21; i++){
+        for(int i=7; i<21; i++){
             boolean exist =false;
             for(Aula aula: aulasGrupo){
                 if(LocalTime.of(i, 00).toString().equals(aula.getHora())){

@@ -37,6 +37,7 @@ import gestaoginasiohibernate.model.Personaltrainer;
 import projetogestaoginasio.ShowMessage;
 import gestaoginasiobll.services.AvaliacaoFisicaService;
 import gestaoginasiobll.services.PersonalTrainerService;
+import gestaoginasiofx.Notificacao;
 
 
 /**
@@ -74,7 +75,7 @@ public class FXMLClienteAvaliacaoFisicaNovaController implements  Initializable 
 
     private void showPersonalTrainer(LocalDate date){
         if(this.personalTrainer!=null){
-            List<LocalTime> listaHoras=new ArrayList<>();
+            List<LocalTime> listaHoras;
             listaHoras=PersonalTrainerService.getHorasDisponiveisDia(this.personalTrainer,date);
             this.horasObservableList=FXCollections.observableList(listaHoras);
             this.lvHorasLivres.setItems(this.horasObservableList);
@@ -133,16 +134,8 @@ public class FXMLClienteAvaliacaoFisicaNovaController implements  Initializable 
     private void addAvaliacaoFisica(ActionEvent event){
         if(ShowMessage.showConfirmation("Pedir nova avaliação física", "Tem a certeza que quer agendar uma nova avaliação física?")){
             if(this.data!=null && !this.txtDescricao.getText().equals("")&& this.hora!=null){
-                Avaliacaofisica avali = new Avaliacaofisica();
-                avali.setCod(6);
-                avali.setPersonaltrainer(this.personalTrainer);
-                avali.setContrato(this.contrato);
-                avali.setData(Date.valueOf(this.data));
-                avali.setHora(this.hora.toString());
-                avali.setDescricao(this.txtDescricao.getText());
-                this.personalTrainer.getAvaliacaofisicas().add(avali);
-                this.contrato.getAvaliacaofisicas().add(avali);
-                AvaliacaoFisicaService.createAvaliacaoFisica(avali);
+                AvaliacaoFisicaService.createAvaliacaoFisica(this.personalTrainer, this.contrato, this.dpDate.getValue(), this.hora, this.txtDescricao.getText());
+                Notificacao.successNotification("Pedido Avaliação Física", "Pedido realizado com sucesso.");
                 this.comeBackInicial(event);
             }else{
                 if(this.data==null){

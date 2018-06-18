@@ -5,13 +5,11 @@
  */
 package gestaoginasiofx.views;
 
-import com.sun.webkit.ContextMenu;
 import gestaoginasiofx.FillListView;
 import gestaoginasiofx.Toast;
 import gestaoginasiohibernate.model.Categoriaequipamento;
 import gestaoginasiohibernate.model.Equipamento;
 import gestaoginasiohibernate.model.Espaco;
-import gestaoginasiohibernate.model.Notaavaria;
 import java.net.URL;
 import java.sql.Date;
 import java.time.LocalDate;
@@ -38,7 +36,7 @@ import javafx.stage.Stage;
 import projetogestaoginasio.ShowMessage;
 import gestaoginasiobll.services.EquipamentoService;
 import gestaoginasiobll.services.NotaAvariaService;
-import sun.plugin2.message.ShowDocumentMessage;
+import gestaoginasiofx.Notificacao;
 
 /**
  * FXML Controller class
@@ -180,14 +178,13 @@ public class FXMLInstrutorNotasAvariasController implements Initializable {
     
     @FXML
     private void saveNotaAvaria(ActionEvent event){
-         Stage stage =(Stage) ((Node)event.getSource()).getScene().getWindow();
         if(this.equipamentoSelected!=null){
             if(ShowMessage.showConfirmation("Criar nota avaria", "Tem a certeza que pretende criar uma nota de avaria para o equipamento selecionado?")){
                 if(this.txtDescricao.getText().length()>0){
                     NotaAvariaService.createNotaAvaria(this.equipamentoSelected, Date.valueOf(this.dpDate.getValue()),
                                                         this.txtDescricao.getText());
                     this.equipamentoObservableList.set(this.equipamentoObservableList.indexOf(this.equipamentoSelected), this.equipamentoSelected);
-                    Toast.makeText(stage, "Teste", 3500, 500, 500);
+                    Notificacao.successNotification("Nota de Avaria", "Adicionada nota de avaria com sucesso");
                     this.limparSelecao();
                 }
             }else{

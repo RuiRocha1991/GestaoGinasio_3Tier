@@ -44,6 +44,8 @@ import projetogestaoginasio.ShowMessage;
 import gestaoginasiobll.services.AulaService;
 import gestaoginasiobll.services.ContratoService;
 import gestaoginasiobll.services.InscricaoService;
+import gestaoginasiobll.services.UtenteService;
+import gestaoginasiofx.Notificacao;
 
 
 /**
@@ -62,6 +64,8 @@ public class FXMLClienteInscreverAulaGrupoController implements Initializable {
     private ObservableList<Aula> observableListAulasFiltro;
     
     
+    @FXML private Button btPrevious;
+    @FXML private Button btNext;
     @FXML private Button btLimpaSelecao;
     @FXML private Button btCancelar;
     @FXML private Button btInscrever;
@@ -112,7 +116,7 @@ public class FXMLClienteInscreverAulaGrupoController implements Initializable {
     
     public void setUtente(Utente utente) {
         this.utente = utente;
-        this.contrato=utente.getContratoAtivo();
+        this.contrato=UtenteService.getContratoAtivo(utente);
     }
     
     @FXML
@@ -156,7 +160,6 @@ public class FXMLClienteInscreverAulaGrupoController implements Initializable {
             ov=new SimpleStringProperty(String.valueOf(vagas));
             return ov;
         });
-        //List aulasList= HibernateGenericLib.executeHQLQueryGetAulas();
         List aulasList= AulaService.getAllAulasToDate();
         this.observableListAulas=FXCollections.observableArrayList(aulasList);
         this.observableListAulasFiltro=FXCollections.observableArrayList(aulasList);
@@ -175,24 +178,20 @@ public class FXMLClienteInscreverAulaGrupoController implements Initializable {
                 if(a.getData().toString().equals(this.dataSelected.toString())){
                     if(this.salaSelected!=null && this.tipoAulaSelected!=null){
                         if(a.getSala().equals(this.salaSelected) && a.getTipoaula().equals(this.tipoAulaSelected)){
-                            //this.observableListAulasFiltro.add(a);
                             lista.add(a);
                         }
                     }else{
                         if(this.salaSelected!=null){
                             if(a.getSala().equals(this.salaSelected)){
-                               // this.observableListAulasFiltro.add(a);
                                lista.add(a);
                             }
                         }
                         if(this.tipoAulaSelected!=null){
                             if(this.tipoAulaSelected.equals(a.getTipoaula())){
-                                //this.observableListAulasFiltro.add(a);
                                 lista.add(a);
                             }
                         }
                         if(this.salaSelected==null && this.tipoAulaSelected==null){
-                            //this.observableListAulasFiltro.add(a);
                             lista.add(a);
                         }
                     }
@@ -243,18 +242,8 @@ public class FXMLClienteInscreverAulaGrupoController implements Initializable {
             if(this.aulaSelected.getInscritos()<this.aulaSelected.getSala().getNumerovagas()){
                 if(ShowMessage.showConfirmation("Inscrever na aula", "Tem a certeza que se quer inscrever na aula Selecionada?")){
                     if(!ContratoService.verificarInscricao(this.contrato.getInscricaos(),this.aulaSelected)){
-                        Inscricao insc= new Inscricao();
-                        InscricaoId id = new InscricaoId();
-                        id.setAula(this.aulaSelected.getCodigo());
-                        id.setUtente(this.contrato.getIdcontrato());
-                        insc.setData(Date.from(Instant.now()));
-                        insc.setId(id);
-                        insc.setAula(this.aulaSelected);
-                        insc.setContrato(this.contrato);
-                        this.aulaSelected.setInscritos((byte) (this.aulaSelected.getInscritos()+1));
-                        this.aulaSelected.getInscricaos().add(insc);
-                        this.contrato.getInscricaos().add(insc);
-                        InscricaoService.createInscricao(insc);
+                        InscricaoService.createInscricao(this.aulaSelected, this.contrato);
+                        Notificacao.successNotification("Inscrever Aula Grupo", "Inscrição com sucesso.");
                         this.comeBackInicial(event);
                     }else{
                         ShowMessage.showError("Erro na Inscrição!", "Já se encontra Registado na aula selecionada.");
@@ -267,6 +256,20 @@ public class FXMLClienteInscreverAulaGrupoController implements Initializable {
             }
         }else{
             ShowMessage.showError("Inscrever na aula", "Para se inscrever tem de ter uma aula selecionada.");
+        }
+    }
+    
+    @FXML
+    private void nextOrPreviousDay(ActionEvent event) throws IOException{
+        switch(((Button)event.getSource()).getId()){
+            case "btPrevious":
+                this.dpDate.setValue(this.dpDate.getValue().plusDays(-1));
+               this.filtrarListObservable();
+                break;
+            case "btNext":
+                this.dpDate.setValue(this.dpDate.getValue().plusDays(1));
+               this.filtrarListObservable();
+               break;
         }
     }
     

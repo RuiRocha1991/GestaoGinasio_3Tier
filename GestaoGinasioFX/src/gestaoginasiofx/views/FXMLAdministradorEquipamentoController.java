@@ -139,12 +139,7 @@ public class FXMLAdministradorEquipamentoController implements Initializable {
             ObservableValue<String>ov=null;
             int tot=0;
             if(equip.getNotaavarias()!=null && equip.getNotaavarias().size()>0){
-                for(Notaavaria nota:(Set<Notaavaria>) equip.getNotaavarias()){
-                    if(nota.getValor()!=null){
-                        int valor=nota.getValor().intValue();
-                        tot= tot+valor;
-                    }
-                }
+                tot=EquipamentoService.getTotalDespesasEquipamento(equip);
             }
             total= new SimpleStringProperty(String.valueOf(tot)+"€");
             ov = total;
@@ -185,7 +180,6 @@ public class FXMLAdministradorEquipamentoController implements Initializable {
         });
         List<Notaavaria> listNotaAvaria= NotaAvariaService.getAllNotasAvaria();
         this.notasAvariaObservableList=FXCollections.observableArrayList(listNotaAvaria);
-        
         this.notasAvariaObservableListFiltro=FXCollections.observableArrayList(listNotaAvaria);
         this.filtrarTableEquipamento();
         this.filtrarTableNotaAvaria();
@@ -208,7 +202,6 @@ public class FXMLAdministradorEquipamentoController implements Initializable {
     
     private void filtrarTableEquipamento(){
         this.equipamentoObservableListFiltro.clear();
-        //this.notasAvariaObservableListFiltro.clear();
         if(this.selectedCategoria==null && this.selectedEspaco==null){
            this.equipamentoObservableListFiltro.setAll(this.equipamentoObservableList);
         }else{

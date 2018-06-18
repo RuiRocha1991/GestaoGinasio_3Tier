@@ -32,6 +32,7 @@ import gestaoginasiobll.exception.FieldsEmptyException;
 import gestaoginasiobll.exception.NumericException;
 import gestaoginasiobll.exception.PassInvalidaException;
 import gestaoginasiobll.exception.PasswordInvalidException;
+import gestaoginasiofx.Notificacao;
 
 
 /**
@@ -121,11 +122,13 @@ public class FXMLClienteEditarDadosController implements Initializable {
                     if(!this.txtNovaSenha.getText().equals("")|| !this.txtConfirmaSenha.getText().equals("")){
                         if(this.txtNovaSenha.getText().equals(this.txtConfirmaSenha.getText())){
                             UtenteService.updateDataAll(this.contrato.getUtente(),this.txtCodPostal.getText(),this.txtMorada.getText(), this.txtLocalidade.getText(), this.txtEmail.getText(), this.txtTelefone.getText(), Date.valueOf(this.dtData.getValue()), this.txtNovaSenha.getText());
+                            Notificacao.successNotification("Editar Dados", "Senha atualizada com sucesso.");
                         }else{
                             throw new PasswordInvalidException();
                         }
                     }else{
                         UtenteService.updateData(this.contrato.getUtente(),this.txtCodPostal.getText(),this.txtMorada.getText(), this.txtLocalidade.getText(), this.txtEmail.getText(), this.txtTelefone.getText(), Date.valueOf(this.dtData.getValue()));
+                        Notificacao.successNotification("Editar Dados", "Dados atualizados com sucesso");
                     }
                 }else{
                     this.checkFieldsEmpty();

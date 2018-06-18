@@ -39,6 +39,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import projetogestaoginasio.ShowMessage;
 import gestaoginasiobll.services.AulaService;
+import gestaoginasiofx.Notificacao;
+import javafx.stage.Modality;
 
 
 /**
@@ -129,12 +131,14 @@ public class FXMLAdministradorAulasGrupoController implements Initializable {
             if(this.selectedAula==null){
                 if(ShowMessage.showConfirmation("Confirmação para inserir", "Tem a certeza que pretende inserir?")){
                     this.addAula();
+                    Notificacao.successNotification("Aulas de Grupo", "Adicionada nova aula com sucesso.");
                 }else{
                     return;
                 }
             }else{
                 if(ShowMessage.showConfirmation("Confirmação para atualizar", "Tem a certeza que pretende atualizar a aula?")){
                     this.updateAula();
+                    Notificacao.successNotification("Aulas de Grupo", "Atualizada aula com sucesso.");
                 }else{
                     return;
                 }
@@ -149,7 +153,6 @@ public class FXMLAdministradorAulasGrupoController implements Initializable {
     private void addAula(){
         Date date = java.sql.Date.valueOf(this.dpDate.getValue());
         LocalDate localDate=this.dpDate.getValue();
-        Date dataAula=date;
         String descricaoAula=this.txtDescricao.textProperty().getValue();
         int duracaoHoras=(int)this.spDuracaoHoras.getValue();
         String horaAula=(String)this.cbHoras.getValue().toString();
@@ -162,7 +165,6 @@ public class FXMLAdministradorAulasGrupoController implements Initializable {
     }    
     private void updateAula(){
         Date date = java.sql.Date.valueOf(this.dpDate.getValue());
-        LocalDate localDate=this.dpDate.getValue();
         this.selectedAula.setData(date);
         this.selectedAula.setDescricao(this.txtDescricao.textProperty().getValue());
         this.selectedAula.setDuracao((int)this.spDuracaoHoras.getValue());
@@ -182,6 +184,7 @@ public class FXMLAdministradorAulasGrupoController implements Initializable {
                         LocalTime.parse(this.selectedAula.getHora()).isAfter(LocalTime.now())){
                     this.observableListAulas.remove(this.selectedAula);    
                     AulaService.deleteAula(selectedAula);
+                    Notificacao.successNotification("Aulas de Grupo", "Removida aula com sucesso.");
                     this.filtrarListObservable();
                     this.limparSelecao();
                 }else{
@@ -324,12 +327,14 @@ public class FXMLAdministradorAulasGrupoController implements Initializable {
             
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(getClass().getResource("FXMLRecessionistaTipodeAulas.fxml"));
-
             Scene scene = new Scene(fxmlLoader.load());
             Stage stage = new Stage();
-            stage.setTitle("New Window");
+            stage.setTitle("Gerir Tipo Aulas");
             stage.setScene(scene);
-            stage.show();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initOwner(this.btGerirTipoAula.getScene().getWindow());
+            stage.showAndWait();
+            this.initialize(null, null);
         }
         catch (IOException e) {
             e.printStackTrace();

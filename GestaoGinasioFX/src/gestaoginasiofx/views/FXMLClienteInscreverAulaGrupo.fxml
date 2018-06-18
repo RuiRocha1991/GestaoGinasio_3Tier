@@ -33,13 +33,15 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <DatePicker fx:id="dpDate" layoutX="328.0" layoutY="42.0" onAction="#filtrarListObservable" prefHeight="25.0" prefWidth="148.0" />
-            <Label layoutX="328.0" layoutY="11.0" prefHeight="20.0" prefWidth="148.0" style="-fx-background-color: #bdbdbd;" text="Data" textAlignment="CENTER">
+            <DatePicker fx:id="dpDate" layoutX="350.0" layoutY="42.0" onAction="#filtrarListObservable" prefHeight="25.0" prefWidth="148.0" />
+            <Label layoutX="328.0" layoutY="11.0" prefHeight="20.0" prefWidth="195.0" style="-fx-background-color: #bdbdbd;" text="Data" textAlignment="CENTER">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Button fx:id="btLimpaSelecao" layoutX="328.0" layoutY="81.0" mnemonicParsing="false" onAction="#limpaSelecao" prefHeight="25.0" prefWidth="148.0" text="Limpar Seleção" />
+            <Button fx:id="btLimpaSelecao" layoutX="328.0" layoutY="134.0" mnemonicParsing="false" onAction="#limpaSelecao" prefHeight="25.0" prefWidth="148.0" text="Limpar Seleção" />
+            <Button fx:id="btNext" layoutX="497.0" layoutY="42.0" mnemonicParsing="false" onAction="#nextOrPreviousDay" text="&gt;" />
+            <Button fx:id="btPrevious" layoutX="328.0" layoutY="42.0" mnemonicParsing="false" onAction="#nextOrPreviousDay" text="&lt;" />
          </children>
       </Pane>
       <TableView fx:id="tbAulas" layoutX="13.0" layoutY="290.0" prefHeight="200.0" prefWidth="724.0">

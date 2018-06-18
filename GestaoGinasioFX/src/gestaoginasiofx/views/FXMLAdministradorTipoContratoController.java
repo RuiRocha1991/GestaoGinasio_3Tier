@@ -27,6 +27,7 @@ import gestaoginasiobll.ValidarStrings;
 import gestaoginasiobll.services.TipoContratoService;
 import gestaoginasiobll.exception.FieldsEmptyException;
 import gestaoginasiobll.exception.NumericException;
+import gestaoginasiofx.Notificacao;
 
 
 /**
@@ -99,12 +100,14 @@ public class FXMLAdministradorTipoContratoController implements Initializable {
                 if(this.tipoContratoSelected==null){
                     if(ShowMessage.showConfirmation("Criar novo Contrato", "Tem a certeza que pretende criar novo Tipo Contrato?")){
                         createTipoContrato();
+                        Notificacao.successNotification("Tipo Contrato", "Criado novo Tipo Contrato");
                     }else{
                         return;
                     }
                 }else{
                     if(ShowMessage.showConfirmation("Atualizar Contrato", "Tem a certeza que pretende atualizar Tipo Contrato?")){
                         updateDataTipoContrato();
+                        Notificacao.successNotification("Tipo Contrato", "Atualizado Tipo Contrato");
                     }else{
                         return;
                     }

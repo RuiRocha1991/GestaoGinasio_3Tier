@@ -51,6 +51,12 @@ public class FXMLAdministradorController implements Initializable {
       
     }      
     
+     private void initializePane(){
+        if(this.colaborador.getTipofuncionario().equals("RECECIONISTA")){
+            this.btFuncionario.setVisible(false);
+        }
+    }
+    
    public static Colaborador getCt(){
         return FXMLAdministradorController.COLABORADOR;
     }
@@ -58,8 +64,9 @@ public class FXMLAdministradorController implements Initializable {
     public void setColaborador(Colaborador colaborador){
         this.colaborador= colaborador;
         this.COLABORADOR=this.colaborador;
-        this.txtNome.setText("Administrador: "+this.colaborador.getNome());
+        this.txtNome.setText(this.colaborador.getTipofuncionario()+": "+this.colaborador.getNome());
         this.txtMenu.setText("Menu: Utentes");
+        this.initializePane();
     }
 
     public Colaborador getColaborador(){

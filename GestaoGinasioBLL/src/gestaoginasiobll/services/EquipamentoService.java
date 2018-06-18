@@ -10,7 +10,9 @@ import java.util.List;
 import gestaoginasiohibernate.model.Categoriaequipamento;
 import gestaoginasiohibernate.model.Equipamento;
 import gestaoginasiohibernate.model.Espaco;
+import gestaoginasiohibernate.model.Notaavaria;
 import java.util.ArrayList;
+import java.util.Set;
 
 /**
  *
@@ -43,7 +45,7 @@ public class EquipamentoService {
     }
     
     public static Equipamento createEquipamento( Espaco espaco, Categoriaequipamento categoriaequipamento, String descricao, char ativo){
-        Equipamento equipamento= new Equipamento(espaco,categoriaequipamento ,descricao,ativo);
+        Equipamento equipamento= new Equipamento(0,espaco,categoriaequipamento ,descricao,ativo);
         espaco.getEquipamentos().add(equipamento);
         categoriaequipamento.getEquipamentos().add(equipamento);
         HibernateGenericLib.saveObject(equipamento);
@@ -57,6 +59,17 @@ public class EquipamentoService {
         equipamento.setAtivo(ativo);
         HibernateGenericLib.saveObject(equipamento);
         return equipamento;
+    }
+    
+    public static int getTotalDespesasEquipamento(Equipamento equipamento){
+        int tot=0;
+        for(Notaavaria nota:(Set<Notaavaria>) equipamento.getNotaavarias()){
+            if(nota.getValor()!=null){
+                int valor=nota.getValor().intValue();
+                tot= tot+valor;
+            }
+        }
+        return tot;
     }
     
 }

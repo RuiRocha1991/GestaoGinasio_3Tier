@@ -27,6 +27,7 @@ import gestaoginasiohibernate.model.Espacocomum;
 import gestaoginasiohibernate.model.Sala;
 import projetogestaoginasio.ShowMessage;
 import gestaoginasiobll.services.EspacoService;
+import gestaoginasiofx.Notificacao;
 
 
 /**
@@ -79,8 +80,6 @@ public class FXMLAdministradorEspacoController implements Initializable {
             return ov;
         });
         this.colAtivo.setCellValueFactory(new PropertyValueFactory<>("ativo"));
-        
-        
     }
     
     private void initializeTableEspacos(){
@@ -144,12 +143,14 @@ public class FXMLAdministradorEspacoController implements Initializable {
             if(this.selectedEspaco==null){
                 if(ShowMessage.showConfirmation("Inserir Novo Espaço", "Tem a certeza que pretende criar um espaço novo?")){
                     this.createEspaco();
+                    Notificacao.successNotification("Espaço", "Espaço criado com sucesso");
                 }else{
                     return;
                 }
             }else{
                 if(ShowMessage.showConfirmation("Atualizar Espaço", "Tem a certeza que pretende atualizar o espaço?")){
                     this.updateEspaco();
+                    Notificacao.successNotification("Espaço", "Espaço atualizado com sucesso");
                 }else{
                     return;
                 }
@@ -165,22 +166,7 @@ public class FXMLAdministradorEspacoController implements Initializable {
     }
     
     private void createEspaco(){
-        Espaco newEsp= new Espaco();
-        newEsp.setDescricao(this.txtDescricao.getText());
-        if(this.cbTipoEspaco.getSelectionModel().isSelected(0)){
-            Espacocomum espCom = new Espacocomum();
-            espCom.setCodigo(newEsp.getCodigo());
-            espCom.setEspaco(newEsp);
-            newEsp.setEspacocomum(espCom);
-            EspacoService.createEspacoComum(newEsp, espCom);
-        }else{
-            Sala sala= new Sala();
-            sala.setCodigo(newEsp.getCodigo());
-            sala.setNumerovagas(Byte.valueOf("0"));
-            sala.setEspaco(newEsp);
-            newEsp.setSala(sala);
-            EspacoService.createSala(newEsp, sala);
-        }
+        Espaco newEsp= EspacoService.createEspaco(this.txtDescricao.getText(), this.cbTipoEspaco.getVisibleRowCount());
         this.observableListEspacos.add(newEsp);
         this.clearField();
     }

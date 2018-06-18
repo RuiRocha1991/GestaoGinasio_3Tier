@@ -11,7 +11,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="650.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestaoginasiofx.views.FXMLClienteEditarDadosController">
    <children>
-      <Label layoutX="211.0" layoutY="10.0" text="Menu Cliente :">
+      <Label layoutX="211.0" layoutY="10.0" text="Menu Utente :">
          <font>
             <Font size="18.0" />
          </font>

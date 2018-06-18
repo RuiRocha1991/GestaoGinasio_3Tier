@@ -80,4 +80,28 @@ public class ColaboradorService {
         return lista;
     }
     
+    public static boolean verificaUtilizador(String utilizador, List<Colaborador> lista){
+        String user=utilizador.toLowerCase();
+        for(Colaborador c:lista){
+            if(user.equals(c.getUtilizador().toLowerCase())){
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public static List<Colaborador> getListaColaboradorFiltro(List<Colaborador> listaColaborador, String pesquisa){
+        List<Colaborador> lista= new ArrayList<>();
+        String procura=pesquisa.toLowerCase();
+        for(Colaborador c: listaColaborador){
+            String nomeLista= c.getNome().toLowerCase();
+            String userLista= c.getUtilizador().toLowerCase();
+            String tipoFuncLista=c.getTipofuncionario().toLowerCase();
+            if(nomeLista.contains(procura) ||userLista.contains(procura)||tipoFuncLista.contains(procura) ){
+                lista.add(c);
+            }
+        }
+        return lista;
+    }
+    
 }

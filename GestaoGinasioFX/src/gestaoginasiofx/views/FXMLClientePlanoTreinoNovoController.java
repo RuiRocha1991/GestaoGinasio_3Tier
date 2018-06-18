@@ -27,6 +27,7 @@ import gestaoginasiohibernate.model.Personaltrainer;
 import gestaoginasiohibernate.model.Planotreino;
 import projetogestaoginasio.ShowMessage;
 import gestaoginasiobll.services.PlanoTreinoService;
+import gestaoginasiofx.Notificacao;
 
 
 /**
@@ -87,14 +88,8 @@ public class FXMLClientePlanoTreinoNovoController implements Initializable {
     private void addNewPlanoTreino(ActionEvent event){
         if(ShowMessage.showConfirmation("Confirmação para inserir", "Tem a certeza que pretende pedir novo plano treino?")){
             if(this.personalTrainer!=null && this.txtDescricao.getText().length()>0){
-                Planotreino newpt= new Planotreino();
-                newpt.setContrato(this.contrato);
-                newpt.setData(Date.valueOf(LocalDate.now().toString()));
-                newpt.setPersonaltrainer(this.personalTrainer);
-                newpt.setDescricao(this.txtDescricao.getText());
-                this.personalTrainer.getPlanotreinos().add(newpt);
-                this.contrato.getPlanotreinos().add(newpt);
-                PlanoTreinoService.createPlanoTreino(newpt);
+                PlanoTreinoService.createPlanoTreino(this.contrato,this.personalTrainer,this.txtDescricao.getText());
+                Notificacao.successNotification("Plano Treino", "Plano Treino Criado com sucesso");
                 this.cleanFills();
                 this.comeBackInicial(event);
             }else{

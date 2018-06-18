@@ -5,10 +5,13 @@
  */
 package gestaoginasiobll.services;
 
+import gestaoginasiobll.ConvertType;
+import gestaoginasiobll.exception.NumericException;
 import gestaoginasiohibernate.model.Equipamento;
 import hibernate.HibernateGenericLib;
 import java.util.List;
 import gestaoginasiohibernate.model.Notaavaria;
+import java.time.LocalDate;
 import java.util.Date;
 
 /**
@@ -30,5 +33,15 @@ public class NotaAvariaService {
         equipamento.setAtivo('0');
         equipamento.getNotaavarias().add(nota);
         HibernateGenericLib.saveObject(nota);
+    }
+    
+    public static Notaavaria updateNotaAvaria(Notaavaria nota, LocalDate dataResolucao, String valor, String obs) throws NumericException{
+        nota.setDataresolusao(java.sql.Date.valueOf(dataResolucao));
+        nota.setValor(ConvertType.stringToBigDecimal(valor));
+        nota.setObservacoes(obs);
+        nota.setEstado('0');
+        HibernateGenericLib.saveObject(nota);
+        nota.getEquipamento().setAtivo('1');
+        return nota;
     }
 }

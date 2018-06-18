@@ -5,20 +5,16 @@
  */
 package gestaoginasiofx.views;
 
-import gestaoginasiobll.AulaContrato;
 import gestaoginasiobll.AulaProfessor;
 import gestaoginasiobll.services.AulaIndividualService;
-import gestaoginasiobll.services.ContratoService;
 import gestaoginasiobll.services.ProfessorService;
+import gestaoginasiofx.Notificacao;
 import gestaoginasiohibernate.model.Colaborador;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Date;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.List;
 import java.util.ResourceBundle;
-import java.util.Set;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -80,7 +76,6 @@ public class FXMLInstrutorHorarioController implements Initializable {
         }else{
             this.btCancelarAula.setDisable(true);
         }
-            
         this.dpDate.setValue(LocalDate.now());
         this.initializeTable();
     }  
@@ -127,7 +122,6 @@ public class FXMLInstrutorHorarioController implements Initializable {
                this.filtrarTable();
                break;
         }
-    
     }
     
     @FXML 
@@ -145,6 +139,7 @@ public class FXMLInstrutorHorarioController implements Initializable {
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.initOwner(this.btCriarAula.getScene().getWindow());
             stage.showAndWait();
+            Notificacao.successNotification("Aula Individual", "Criada aula individual");
             this.initialize(null, null);
         }
         catch (IOException e) {
@@ -155,6 +150,7 @@ public class FXMLInstrutorHorarioController implements Initializable {
     @FXML
     private void cancelAulaIndividual(){
         AulaIndividualService.deleteAulaIndividual(this.aulaSelected);
+        Notificacao.successNotification("Cancelar Aula Individual", "Cancelada com sucesso.");
         this.aulasFiltradasObservableList.remove(this.aulaSelected);
         this.aulaSelected=null;
         this.btCancelarAula.setDisable(true);

@@ -10,6 +10,7 @@ import gestaoginasiobll.exception.NumericException;
 import gestaoginasiobll.services.AulaIndividualService;
 import gestaoginasiobll.services.ContratoService;
 import gestaoginasiobll.services.ProfessorService;
+import gestaoginasiofx.Notificacao;
 import gestaoginasiohibernate.model.Contrato;
 import gestaoginasiohibernate.model.Personaltrainer;
 import java.io.IOException;
@@ -182,6 +183,7 @@ public class FXMLPersonalTrainerAulaIndividualController implements Initializabl
             if(this.contratoSelected!=null && this.timeSelected!=null){
                 try{
                     AulaIndividualService.createAulaIndividual(this.contratoSelected, this.ptSelected, this.dateSelected, this.timeSelected, String.valueOf(this.valor), this.spDuracao.getValue().toString());
+                    Notificacao.successNotification("Aula Individual", "Criada aula individual");
                     this.cleanFillds();
                 }catch(NumericException e){
                     ShowMessage.showError("Valor Inválido", "O campo valor não está correto");

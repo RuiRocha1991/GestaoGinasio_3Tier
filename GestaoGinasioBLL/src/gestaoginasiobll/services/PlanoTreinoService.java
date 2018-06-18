@@ -6,11 +6,13 @@
 package gestaoginasiobll.services;
 
 import gestaoginasiobll.exception.DiaExistenteException;
+import gestaoginasiohibernate.model.Contrato;
 import gestaoginasiohibernate.model.Linhaplanotreino;
 import gestaoginasiohibernate.model.Personaltrainer;
 import hibernate.HibernateGenericLib;
 import gestaoginasiohibernate.model.Planotreino;
-import java.util.List;
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.Set;
 
 /**
@@ -19,7 +21,14 @@ import java.util.Set;
  */
 public class PlanoTreinoService {
     
-    public static void createPlanoTreino(Planotreino newpt){
+    public static void createPlanoTreino(Contrato contrato, Personaltrainer personalTrainer, String descricao){
+        Planotreino newpt= new Planotreino();
+        newpt.setContrato(contrato);
+        newpt.setData(Date.valueOf(LocalDate.now().toString()));
+        newpt.setPersonaltrainer(personalTrainer);
+        newpt.setDescricao(descricao);
+        personalTrainer.getPlanotreinos().add(newpt);
+        contrato.getPlanotreinos().add(newpt);
         HibernateGenericLib.saveObject(newpt);
     }
     

@@ -37,6 +37,9 @@ import projetogestaoginasio.ShowMessage;
 import gestaoginasiobll.services.AulaIndividualService;
 import gestaoginasiobll.services.ContratoService;
 import gestaoginasiobll.services.InscricaoService;
+import gestaoginasiobll.services.UtenteService;
+import gestaoginasiofx.Notificacao;
+import java.util.Set;
 
 
 /**
@@ -47,7 +50,7 @@ import gestaoginasiobll.services.InscricaoService;
 public class FXMLClienteInicialController implements Initializable {
     private Utente utente;
     private Contrato contrato;
-    private ObservableList aulasOriginalObservableList; 
+    private List aulasList;
     private ObservableList aulasFiltradasObservableList; 
     private AulaContrato aulaSelected;
     @FXML private TextField txtUltimoPagamento;
@@ -94,7 +97,7 @@ public class FXMLClienteInicialController implements Initializable {
     
     public void setUtente(Utente utente){
         this.utente=utente;
-        this.setContrato(utente.getContratoAtivo());
+        this.setContrato(UtenteService.getContratoAtivo(utente));
         this.txtUltimoPagamento.textProperty().setValue(this.contrato.getMesultimopagamento()+" / "+this.contrato.getAnoultimopagamento());
         this.txtDataUltimoPagamento.textProperty().setValue(ContratoService.consultaDataUltimoPagamento(this.contrato));
         this.txtValorDivida.textProperty().setValue( ContratoService.calculaValorDivida(this.contrato)+"€");
@@ -103,9 +106,8 @@ public class FXMLClienteInicialController implements Initializable {
     }
     private void setContrato(Contrato contrato){
         this.contrato=contrato;
-        List <AulaContrato> aulas=ContratoService.getAulasContrato(contrato);
-        this.aulasOriginalObservableList=FXCollections.observableArrayList(aulas);
-        this.aulasFiltradasObservableList=FXCollections.observableArrayList(aulas);
+        this.aulasList=ContratoService.getAulasContrato(contrato);
+        this.aulasFiltradasObservableList=FXCollections.observableArrayList(this.aulasList);
         this.fillTableAulas();
         this.rbTodas.setSelected(true);
     }
@@ -219,14 +221,14 @@ public class FXMLClienteInicialController implements Initializable {
         if(selectedIndex!=-1){
             if(ShowMessage.showConfirmation("Eliminar Inscrição", "Tem a certeza que quer eliminar a inscrição?")){
                 if(this.aulaSelected.getTipoaula().equals("Individual")){
-                    Aulaindividual aula= ContratoService.getAulaIndividual(this.aulasOriginalObservableList,this.aulaSelected.getCodigo());
-                    AulaIndividualService.deleteAulaIndividual(aula);
+                    ContratoService.removeAulaIndividual(this.contrato.getAulaindividuals(),this.aulaSelected.getCodigo());
+                    Notificacao.successNotification("Aula Individual", "Cancelada Aula Individual.");
                 }else{
-                    Inscricao inc=ContratoService.getInscricao((List<Inscricao>) this.contrato.getInscricaos(),this.aulaSelected.getCodigo());
-                    InscricaoService.deleteInscricao(inc);
+                    ContratoService.removeInscricao(this.contrato.getInscricaos(),this.aulaSelected.getCodigo());
+                    Notificacao.successNotification("Aula de Grupo", "Cancelada Aula de Grupo.");
                 }
                 this.aulasFiltradasObservableList.remove(selectedIndex);
-                this.aulasOriginalObservableList.remove(this.aulaSelected);
+                this.aulasList.remove(this.aulaSelected);
                 this.clearFields();
                 this.aulaSelected=null;
             }else{
@@ -247,45 +249,35 @@ public class FXMLClienteInicialController implements Initializable {
     private void rbAnteriorSelected(){
         this.aulasFiltradasObservableList.clear();
         if(this.rbAnteriores.isSelected()){
-            for(Object o: this.aulasOriginalObservableList){
-                AulaContrato aula = (AulaContrato)o;
-                if(aula.getData().isBefore(LocalDate.now())||aula.getData().isEqual(LocalDate.now())&& aula.getHora().isBefore(LocalTime.now())){
-                    this.aulasFiltradasObservableList.add(o);
-                }
-            }
+            this.aulasFiltradasObservableList=FXCollections.observableArrayList(ContratoService.getAulaContratoAnterior(this.aulasList));
             this.fillTableAulas();
+            Notificacao.filtrosNotification("Aulas Selecionadas", "Selecionadas Aulas Anteriores.");
         }
-            
     }
+    
     @FXML 
     private void rbHojeSelected(){
         this.aulasFiltradasObservableList.clear();
         if(this.rbHoje.isSelected()){
-            for(Object o: this.aulasOriginalObservableList){
-                AulaContrato aula = (AulaContrato)o;
-                if(aula.getData().isEqual(LocalDate.now()) && aula.getHora().isAfter(LocalTime.now()) ){
-                    this.aulasFiltradasObservableList.add(o);
-                }
-            }
+            this.aulasFiltradasObservableList=FXCollections.observableArrayList(ContratoService.getAulaContratoHoje(this.aulasList));
             this.fillTableAulas();
+            Notificacao.filtrosNotification("Aulas Selecionadas", "Selecionadas Aulas de Hoje.");
         }
     }
     @FXML 
     private void rbProximasSelected(){
         this.aulasFiltradasObservableList.clear();
         if(this.rbProximas.isSelected()){
-            for(Object o: this.aulasOriginalObservableList){
-                AulaContrato aula = (AulaContrato)o;
-                if(aula.getData().isAfter(LocalDate.now())||aula.getData().isEqual(LocalDate.now())&& aula.getHora().isAfter(LocalTime.now()) ){
-                    this.aulasFiltradasObservableList.add(o);
-                }
-            }
+            this.aulasFiltradasObservableList=FXCollections.observableArrayList(ContratoService.getAulaContratoProximas(this.aulasList));
             this.fillTableAulas();
+            Notificacao.filtrosNotification("Aulas Selecionadas", "Selecionadas Próximas Aulas.");
         }
     }
     @FXML 
     private void rbTodasSelected(){
-        if(this.rbTodas.isSelected())
-            this.aulasFiltradasObservableList.setAll(this.aulasOriginalObservableList);
+        if(this.rbTodas.isSelected()){
+            this.aulasFiltradasObservableList=FXCollections.observableArrayList(this.aulasList);
+            Notificacao.filtrosNotification("Aulas Selecionadas", "Todas as Aulas Visiveis.");
+        }
     }
 }

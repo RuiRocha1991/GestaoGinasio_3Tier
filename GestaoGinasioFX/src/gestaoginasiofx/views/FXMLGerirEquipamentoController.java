@@ -29,6 +29,7 @@ import gestaoginasiohibernate.model.Equipamento;
 import gestaoginasiohibernate.model.Espaco;
 import projetogestaoginasio.ShowMessage;
 import gestaoginasiobll.services.EquipamentoService;
+import gestaoginasiofx.Notificacao;
 import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -131,6 +132,7 @@ public class FXMLGerirEquipamentoController implements Initializable {
                     Equipamento equip=EquipamentoService.createEquipamento(this.espacoSelected, this.categoriaSelected, this.txtDescricao.getText(), (this.ckAtivo.isSelected()?'1':'0'));
                     this.listaEquip.add(equip);
                     this.equipamentoObservableList=FXCollections.observableArrayList(this.listaEquip);
+                    Notificacao.successNotification("Inserir equipamento", "Equipamento inserido com sucesso.");
                     this.setTable();
                     this.clearFields();
                }else{
@@ -142,6 +144,7 @@ public class FXMLGerirEquipamentoController implements Initializable {
            }
         }else{
             EquipamentoService.updateEquipamento(this.equipamento, this.espacoSelected, categoriaSelected, this.txtDescricao.getText(), (this.ckAtivo.isSelected()?'1':'0'));
+            Notificacao.successNotification("Atualizar Equipamento equipamento", "Equipamento atualizado com sucesso.");
             Stage stage = (Stage) this.btGravar.getScene().getWindow();
             // do what you have to do
             stage.close();

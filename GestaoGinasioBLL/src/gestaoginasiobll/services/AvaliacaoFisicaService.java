@@ -9,15 +9,27 @@ package gestaoginasiobll.services;
 import gestaoginasiobll.ConvertType;
 import gestaoginasiobll.exception.NumericException;
 import gestaoginasiohibernate.model.Avaliacaofisica;
+import gestaoginasiohibernate.model.Contrato;
+import gestaoginasiohibernate.model.Personaltrainer;
 import hibernate.HibernateGenericLib;
-import java.math.BigDecimal;
+import java.sql.Date;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 /**
  *
  * @author Rui
  */
 public class AvaliacaoFisicaService {
-    public static void createAvaliacaoFisica(Avaliacaofisica avaliacao){
+    public static void createAvaliacaoFisica(Personaltrainer personalTrainer, Contrato contrato, LocalDate date, LocalTime time, String descricao){
+        Avaliacaofisica avaliacao = new Avaliacaofisica();
+        avaliacao.setPersonaltrainer(personalTrainer);
+        avaliacao.setContrato(contrato);
+        avaliacao.setData(Date.valueOf(date));
+        avaliacao.setHora(time.toString());
+        avaliacao.setDescricao(descricao);
+        personalTrainer.getAvaliacaofisicas().add(avaliacao);
+        contrato.getAvaliacaofisicas().add(avaliacao);
         HibernateGenericLib.saveObject(avaliacao);
     }
         

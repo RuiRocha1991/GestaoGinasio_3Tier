@@ -5,7 +5,6 @@
  */
 package gestaoginasiofx.views;
 
-import enumerados.EnumTipoFuncionario;
 import gestaoginasiohibernate.model.Colaborador;
 import gestaoginasiohibernate.model.Utente;
 import java.io.IOException;
@@ -27,10 +26,7 @@ import projetogestaoginasio.ShowMessage;
 import gestaoginasiobll.services.LoginService;
 import gestaoginasiobll.exception.PagamentoEmAtrasoException;
 import gestaoginasiobll.exception.UtilizadorInvalidoException;
-import javafx.concurrent.Task;
-import javafx.scene.control.ProgressBar;
-import javafx.scene.control.ProgressIndicator;
-import javafx.scene.layout.AnchorPane;
+import gestaoginasiofx.Notificacao;
 
 /**
  * FXML Controller class
@@ -87,20 +83,24 @@ public class FXMLIniciarSessaoController implements Initializable {
         Stage stage =(Stage) ((Node)event.getSource()).getScene().getWindow();
         String user= this.txtUtilizador.getText();
         String senha = this.txtSenha.getText();
-       
+        
             try {
                 Utente utente= LoginService.getUtenteLogin(user, senha);
                 if(utente!=null){
+                    Notificacao.successNotification("Login", "Login Efetuado");
                     this.iniciarSessaoUtente( stage,utente);
                 }else{
                     Colaborador colaborador=LoginService.getColaboradorLogin(user, senha);
                     if(colaborador!=null){
+                        Notificacao.successNotification("Login", "Login Efetuado");
                         this.iniciarSessaoColaborador(stage, colaborador);
                     }
                 }
             } catch (PagamentoEmAtrasoException ex) {
+                Notificacao.errorNotification("Login", "Login Falhado");
                 ShowMessage.showError("Pagamentos em atraso", "Contem pagamentos em atraso");
             } catch (UtilizadorInvalidoException ex) {
+                Notificacao.errorNotification("Login", "Login Falhado");
                 ShowMessage.showError("Utilizador não exite ou dados estão incorretos", "Erro de Inicio de Sessão");
             }
            
@@ -123,7 +123,7 @@ public class FXMLIniciarSessaoController implements Initializable {
     
     private void iniciarSessaoColaborador(Stage stage, Colaborador colaborador){
         try{
-           if(colaborador.getTipofuncionario().equals("ADMINISTRADOR")){
+           if(colaborador.getTipofuncionario().equals("ADMINISTRADOR") || colaborador.getTipofuncionario().equals("RECECIONISTA")){
                     FXMLLoader loader=new FXMLLoader(getClass().getResource("FXMLAdministrador.fxml"));
                     Pane centerPane=FXMLLoader.load(getClass().getResource("FXMLAdministradorUtente.fxml"));
                     Parent parent =loader.load();
@@ -141,18 +141,6 @@ public class FXMLIniciarSessaoController implements Initializable {
                     Parent parent =loader.load();
                     FXMLInstrutorController controller=loader.getController();
                     controller.setColaborador(colaborador);
-                    ((BorderPane)parent).setCenter(centerPane);
-                    FXMLIniciarSessaoController.ROOT=(BorderPane)parent;
-                    Scene scene= new Scene(parent);
-                    stage.setScene(scene);
-                    stage.show();
-           }
-           if(colaborador.getTipofuncionario().equals("RECECIONISTA")){
-                    FXMLLoader loader=new FXMLLoader(getClass().getResource("FXMLRecessionista.fxml"));
-                    Pane centerPane=FXMLLoader.load(getClass().getResource("FXMLAdministradorUtente.fxml"));
-                    Parent parent =loader.load();
-                    //FXMLRecessionistaController controller=loader.getController();
-                    //controller.setColaborador(colaborador);
                     ((BorderPane)parent).setCenter(centerPane);
                     FXMLIniciarSessaoController.ROOT=(BorderPane)parent;
                     Scene scene= new Scene(parent);

@@ -9,13 +9,12 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import gestaoginasiofx.FillComboBox;
 import gestaoginasiohibernate.model.Colaborador;
 import projetogestaoginasio.ShowMessage;
 import gestaoginasiobll.services.ColaboradorService;
+import gestaoginasiofx.Notificacao;
 
 /**
  * FXML Controller class
@@ -69,6 +68,7 @@ public class FXMLAdministradorDadosPessoaisController implements Initializable {
             if(ShowMessage.showConfirmation("Confirmação de alteração", "Tem a certeza que pretende salvar?")){
                     this.colaborador.setSenha(this.txtNovaSenha.getText());
                     ColaboradorService.updateObjectColaborador(this.colaborador);
+                    Notificacao.successNotification("Dados Pessoais", "Dados Atualizados com sucesso");
                     this.txtSenha.setText("");
                     this.txtNovaSenha.setText("");
                     this.txtSenhaConfirma.setText("");

@@ -124,7 +124,6 @@ public class FXMLClienteAvaliacaoFisicaController implements Initializable {
             @Override
             public ObservableValue<String> call(TableColumn.CellDataFeatures<Avaliacaofisica, String> param) {
                 Avaliacaofisica avaliacao= param.getValue();
-                SimpleStringProperty mensalidade=null;
                 ObservableValue<String>ov=null;
                 ov=new SimpleStringProperty(avaliacao.getPersonaltrainer().getProfessor().getColaborador().getNome());
                 return ov;
