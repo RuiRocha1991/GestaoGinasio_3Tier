@@ -19,8 +19,8 @@
       </Label>
       <Pane layoutX="13.0" layoutY="44.0" prefHeight="211.0" prefWidth="724.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;">
          <children>
-            <Button fx:id="btInscrever" layoutX="328.0" layoutY="172.0" mnemonicParsing="false" onAction="#criarInscricaoAulaGrupo" prefHeight="25.0" prefWidth="148.0" text="Inscrever Aula" />
-            <Button fx:id="btCancelar" layoutX="592.0" layoutY="172.0" mnemonicParsing="false" onAction="#comeBackInicial" prefHeight="25.0" prefWidth="118.0" text="Cancelar" />
+            <Button fx:id="btInscrever" layoutX="328.0" layoutY="172.0" mnemonicParsing="false" onAction="#criarInscricaoAulaGrupo" prefHeight="30.0" prefWidth="148.0" stylesheets="@../../Styles.css" text="Inscrever Aula" />
+            <Button fx:id="btCancelar" layoutX="592.0" layoutY="172.0" mnemonicParsing="false" onAction="#comeBackInicial" prefHeight="30.0" prefWidth="118.0" stylesheets="@../../Styles.css" text="Cancelar" />
             <ListView fx:id="lvTipoAula" layoutX="12.0" layoutY="41.0" prefHeight="162.0" prefWidth="148.0" />
             <ListView fx:id="lvSala" layoutX="170.0" layoutY="41.0" prefHeight="162.0" prefWidth="148.0" />
             <Label layoutX="12.0" layoutY="11.0" prefHeight="20.0" prefWidth="148.0" style="-fx-background-color: #bdbdbd;" text="Tipo Aula" textAlignment="CENTER">
@@ -39,7 +39,7 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <Button fx:id="btLimpaSelecao" layoutX="328.0" layoutY="134.0" mnemonicParsing="false" onAction="#limpaSelecao" prefHeight="25.0" prefWidth="148.0" text="Limpar Seleção" />
+            <Button fx:id="btLimpaSelecao" layoutX="328.0" layoutY="81.0" mnemonicParsing="false" onAction="#limpaSelecao" prefHeight="30.0" prefWidth="148.0" stylesheets="@../../Styles.css" text="Limpar Seleção" />
             <Button fx:id="btNext" layoutX="497.0" layoutY="42.0" mnemonicParsing="false" onAction="#nextOrPreviousDay" text="&gt;" />
             <Button fx:id="btPrevious" layoutX="328.0" layoutY="42.0" mnemonicParsing="false" onAction="#nextOrPreviousDay" text="&lt;" />
          </children>

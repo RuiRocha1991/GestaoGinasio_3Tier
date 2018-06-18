@@ -53,7 +53,7 @@
                   <TableColumn fx:id="colNotaEstado" prefWidth="135.0" text="Estado" />
                </columns>
             </TableView>
-            <Button fx:id="btResolverNotaAvaria" layoutX="692.0" layoutY="14.0" mnemonicParsing="false" onAction="#gerirNotasAvaria" prefHeight="25.0" prefWidth="164.0" text="Resolver Nota Avaria" />
+            <Button fx:id="btResolverNotaAvaria" layoutX="692.0" layoutY="12.0" mnemonicParsing="false" onAction="#gerirNotasAvaria" prefHeight="30.0" prefWidth="164.0" stylesheets="@../../Styles.css" text="Resolver Nota Avaria" />
             <Pane layoutX="415.0" layoutY="10.0" prefHeight="33.0" prefWidth="258.0" style="-fx-border-color: #000000; -fx-background-color: #ffffff;">
                <children>
                   <Label layoutX="13.0" layoutY="-7.0" prefHeight="17.0" prefWidth="39.0" style="-fx-background-color: #ffffff;" text=" Filtrar " />
@@ -65,7 +65,7 @@
             <Label layoutX="11.0" layoutY="-9.0" prefHeight="17.0" prefWidth="98.0" style="-fx-background-color: #ffffff;" text=" Notas de Avaria " />
          </children>
       </Pane>
-      <Button fx:id="btGerirEquipamentos" layoutX="736.0" layoutY="167.0" mnemonicParsing="false" onAction="#gerirEquipamentos" prefHeight="25.0" prefWidth="150.0" text="Gerir Equipamento" />
-      <Button fx:id="btLimparSelecao" layoutX="736.0" layoutY="207.0" mnemonicParsing="false" onAction="#ClearFields" prefHeight="25.0" prefWidth="150.0" text="Limpar Seleção" />
+      <Button fx:id="btGerirEquipamentos" layoutX="736.0" layoutY="167.0" mnemonicParsing="false" onAction="#gerirEquipamentos" prefHeight="30.0" prefWidth="150.0" stylesheets="@../../Styles.css" text="Gerir Equipamento" />
+      <Button fx:id="btLimparSelecao" layoutX="736.0" layoutY="207.0" mnemonicParsing="false" onAction="#ClearFields" prefHeight="30.0" prefWidth="150.0" stylesheets="@../../Styles.css" text="Limpar Seleção" />
    </children>
 </AnchorPane>

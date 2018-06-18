@@ -27,7 +27,7 @@
             <Label layoutX="18.0" layoutY="218.0" text="Confirma Senha" />
             <PasswordField fx:id="txtSenha" layoutX="131.0" layoutY="178.0" prefHeight="25.0" prefWidth="221.0" />
             <PasswordField fx:id="txtConfirmaSenha" layoutX="131.0" layoutY="214.0" prefHeight="25.0" prefWidth="221.0" />
-            <Button fx:id="btGravar" layoutX="252.0" layoutY="256.0" mnemonicParsing="false" onAction="#updateData" prefHeight="25.0" prefWidth="100.0" text="Gravar" />
+            <Button fx:id="btGravar" layoutX="252.0" layoutY="256.0" mnemonicParsing="false" onAction="#updateData" prefHeight="30.0" prefWidth="100.0" stylesheets="@../../Styles.css" text="Gravar" />
          </children>
       </Pane>
       <Pane layoutX="454.0" layoutY="25.0" prefHeight="512.0" prefWidth="515.0" style="-fx-border-color: #000000; -fx-background-color: #ffffff;">
@@ -42,7 +42,7 @@
                </columns>
             </TableView>
             <TextField fx:id="txtProcura" layoutX="17.0" layoutY="12.0" onKeyPressed="#pesquisa" onKeyReleased="#pesquisa" prefHeight="25.0" prefWidth="482.0" />
-            <Button fx:id="btGravar1" layoutX="15.0" layoutY="472.0" mnemonicParsing="false" onAction="#clearFields" prefHeight="25.0" prefWidth="100.0" text="Limpar Selação" />
+            <Button fx:id="btGravar1" layoutX="15.0" layoutY="472.0" mnemonicParsing="false" onAction="#clearFields" prefHeight="30.0" prefWidth="117.0" stylesheets="@../../Styles.css" text="Limpar Selação" />
          </children>
       </Pane>
    </children>

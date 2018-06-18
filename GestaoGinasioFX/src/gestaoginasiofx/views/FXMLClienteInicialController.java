@@ -277,6 +277,7 @@ public class FXMLClienteInicialController implements Initializable {
     private void rbTodasSelected(){
         if(this.rbTodas.isSelected()){
             this.aulasFiltradasObservableList=FXCollections.observableArrayList(this.aulasList);
+            this.fillTableAulas();
             Notificacao.filtrosNotification("Aulas Selecionadas", "Todas as Aulas Visiveis.");
         }
     }

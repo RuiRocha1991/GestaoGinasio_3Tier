@@ -58,7 +58,7 @@ public class Notificacao {
                 .title(title)
                 .text(text)
                 .graphic(new ImageView(ima))
-                .hideAfter(Duration.seconds(8))
+                .hideAfter(Duration.seconds(2))
                 .position(Pos.BOTTOM_CENTER)
                 .onAction(new EventHandler<ActionEvent>() {
             @Override

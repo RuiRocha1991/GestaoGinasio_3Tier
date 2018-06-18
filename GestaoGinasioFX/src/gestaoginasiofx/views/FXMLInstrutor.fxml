@@ -30,12 +30,12 @@
             <Insets />
          </BorderPane.margin>
          <children>
-            <Button fx:id="btNotaAvaria" layoutX="17.0" layoutY="25.0" mnemonicParsing="false" onAction="#switchCenter" prefHeight="40.0" prefWidth="110.0" text="Notas Avaria" />
-            <Button fx:id="btHorario" layoutX="17.0" layoutY="87.0" mnemonicParsing="false" onAction="#switchCenter" prefHeight="40.0" prefWidth="110.0" text="Horário" />
-            <Button fx:id="btDadosPessoais" layoutX="17.0" layoutY="422.0" mnemonicParsing="false" onAction="#switchCenter" prefHeight="40.0" prefWidth="110.0" text="Dados Pessoais" />
-            <Button fx:id="btCloseSession" layoutX="17.0" layoutY="480.0" mnemonicParsing="false" onAction="#closeSession" prefHeight="40.0" prefWidth="110.0" text="Terminar Sessão" />
-            <Button fx:id="btPlanosTreino" layoutX="17.0" layoutY="148.0" mnemonicParsing="false" onAction="#switchCenter" prefHeight="40.0" prefWidth="110.0" text="Planos Treino" />
-            <Button fx:id="btAvaliacaoFisica" layoutX="17.0" layoutY="208.0" mnemonicParsing="false" onAction="#switchCenter" prefHeight="40.0" prefWidth="110.0" text="Avaliação Fisica" />
+            <Button fx:id="btNotaAvaria" layoutX="17.0" layoutY="25.0" mnemonicParsing="false" onAction="#switchCenter" prefHeight="40.0" prefWidth="110.0" stylesheets="@../../Styles.css" text="Notas Avaria" />
+            <Button fx:id="btHorario" layoutX="17.0" layoutY="87.0" mnemonicParsing="false" onAction="#switchCenter" prefHeight="40.0" prefWidth="110.0" stylesheets="@../../Styles.css" text="Horário" />
+            <Button fx:id="btDadosPessoais" layoutX="17.0" layoutY="422.0" mnemonicParsing="false" onAction="#switchCenter" prefHeight="40.0" prefWidth="110.0" stylesheets="@../../Styles.css" text="Dados Pessoais" />
+            <Button fx:id="btCloseSession" layoutX="17.0" layoutY="480.0" mnemonicParsing="false" onAction="#closeSession" prefHeight="40.0" prefWidth="110.0" stylesheets="@../../Styles.css" text="Terminar Sessão" />
+            <Button fx:id="btPlanosTreino" layoutX="17.0" layoutY="148.0" mnemonicParsing="false" onAction="#switchCenter" prefHeight="40.0" prefWidth="110.0" stylesheets="@../../Styles.css" text="Planos Treino" />
+            <Button fx:id="btAvaliacaoFisica" layoutX="17.0" layoutY="208.0" mnemonicParsing="false" onAction="#switchCenter" prefHeight="40.0" prefWidth="110.0" stylesheets="@../../Styles.css" text="Avaliação Fisica" />
          </children>
       </Pane>
    </left>

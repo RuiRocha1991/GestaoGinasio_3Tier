@@ -33,8 +33,8 @@
             <TextField fx:id="txtCodPostal" layoutX="223.0" layoutY="292.0" prefHeight="25.0" prefWidth="325.0" />
             <TextField fx:id="txtTipoContrato" editable="false" layoutX="223.0" layoutY="325.0" prefHeight="25.0" prefWidth="325.0" />
             <TextField fx:id="txtMensalidade" editable="false" layoutX="223.0" layoutY="360.0" prefHeight="25.0" prefWidth="325.0" />
-            <Button fx:id="btGravar" layoutX="442.0" layoutY="485.0" mnemonicParsing="false" onAction="#updateDataUtente" prefHeight="25.0" prefWidth="106.0" text="Gravar" />
-            <Button fx:id="btCancelar" layoutX="14.0" layoutY="496.0" mnemonicParsing="false" onAction="#comeBackInicial" text="Cancelar" />
+            <Button fx:id="btGravar" layoutX="495.0" layoutY="496.0" mnemonicParsing="false" onAction="#updateDataUtente" prefHeight="30.0" prefWidth="106.0" stylesheets="@../../Styles.css" text="Gravar" />
+            <Button fx:id="btCancelar" layoutX="14.0" layoutY="496.0" mnemonicParsing="false" onAction="#comeBackInicial" prefHeight="30.0" stylesheets="@../../Styles.css" text="Cancelar" />
             <Label layoutX="75.0" layoutY="51.0" text="NIF:">
                <font>
                   <Font size="14.0" />

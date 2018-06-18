@@ -32,15 +32,15 @@
                   <RadioButton fx:id="rbTodos" layoutX="12.0" layoutY="62.0" mnemonicParsing="false" onAction="#rbTodosSelected" text="Todos" />
                </children>
             </Pane>
-            <Button fx:id="btCriarContrato" layoutX="771.0" layoutY="152.0" mnemonicParsing="false" onAction="#OpenWindowNewContrato" prefHeight="25.0" prefWidth="123.0" text="Criar Utente" />
-            <Button layoutX="771.0" layoutY="187.0" mnemonicParsing="false" onAction="#clearFields" prefHeight="25.0" prefWidth="123.0" text="Limpar Seleção" />
-            <TextField fx:id="txtProcura" layoutX="12.0" layoutY="22.0" onKeyPressed="#pesquisa" onKeyReleased="#pesquisa" prefHeight="25.0" prefWidth="344.0" />
-            <Button fx:id="btPagamento" layoutX="771.0" layoutY="222.0" mnemonicParsing="false" onAction="#OpenWindowPagamento" prefHeight="25.0" prefWidth="123.0" text="Receber Pagamento" />
             <Label layoutX="364.0" layoutY="4.0" text="Lista de Utentes">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
+            <Button fx:id="btCriarContrato" layoutX="771.0" layoutY="152.0" mnemonicParsing="false" onAction="#OpenWindowNewContrato" prefHeight="30.0" prefWidth="123.0" stylesheets="@../../Styles.css" text="Criar Contrato" />
+            <Button layoutX="771.0" layoutY="187.0" mnemonicParsing="false" onAction="#clearFields" prefHeight="30.0" prefWidth="123.0" stylesheets="@../../Styles.css" text="Limpar Seleção" />
+            <TextField fx:id="txtProcura" layoutX="11.0" layoutY="14.0" onKeyPressed="#pesquisa" onKeyReleased="#pesquisa" prefHeight="25.0" prefWidth="344.0" />
+            <Button fx:id="btPagamento" layoutX="764.0" layoutY="222.0" mnemonicParsing="false" onAction="#OpenWindowPagamento" prefHeight="30.0" prefWidth="139.0" stylesheets="@../../Styles.css" text="Receber Pagamento" />
          </children>
       </Pane>
       <Pane layoutX="260.0" layoutY="270.0" prefHeight="237.0" prefWidth="622.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;">
