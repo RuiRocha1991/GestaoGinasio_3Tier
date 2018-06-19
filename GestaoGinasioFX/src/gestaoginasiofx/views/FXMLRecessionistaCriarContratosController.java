@@ -40,6 +40,7 @@ public class FXMLRecessionistaCriarContratosController implements Initializable 
     private Contrato contrato;
     
     @FXML private Button btPagamento;
+    @FXML private Button btConcluir;
     @FXML private ComboBox cbTipoContrato;
     @FXML private TextField txtMensalidade;
     @FXML private TextField txtNome;
@@ -116,7 +117,10 @@ public class FXMLRecessionistaCriarContratosController implements Initializable 
         }
     }
     
+    //falta atualizar dados 
     
-    
-    
+    @FXML private void concluirRegisto(){
+        Stage stage = (Stage) this.btConcluir.getScene().getWindow();
+        stage.close();
+    }
 }

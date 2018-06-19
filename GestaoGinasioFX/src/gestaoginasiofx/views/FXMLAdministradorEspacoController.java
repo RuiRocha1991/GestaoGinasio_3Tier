@@ -106,6 +106,10 @@ public class FXMLAdministradorEspacoController implements Initializable {
         });
         List aulasList= EspacoService.getAllEspacos();
         this.observableListEspacos=FXCollections.observableArrayList(aulasList);
+        this.fillTableEspacos();
+    }
+    
+    private void fillTableEspacos(){
         this.tbEspacos.setItems(this.observableListEspacos);
         this.tbEspacos.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             this.selectedEspaco=(Espaco)newValue;
@@ -135,6 +139,7 @@ public class FXMLAdministradorEspacoController implements Initializable {
         this.selectedEspaco=null;
         if(this.observableListEquipamentos!=null &&this.observableListEquipamentos.size()>0)
             this.observableListEquipamentos.clear();
+        this.fillTableEspacos();
     }
     
     @FXML 
@@ -166,15 +171,14 @@ public class FXMLAdministradorEspacoController implements Initializable {
     }
     
     private void createEspaco(){
-        Espaco newEsp= EspacoService.createEspaco(this.txtDescricao.getText(), this.cbTipoEspaco.getVisibleRowCount());
+        Espaco newEsp= EspacoService.createEspaco(this.txtDescricao.getText(), this.cbTipoEspaco.getSelectionModel().getSelectedIndex());
         this.observableListEspacos.add(newEsp);
         this.clearField();
     }
     
     private void updateEspaco(){
-        this.selectedEspaco.setDescricao(this.txtDescricao.getText());
-        EspacoService.updateEspaco(this.selectedEspaco);
-        this.observableListEspacos.add(this.observableListEspacos.indexOf(this.selectedEspaco), selectedEspaco);
+        EspacoService.updateEspaco(this.selectedEspaco, this.cbTipoEspaco.getSelectionModel().getSelectedIndex(), this.txtDescricao.getText());
+        this.observableListEspacos.set(this.observableListEspacos.indexOf(this.selectedEspaco), selectedEspaco);
         this.clearField();
     }
     

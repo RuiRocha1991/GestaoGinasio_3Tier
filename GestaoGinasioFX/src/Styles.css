@@ -10,33 +10,51 @@ and open the template in the editor.
 
 .button {
     -fx-font-weight: bold;
-    -fx-background-color: #5B5A5A;
-    -fx-background-radius: 22;
+    /*-fx-background-color: #5B5A5A;*/
+    -fx-background-color: #63a4ff;
+    -fx-background-radius: 5;
     -fx-fontsize: 22;
     -fx-text-fill: white;
+    -fx-border-color: black;
+    -fx-border-radius: 5;
+    -fx-border-width: 1;
 }
 
 .button:hover {
     -fx-font-weight: bold;
     -fx-background-color: white;
-    -fx-background-radius: 22;
+    -fx-background-radius: 7;
     -fx-fontsize: 22;
     -fx-text-fill: #5B5A5A;
     -fx-border-color: #5B5A5A;
-    -fx-border-radius: 22;
+    -fx-border-radius: 5;
     -fx-border-width: 3;
 }
+
 .button:pressed{
     -fx-font-weight: bold;
     -fx-background-color: white;
-    -fx-background-radius: 22;
+    -fx-background-radius: 5;
     -fx-fontsize: 22;
     -fx-text-fill: #5B5A5A;
     -fx-border-color: #5B5A5A;
-    -fx-border-radius: 22;
+    -fx-border-radius: 5;
     -fx-border-width: 3;
     
 }
+
+.button:focused{
+    -fx-font-weight: bold;
+    -fx-background-color: #8199f9;
+    -fx-background-radius: 5;
+    -fx-fontsize: 22;
+    -fx-text-fill: #5B5A5A;
+    -fx-border-color: #5B5A5A;
+    -fx-border-radius: 5;
+    -fx-border-width: 3;
+    
+}
+
 .table-view{
    -fx-background-color: #CAC8C8;
 }
@@ -62,23 +80,27 @@ and open the template in the editor.
 }
 
 .table-view .table-cell{
-    -fx-text-fill: #5B5A5A;
+    /*-fx-text-fill: #5B5A5A;*/
+    -fx-text-fill: #131313;
 }
 
 .table-row-cell{
-    -fx-background-color: -fx-table-cell-border-color, #616161;
+ /*   -fx-background-color: -fx-table-cell-border-color, #616161;*/
+    -fx-background-color: -fx-table-cell-border-color, #d0d5ed;
     -fx-background-insets: 0, 0 0 1 0;
     -fx-padding: 0.0em; /* 0 */
 }
 
 .table-row-cell:odd{
-    -fx-background-color: -fx-table-cell-border-color, #424242;
+    /* -fx-background-color: -fx-table-cell-border-color, #424242;*/
+    -fx-background-color: -fx-table-cell-border-color, #eaebef;
     -fx-background-insets: 0, 0 0 1 0;
     -fx-padding: 0.0em; /* 0 */  
 }
 
 .table-row-cell:selected {
-    -fx-background-color: #005797;
+    -fx-font-weight: bold;
+    -fx-background-color: #8199f9;
     -fx-background-insets: 0;
     -fx-background-radius: 1;
 }

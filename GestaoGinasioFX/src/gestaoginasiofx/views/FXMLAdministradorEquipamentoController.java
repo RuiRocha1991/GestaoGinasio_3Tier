@@ -91,6 +91,7 @@ public class FXMLAdministradorEquipamentoController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        this.btGerirEquipamentos.setText("Criar Equipamentos");
         this.btResolverNotaAvaria.setDisable(true);
         this.toggleGroupNota= new ToggleGroup();
         this.rbAtivoNota.setToggleGroup(this.toggleGroupNota);
@@ -189,6 +190,9 @@ public class FXMLAdministradorEquipamentoController implements Initializable {
         this.tbEquipamentos.setItems(this.equipamentoObservableListFiltro);
         this.tbEquipamentos.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             this.selectedEquipamento=newValue;
+            if(this.selectedEquipamento!=null){
+                this.btGerirEquipamentos.setText("Editar Equipamento");
+            }
         });
     }
     
@@ -315,6 +319,7 @@ public class FXMLAdministradorEquipamentoController implements Initializable {
     
     @FXML 
     private void ClearFields(){
+        this.btGerirEquipamentos.setText("Criar Equipamento");
         this.selectedCategoria=null;
         this.selectedEquipamento=null;
         this.selectedEspaco=null;

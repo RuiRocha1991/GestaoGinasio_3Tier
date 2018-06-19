@@ -5,14 +5,11 @@
  */
 package gestaoginasiofx.views;
 
-import gestaoginasiohibernate.model.Aulaindividual;
 import gestaoginasiohibernate.model.Contrato;
-import gestaoginasiohibernate.model.Inscricao;
 import gestaoginasiohibernate.model.Utente;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -33,13 +30,10 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import gestaoginasiobll.AulaContrato;
-import projetogestaoginasio.ShowMessage;
-import gestaoginasiobll.services.AulaIndividualService;
 import gestaoginasiobll.services.ContratoService;
-import gestaoginasiobll.services.InscricaoService;
+import projetogestaoginasio.ShowMessage;
 import gestaoginasiobll.services.UtenteService;
 import gestaoginasiofx.Notificacao;
-import java.util.Set;
 
 
 /**
@@ -217,8 +211,8 @@ public class FXMLClienteInicialController implements Initializable {
     }
     @FXML
     private void cancelarAula(){
-        int selectedIndex=this.tbAulas.getSelectionModel().getSelectedIndex();
-        if(selectedIndex!=-1){
+       
+        if(this.aulaSelected!=null){
             if(ShowMessage.showConfirmation("Eliminar Inscrição", "Tem a certeza que quer eliminar a inscrição?")){
                 if(this.aulaSelected.getTipoaula().equals("Individual")){
                     ContratoService.removeAulaIndividual(this.contrato.getAulaindividuals(),this.aulaSelected.getCodigo());
@@ -227,10 +221,9 @@ public class FXMLClienteInicialController implements Initializable {
                     ContratoService.removeInscricao(this.contrato.getInscricaos(),this.aulaSelected.getCodigo());
                     Notificacao.successNotification("Aula de Grupo", "Cancelada Aula de Grupo.");
                 }
-                this.aulasFiltradasObservableList.remove(selectedIndex);
                 this.aulasList.remove(this.aulaSelected);
+                this.aulasFiltradasObservableList.remove(this.aulaSelected);
                 this.clearFields();
-                this.aulaSelected=null;
             }else{
                 return;
             }
@@ -238,11 +231,13 @@ public class FXMLClienteInicialController implements Initializable {
     }
     
     private void clearFields(){
+        this.aulaSelected=null;
         this.btCancelarAula.disableProperty().set(true);
         this.tbAulas.getSelectionModel().clearSelection();
         this.txtCustoAula.textProperty().setValue("");
         this.txtDuracaoAula.textProperty().setValue("");
         this.txtPersonalTrainer.textProperty().setValue("");
+        this.fillTableAulas();
     }
     
     @FXML 

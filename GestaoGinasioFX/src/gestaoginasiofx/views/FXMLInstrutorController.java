@@ -65,6 +65,10 @@ public class FXMLInstrutorController implements Initializable {
             this.btPlanosTreino.setVisible(false);
             this.btAvaliacaoFisica.setVisible(false);
         }
+        if(this.colaboradorSelected.getTipofuncionario().equals("PROFESSOR")){
+            this.btPlanosTreino.setVisible(false);
+            this.btAvaliacaoFisica.setVisible(false);
+        }
     }
     
     @FXML

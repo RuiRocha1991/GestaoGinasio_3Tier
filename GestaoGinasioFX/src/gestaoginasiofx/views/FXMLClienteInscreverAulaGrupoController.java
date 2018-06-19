@@ -7,7 +7,6 @@ package gestaoginasiofx.views;
 
 import java.io.IOException;
 import java.net.URL;
-import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -35,8 +34,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import gestaoginasiofx.FillListView;
 import gestaoginasiohibernate.model.Aula;
 import gestaoginasiohibernate.model.Contrato;
-import gestaoginasiohibernate.model.Inscricao;
-import gestaoginasiohibernate.model.InscricaoId;
 import gestaoginasiohibernate.model.Sala;
 import gestaoginasiohibernate.model.Tipoaula;
 import gestaoginasiohibernate.model.Utente;

@@ -27,7 +27,7 @@
             </TableView>
          </children>
       </Pane>
-      <Button layoutX="564.0" layoutY="432.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="155.0" stylesheets="@../../Styles.css" text="Confirmar Pagamento" />
+      <Button fx:id="btConfirmar" layoutX="564.0" layoutY="432.0" mnemonicParsing="false" onAction="#confirmarPagamento" prefHeight="30.0" prefWidth="155.0" stylesheets="@../../Styles.css" text="Confirmar Pagamento" />
       <Pane layoutX="327.0" layoutY="228.0" prefHeight="187.0" prefWidth="392.0" style="-fx-border-color: #000000; -fx-background-color: #ffffff;">
          <children>
             <Label layoutX="38.0" layoutY="82.0" prefHeight="20.0" prefWidth="115.0" text="Mensalidade:">
@@ -94,7 +94,7 @@
             <TextField fx:id="txtTelefone" editable="false" layoutX="218.0" layoutY="111.0" prefHeight="25.0" prefWidth="341.0" />
          </children>
       </Pane>
-      <Button layoutX="14.0" layoutY="432.0" mnemonicParsing="false" prefHeight="30.0" stylesheets="@../../Styles.css" text="Cancelar" />
+      <Button fx:id="btCancelar" layoutX="14.0" layoutY="432.0" mnemonicParsing="false" onAction="#closeWindow" prefHeight="30.0" stylesheets="@../../Styles.css" text="Cancelar" />
       <Label layoutX="469.0" layoutY="218.0" prefHeight="20.0" prefWidth="85.0" style="-fx-background-color: #ffffff;" text="Total a Pagar">
          <font>
             <Font size="14.0" />

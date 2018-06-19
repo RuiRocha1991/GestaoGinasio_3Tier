@@ -31,7 +31,34 @@ public class EspacoService {
         HibernateGenericLib.saveObject(newSala);
     }
     
-    public static void updateEspaco(Espaco esp){
+    public static void updateEspaco(Espaco esp, int espacoSelected, String descricao){
+        if(esp.getSala()!=null && !esp.getSala().getAulas().isEmpty()){
+            System.out.println("Erro");
+        }else{
+            if(esp.getSala()!=null){
+                HibernateGenericLib.deleteObject(esp.getSala());
+                esp.setSala(null);
+            }
+            if(esp.getEspacocomum()!=null){
+                HibernateGenericLib.deleteObject(esp.getEspacocomum());
+                esp.setEspacocomum(null);
+            }
+            esp.setDescricao(descricao);
+            if(espacoSelected==0){
+                Espacocomum espCom = new Espacocomum();
+                espCom.setCodigo(esp.getCodigo());
+                espCom.setEspaco(esp);
+                esp.setEspacocomum(espCom);
+                EspacoService.createEspacoComum(esp, espCom);
+            }else{
+                Sala sala= new Sala();
+                sala.setCodigo(esp.getCodigo());
+                sala.setNumerovagas(Byte.valueOf("0"));
+                sala.setEspaco(esp);
+                esp.setSala(sala);
+                EspacoService.createSala(esp, sala);
+            }
+        }
         HibernateGenericLib.saveObject(esp);
     }
     

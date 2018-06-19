@@ -48,13 +48,22 @@ public class EquipamentoService {
         Equipamento equipamento= new Equipamento(0,espaco,categoriaequipamento ,descricao,ativo);
         espaco.getEquipamentos().add(equipamento);
         categoriaequipamento.getEquipamentos().add(equipamento);
+        if(espaco.getSala()!=null){
+            espaco.getSala().setNumerovagas((byte) (espaco.getSala().getNumerovagas()+1));
+        }
         HibernateGenericLib.saveObject(equipamento);
         return equipamento;
     }
     
     public static Equipamento updateEquipamento(Equipamento equipamento , Espaco espaco, Categoriaequipamento categoriaequipamento, String descricao, char ativo){
         equipamento.setCategoriaequipamento(categoriaequipamento);
+        if(equipamento.getEspaco().getSala()!=null){
+            equipamento.getEspaco().getSala().setNumerovagas((byte) (equipamento.getEspaco().getSala().getNumerovagas()-1));
+        }
         equipamento.setEspaco(espaco);
+        if(espaco.getSala()!=null){
+            espaco.getSala().setNumerovagas((byte) (espaco.getSala().getNumerovagas()+1));
+        }
         equipamento.setDescricao(descricao);
         equipamento.setAtivo(ativo);
         HibernateGenericLib.saveObject(equipamento);

@@ -15,7 +15,7 @@
       <Pane layoutX="11.0" layoutY="11.0" prefHeight="517.0" prefWidth="797.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;">
          <children>
 
-            <TableView fx:id="tbEspacos" layoutX="18.0" layoutY="250.0" prefHeight="270.0" prefWidth="401.0" stylesheets="@../../Styles.css">
+            <TableView fx:id="tbEspacos" layoutX="14.0" layoutY="224.0" prefHeight="286.0" prefWidth="401.0" stylesheets="@../../Styles.css">
               <columns>
                 <TableColumn fx:id="colDescicao" prefWidth="162.0" text="Descrição" />
                 <TableColumn fx:id="colTipoEspaco" prefWidth="91.0" text="Tipo" />
@@ -27,7 +27,7 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <TableView fx:id="tbEquipamento" layoutX="439.0" layoutY="42.0" prefHeight="477.0" prefWidth="350.0" stylesheets="@../../Styles.css">
+            <TableView fx:id="tbEquipamento" layoutX="439.0" layoutY="33.0" prefHeight="477.0" prefWidth="350.0" stylesheets="@../../Styles.css">
                <columns>
                   <TableColumn fx:id="colDescicaoEqui" prefWidth="135.0" text="Descrição" />
                   <TableColumn fx:id="colCategoria" prefWidth="118.0" text="Categoria" />

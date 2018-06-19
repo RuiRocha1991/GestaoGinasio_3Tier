@@ -95,8 +95,7 @@ public class ContratoService {
     
     public static void removeAulaIndividual(Set<Aulaindividual> aulas,int id){
         Aulaindividual aula=null;
-        for(Object o : aulas){
-            Aulaindividual a=(Aulaindividual)o;
+        for(Aulaindividual a : aulas){
             if(a.getIdaula()==id){
                 aula=a;
                 a.getPersonaltrainer().getAulaindividuals().remove(a);
@@ -109,11 +108,11 @@ public class ContratoService {
      
      public static void removeInscricao(Set<Inscricao> inscricoes,int id){
         Inscricao inscricao=null;
-        for(Object o : inscricoes){
-            Inscricao a=(Inscricao)o;
+        for(Inscricao a : inscricoes){
             if(a.getId().getAula()==id){
                 inscricao=a;
                 a.getAula().getInscricaos().remove(a);
+                a.getAula().setInscritos((byte) (a.getAula().getInscritos()-1));
                 inscricoes.remove(a);
                 break;
             }

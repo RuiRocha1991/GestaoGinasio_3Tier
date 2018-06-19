@@ -41,7 +41,6 @@ public class FXMLRecessionistaEditClientesController implements Initializable {
     private Tipocontrato tipoContrato;
     
     @FXML private Button btGravar;
-    @FXML private Button btCancelar;
     @FXML private Button btLimparSelecao;
     
     @FXML private TextField txtNome;
