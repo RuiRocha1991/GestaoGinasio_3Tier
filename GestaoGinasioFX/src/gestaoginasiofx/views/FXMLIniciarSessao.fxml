@@ -13,10 +13,10 @@
    <children>
       <ImageView fitHeight="486.0" fitWidth="796.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../picture/Inicioo.PNG" />
+            <Image url="@../picture/Inicio.PNG" />
          </image>
       </ImageView>
-      <Pane layoutX="225.0" layoutY="91.0" prefHeight="298.0" prefWidth="448.0" style="-fx-background-color: #ffffff;">
+      <Pane id="paneInicial" layoutX="225.0" layoutY="80.0" prefHeight="298.0" prefWidth="448.0" style="-fx-background-color: #ffffff;">
          <children>
             <TextField fx:id="txtUtilizador" layoutX="177.0" layoutY="50.0" prefHeight="25.0" prefWidth="236.0" />
             <TextField fx:id="txtSenha" layoutX="177.0" layoutY="99.0" prefHeight="25.0" prefWidth="236.0" />
