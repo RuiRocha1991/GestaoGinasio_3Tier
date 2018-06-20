@@ -136,19 +136,20 @@ public class FXMLAdministradorFuncionariosController implements Initializable {
                             && !this.cbTipoFuncionario.getValue().equals("")){
                         if(!ColaboradorService.verificaUtilizador(this.txtUtilizador.getText(), this.colaboradorObservableList)){
                             if(this.txtSenha.getText().equals(this.txtConfirmaSenha.getText())){
+                                String s=this.cbTipoFuncionario.getValue().toString();
                                 if(this.cbTipoFuncionario.getValue().equals(EnumTipoFuncionario.PERSONALTRAINER)){
                                     if(!this.txtPrecoHora.getText().equals("")){
                                         this.addPersonalTrainer();
-                                        Notificacao.successNotification("Adicionar Colaborador", "Personal Trainer Adicionado com sucesso");
+                                        Notificacao.successNotification("Adicionar Colaborador", s+" Adicionado com sucesso");
                                     }else
                                         throw new FieldsEmptyException();
                                 }else{
                                     if(this.cbTipoFuncionario.getValue().equals(EnumTipoFuncionario.PROFESSOR)){
                                         this.addProfessor();
-                                        Notificacao.successNotification("Adicionar Colaborador", "Professor Adicionado com sucesso");
+                                        Notificacao.successNotification("Adicionar Colaborador", s+" Adicionado com sucesso");
                                     }else{
                                         this.addOthers();
-                                        Notificacao.successNotification("Adicionar Colaborador", this.cbTipoFuncionario.getValue().toString()+" Adicionado com sucesso");
+                                        Notificacao.successNotification("Adicionar Colaborador", s+" Adicionado com sucesso");
                                     }
                                 }
                             }else
@@ -298,13 +299,14 @@ public class FXMLAdministradorFuncionariosController implements Initializable {
                     throw new PasswordInvalidException();
                 }
             }
-        if(this.cbTipoFuncionario.getValue().equals(EnumTipoFuncionario.ADMINISTRADOR)||
-                this.cbTipoFuncionario.getValue().equals(EnumTipoFuncionario.RECECIONISTA)||
-                this.cbTipoFuncionario.getValue().equals(EnumTipoFuncionario.INSTRUTOR)){
+        if(this.cbTipoFuncionario.getValue().equals(EnumTipoFuncionario.ADMINISTRADOR.toString())||
+                this.cbTipoFuncionario.getValue().equals(EnumTipoFuncionario.RECECIONISTA.toString())||
+                this.cbTipoFuncionario.getValue().equals(EnumTipoFuncionario.INSTRUTOR.toString())){
             this.updateOthers();
+           
             Notificacao.successNotification("Atualizar Colaborador", "Colaborador atualizado com sucesso");
         }else{
-            if(this.cbTipoFuncionario.getValue().equals(EnumTipoFuncionario.PROFESSOR)){
+            if(this.cbTipoFuncionario.getValue().equals(EnumTipoFuncionario.PROFESSOR.toString())){
                 this.updateProfessor();
                 Notificacao.successNotification("Atualizar Colaborador", "Colaborador atualizado com sucesso");
             }else{

@@ -16,6 +16,7 @@ import gestaoginasiohibernate.model.Inscricao;
 import gestaoginasiohibernate.model.Professor;
 import gestaoginasiohibernate.model.Sala;
 import gestaoginasiohibernate.model.Tipoaula;
+import java.time.LocalTime;
 
 /**
  *
@@ -69,5 +70,41 @@ public class AulaService {
         Date date=Date.valueOf(localDate.toString());
         List aulasList= HibernateGenericLib.executeHQLQuery("from Aula where data>='"+date+"'");
         return aulasList;
+    }
+    
+     public static List<Aula>  filtrarAulas(List<Aula> listaAulas, LocalDate date, Sala sala, Tipoaula tipoAula){
+        List<Aula> lista= new ArrayList<>();
+        List<Aula> listFinal= new ArrayList<>();
+        if(date!=null){
+            for(Aula a :listaAulas){
+                if(a.getData().toString().equals(date.toString())){
+                    if(sala!=null && tipoAula!=null){
+                        if(a.getSala().equals(sala) && a.getTipoaula().equals(tipoAula))
+                            lista.add(a);
+                    }else{
+                        if(sala!=null){
+                            if(a.getSala().equals(sala))
+                               lista.add(a);
+                        }
+                        if(tipoAula!=null){
+                            if(tipoAula.equals(a.getTipoaula()))
+                                lista.add(a);
+                        }
+                        if(sala==null && tipoAula==null)
+                            lista.add(a);
+                    }
+                }
+            }
+        }
+       if(date.isEqual(LocalDate.now())){
+            for(Aula a :lista){
+                if( LocalTime.parse(a.getHora()).isAfter(LocalTime.now())){
+                    listFinal.add(a);
+                }
+            }
+        }else{
+          listFinal.addAll(lista);
+       }
+        return listFinal;
     }
 }
