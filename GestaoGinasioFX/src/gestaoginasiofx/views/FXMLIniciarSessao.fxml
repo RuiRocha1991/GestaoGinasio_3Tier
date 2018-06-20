@@ -9,7 +9,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="629.0" prefWidth="1098.0" styleClass="AnchorPane" stylesheets="@../Styles.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestaoginasiofx.views.FXMLIniciarSessaoController">
    <children>
-      <Pane id="paneInicial" layoutX="362.0" layoutY="191.0" prefHeight="247.0" prefWidth="374.0" style="-fx-background-color: rgba(0,0,0,0.6);">
+      <Pane id="paneInicial" layoutX="362.0" layoutY="191.0" prefHeight="247.0" prefWidth="374.0" styleClass="paneLogin">
          <children>
             <TextField fx:id="txtUtilizador" layoutX="94.0" layoutY="49.0" prefHeight="25.0" prefWidth="236.0" />
             <TextField fx:id="txtSenha" layoutX="94.0" layoutY="113.0" prefHeight="25.0" prefWidth="236.0" />

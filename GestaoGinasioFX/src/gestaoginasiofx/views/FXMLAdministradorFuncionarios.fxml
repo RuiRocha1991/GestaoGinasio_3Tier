@@ -7,32 +7,35 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane id="AnchorPane" prefHeight="562.0" prefWidth="1020.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestaoginasiofx.views.FXMLAdministradorFuncionariosController">
+<AnchorPane id="AnchorPane" prefHeight="542.0" prefWidth="879.0" stylesheets="@../Styles.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestaoginasiofx.views.FXMLAdministradorFuncionariosController">
    <children>
-      <Pane layoutX="52.0" layoutY="25.0" prefHeight="296.0" prefWidth="385.0" style="-fx-border-color: #000000; -fx-background-color: #ffffff;">
+      <Pane layoutX="14.0" layoutY="14.0" prefHeight="296.0" prefWidth="328.0" style="-fx-border-color: #000000; -fx-background-color: #ffffff;">
          <children>
             <Label layoutX="17.0" layoutY="-9.0" style="-fx-background-color: #ffffff;" text=" Inserir / Editar Funcionário " />
-            <TextField fx:id="txtNome" layoutX="131.0" layoutY="34.0" onKeyPressed="#changeBackground" prefHeight="25.0" prefWidth="221.0" />
-            <TextField fx:id="txtUtilizador" layoutX="131.0" layoutY="69.0" prefHeight="25.0" prefWidth="221.0" />
-            <TextField fx:id="txtPrecoHora" layoutX="131.0" layoutY="143.0" onAction="#changeBackground" prefHeight="25.0" prefWidth="221.0" />
-            <ComboBox fx:id="cbTipoFuncionario" layoutX="131.0" layoutY="107.0" prefHeight="25.0" prefWidth="221.0" />
+            <TextField fx:id="txtNome" layoutX="131.0" layoutY="34.0" onKeyPressed="#changeBackground" prefHeight="25.0" prefWidth="183.0" promptText="Nome Completo" />
+            <TextField fx:id="txtUtilizador" layoutX="131.0" layoutY="69.0" prefHeight="25.0" prefWidth="183.0" promptText="Utilizador" />
+            <ComboBox fx:id="cbTipoFuncionario" layoutX="131.0" layoutY="107.0" prefHeight="25.0" prefWidth="183.0" promptText="Tipo Funcionário" />
+            <TextField fx:id="txtPrecoHora" layoutX="131.0" layoutY="143.0" onAction="#changeBackground" prefHeight="25.0" prefWidth="183.0" promptText="50.5" />
+            <PasswordField fx:id="txtSenha" layoutX="131.0" layoutY="178.0" prefHeight="25.0" prefWidth="183.0" promptText="Senha" />
+            <PasswordField fx:id="txtConfirmaSenha" layoutX="131.0" layoutY="214.0" prefHeight="25.0" prefWidth="183.0" promptText="Repetir Senha" />
+            <Button fx:id="btGravar" layoutX="214.0" layoutY="252.0" mnemonicParsing="false" onAction="#updateData" prefHeight="30.0" prefWidth="100.0" text="Gravar" />
             <Label layoutX="17.0" layoutY="38.0" text="Nome:" />
             <Label layoutX="17.0" layoutY="73.0" text="Utilizador" />
             <Label layoutX="17.0" layoutY="111.0" text="Tipo Funcionário" />
             <Label layoutX="17.0" layoutY="147.0" text="Preço Hora" />
             <Label layoutX="17.0" layoutY="182.0" text="Senha" />
             <Label layoutX="18.0" layoutY="218.0" text="Confirma Senha" />
-            <PasswordField fx:id="txtSenha" layoutX="131.0" layoutY="178.0" prefHeight="25.0" prefWidth="221.0" />
-            <PasswordField fx:id="txtConfirmaSenha" layoutX="131.0" layoutY="214.0" prefHeight="25.0" prefWidth="221.0" />
-            <Button fx:id="btGravar" layoutX="252.0" layoutY="256.0" mnemonicParsing="false" onAction="#updateData" prefHeight="30.0" prefWidth="100.0" stylesheets="@../../Styles.css" text="Gravar" />
          </children>
       </Pane>
-      <Pane layoutX="454.0" layoutY="25.0" prefHeight="512.0" prefWidth="515.0" style="-fx-border-color: #000000; -fx-background-color: #ffffff;">
+      <Pane layoutX="352.0" layoutY="14.0" prefHeight="512.0" prefWidth="515.0" style="-fx-border-color: #000000; -fx-background-color: #ffffff;">
          <children>
             <Label layoutX="17.0" layoutY="-9.0" style="-fx-background-color: #ffffff;" text=" Lista Funcionários " />
+            <TextField fx:id="txtProcura" layoutX="44.0" layoutY="12.0" onKeyPressed="#pesquisa" onKeyReleased="#pesquisa" prefHeight="25.0" prefWidth="446.0" promptText="Procura" />
             <TableView fx:id="tblColaborador" layoutX="17.0" layoutY="43.0" prefHeight="420.0" prefWidth="482.0">
                <columns>
                   <TableColumn fx:id="colNome" maxWidth="120.0" minWidth="120.0" prefWidth="120.0" resizable="false" text="Nome" />
@@ -41,8 +44,12 @@
                   <TableColumn fx:id="colTipoFuncionario" maxWidth="130.0" minWidth="130.0" prefWidth="130.0" resizable="false" text="Tipo Funcionário" />
                </columns>
             </TableView>
-            <TextField fx:id="txtProcura" layoutX="17.0" layoutY="12.0" onKeyPressed="#pesquisa" onKeyReleased="#pesquisa" prefHeight="25.0" prefWidth="482.0" />
-            <Button fx:id="btGravar1" layoutX="15.0" layoutY="472.0" mnemonicParsing="false" onAction="#clearFields" prefHeight="30.0" prefWidth="117.0" stylesheets="@../../Styles.css" text="Limpar Selação" />
+            <Button fx:id="btGravar1" layoutX="15.0" layoutY="472.0" mnemonicParsing="false" onAction="#clearFields" prefHeight="30.0" prefWidth="117.0" text="Limpar Selação" />
+            <ImageView fitHeight="25.0" fitWidth="24.0" layoutX="19.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../picture/search.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
    </children>

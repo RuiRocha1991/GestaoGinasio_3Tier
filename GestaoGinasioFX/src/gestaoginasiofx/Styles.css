@@ -127,3 +127,32 @@ and open the template in the editor.
 .AnchorPane{
     -fx-background-image: url("picture/Inicio.png");
 }
+
+.inicialPane{
+    -fx-background-image: url("picture/background3.jpg");
+    -fx-background-size: cover ;
+}
+
+/*.text-field {
+    -fx-background-color: -fx-text-box-border, -fx-background ;
+    -fx-background-insets: 0, 0 0 1 0 ;
+    -fx-background-radius: 0 ;
+}
+.text-field:focused {
+    -fx-background-color: -fx-focus-color, -fx-background ;
+}*/
+
+.paneLogin{
+    -fx-background-color:  rgba(0,0,0,0.6);
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+}
+
+.paneLateral{
+    -fx-background-color: #004ba0;
+    border-color:  #000000 ;
+}
+
+.root{
+    -fx-background: #ffffff;
+}

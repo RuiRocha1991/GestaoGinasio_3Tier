@@ -6,15 +6,17 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="518.0" prefWidth="909.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestaoginasiofx.views.FXMLAdministradorUtenteController">
+<AnchorPane id="AnchorPane" prefHeight="560.0" prefWidth="936.0" styleClass="pane" stylesheets="@../Styles.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestaoginasiofx.views.FXMLAdministradorUtenteController">
    <children>
-      <Pane prefHeight="259.0" prefWidth="907.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;">
+      <Pane layoutX="11.0" layoutY="11.0" prefHeight="267.0" prefWidth="913.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;">
          <children>
-            <TableView fx:id="tbUtente" layoutX="11.0" layoutY="51.0" prefHeight="200.0" prefWidth="750.0">
+            <TableView fx:id="tbUtente" layoutX="11.0" layoutY="56.0" prefHeight="200.0" prefWidth="750.0">
                <columns>
                   <TableColumn fx:id="colNif" prefWidth="117.0" text="NIF" />
                   <TableColumn fx:id="colNome" prefWidth="222.0" text="Nome" />
@@ -24,7 +26,7 @@
                   <TableColumn fx:id="colAtivo" prefWidth="50.0" text="Ativo" />
                </columns>
             </TableView>
-            <Pane layoutX="768.0" layoutY="49.0" prefHeight="92.0" prefWidth="132.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;">
+            <Pane layoutX="768.0" layoutY="55.0" prefHeight="92.0" prefWidth="139.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;">
                <children>
                   <Label layoutX="11.0" layoutY="-9.0" prefHeight="17.0" prefWidth="39.0" style="-fx-background-color: #FFFFFF;" text=" Filtrar" />
                   <RadioButton fx:id="rbAtivos" layoutX="11.0" layoutY="12.0" mnemonicParsing="false" onAction="#rbAtivosSelected" text="Com Contrato" />
@@ -37,15 +39,20 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <Button fx:id="btCriarContrato" layoutX="771.0" layoutY="152.0" mnemonicParsing="false" onAction="#OpenWindowNewContrato" prefHeight="30.0" prefWidth="123.0" stylesheets="@../../Styles.css" text="Criar Contrato" />
-            <Button layoutX="771.0" layoutY="187.0" mnemonicParsing="false" onAction="#clearFields" prefHeight="30.0" prefWidth="123.0" stylesheets="@../../Styles.css" text="Limpar Seleção" />
-            <TextField fx:id="txtProcura" layoutX="11.0" layoutY="14.0" onKeyPressed="#pesquisa" onKeyReleased="#pesquisa" prefHeight="25.0" prefWidth="344.0" />
-            <Button fx:id="btPagamento" layoutX="764.0" layoutY="222.0" mnemonicParsing="false" onAction="#OpenWindowPagamento" prefHeight="30.0" prefWidth="139.0" stylesheets="@../../Styles.css" text="Receber Pagamento" />
+            <Button fx:id="btCriarContrato" layoutX="767.0" layoutY="153.0" mnemonicParsing="false" onAction="#OpenWindowNewContrato" prefHeight="30.0" prefWidth="139.0" stylesheets="@../../Styles.css" text="Criar Contrato" />
+            <Button layoutX="767.0" layoutY="189.0" mnemonicParsing="false" onAction="#clearFields" prefHeight="30.0" prefWidth="139.0" stylesheets="@../../Styles.css" text="Limpar Seleção" />
+            <TextField fx:id="txtProcura" layoutX="35.0" layoutY="29.0" onKeyPressed="#pesquisa" onKeyReleased="#pesquisa" prefHeight="25.0" prefWidth="344.0" />
+            <Button fx:id="btPagamento" layoutX="767.0" layoutY="225.0" mnemonicParsing="false" onAction="#OpenWindowPagamento" prefHeight="30.0" prefWidth="139.0" stylesheets="@../../Styles.css" text="Receber Pagamento" />
+            <ImageView fitHeight="25.0" fitWidth="24.0" layoutX="12.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../picture/search.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
-      <Pane layoutX="260.0" layoutY="270.0" prefHeight="237.0" prefWidth="622.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;">
+      <Pane layoutX="260.0" layoutY="301.0" prefHeight="237.0" prefWidth="665.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;">
          <children>
-            <TableView fx:id="tbPagamento" layoutX="22.0" layoutY="43.0" prefHeight="180.0" prefWidth="578.0">
+            <TableView fx:id="tbPagamento" layoutX="44.0" layoutY="43.0" prefHeight="180.0" prefWidth="578.0">
                <columns>
                   <TableColumn fx:id="colData" prefWidth="117.0" text="Data" />
                   <TableColumn fx:id="colMes" prefWidth="106.0" text="Mes" />
@@ -54,14 +61,14 @@
                   <TableColumn fx:id="colValor" prefWidth="120.0" text="Valor" />
                </columns>
             </TableView>
-            <Label layoutX="234.0" layoutY="14.0" text="Lista Pagamentos Utente">
+            <Label layoutX="256.0" layoutY="14.0" text="Lista Pagamentos Utente">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
          </children>
       </Pane>
-      <Pane layoutX="14.0" layoutY="270.0" prefHeight="237.0" prefWidth="233.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;">
+      <Pane layoutX="14.0" layoutY="301.0" prefHeight="237.0" prefWidth="233.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;">
          <children>
             <Label layoutX="12.0" layoutY="-8.0" prefHeight="17.0" prefWidth="132.0" style="-fx-background-color: #FFFFFF;" text="  Informação do Utente" />
             <Label layoutX="14.0" layoutY="13.0" prefHeight="17.0" prefWidth="199.0" text="Morada" />

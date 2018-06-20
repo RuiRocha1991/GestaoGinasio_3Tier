@@ -61,10 +61,10 @@ public class FXMLIniciarSessaoController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        this.txtSenha.textProperty().setValue("12");
+        //this.txtSenha.textProperty().setValue("12");
         //this.txtUtilizador.textProperty().setValue("Admin");
         //this.txtUtilizador.textProperty().setValue("Instrutor");
-        this.txtUtilizador.textProperty().setValue("Professor");
+        //this.txtUtilizador.textProperty().setValue("Professor");
        
     }    
     

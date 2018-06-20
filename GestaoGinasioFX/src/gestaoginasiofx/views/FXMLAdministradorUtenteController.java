@@ -186,6 +186,7 @@ public class FXMLAdministradorUtenteController implements Initializable {
         }
         this.utenteObservableListFiltro.clear();
         this.clearFields();
+        
         this.initialize(null, null);
         
     }
