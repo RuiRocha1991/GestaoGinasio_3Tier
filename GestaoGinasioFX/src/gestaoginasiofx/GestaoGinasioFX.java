@@ -27,6 +27,7 @@ public class GestaoGinasioFX extends Application {
         Image image= new Image("/gestaoginasiofx/picture/Icon.png");
         stage.setTitle("GYM ESTG - Getão do seu Ginásio");
         Scene scene = new Scene(root);
+        stage.setResizable(false);
         stage.getIcons().add(image);
         stage.setScene(scene);
         stage.show();

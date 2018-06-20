@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="587.0" prefWidth="771.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestaoginasiofx.views.FXMLAdministradorAulasGrupoController">
+<AnchorPane id="AnchorPane" prefHeight="587.0" prefWidth="771.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;" stylesheets="@../Styles.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestaoginasiofx.views.FXMLAdministradorAulasGrupoController">
    <children>
       <Pane layoutX="121.0" layoutY="14.0" prefHeight="207.0" prefWidth="511.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;">
          <children>
@@ -37,19 +37,19 @@
             <DatePicker fx:id="dpDate" layoutX="78.0" layoutY="55.0" prefHeight="25.0" prefWidth="150.0" />
             <Label layoutX="11.0" layoutY="59.0" text="Data" />
             <ComboBox fx:id="cbProfessor" layoutX="347.0" layoutY="55.0" prefWidth="150.0" />
-            <Button layoutX="11.0" layoutY="171.0" mnemonicParsing="false" onAction="#deleteAula" prefHeight="30.0" prefWidth="113.0" stylesheets="@../../Styles.css" text="Eliminar Aula" />
-            <Button fx:id="btAddAula" layoutX="384.0" layoutY="171.0" mnemonicParsing="false" onAction="#updateData" prefHeight="30.0" prefWidth="113.0" stylesheets="@../../Styles.css" text="Atualizar Aula" />
-            <Button fx:id="btGerirTipoAula" layoutX="129.0" layoutY="171.0" mnemonicParsing="false" onAction="#OpenWindowTipoAula" prefHeight="30.0" prefWidth="113.0" stylesheets="@../../Styles.css" text="Gerir Tipo Aula" />
+            <Button layoutX="11.0" layoutY="171.0" mnemonicParsing="false" onAction="#deleteAula" prefHeight="30.0" prefWidth="113.0" text="Eliminar Aula" />
+            <Button fx:id="btAddAula" layoutX="384.0" layoutY="171.0" mnemonicParsing="false" onAction="#updateData" prefHeight="30.0" prefWidth="113.0" text="Atualizar Aula" />
+            <Button fx:id="btGerirTipoAula" layoutX="129.0" layoutY="171.0" mnemonicParsing="false" onAction="#OpenWindowTipoAula" prefHeight="30.0" prefWidth="113.0" text="Gerir Tipo Aula" />
          </children>
       </Pane>
       <Pane layoutX="14.0" layoutY="231.0" prefHeight="334.0" prefWidth="751.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;">
          <children>
-            <Label layoutX="285.0" layoutY="14.0" text="Sala ">
+            <Label layoutX="285.0" layoutY="13.0" text="Sala ">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label layoutX="444.0" layoutY="14.0" text="Tipo Aula">
+            <Label layoutX="444.0" layoutY="13.0" text="Tipo Aula">
                <font>
                   <Font size="14.0" />
                </font>
@@ -66,22 +66,22 @@
                   <TableColumn fx:id="colVagas" prefWidth="78.0" text="Inscritos" />
                </columns>
             </TableView>
-            <DatePicker fx:id="dpDateFiltro" layoutX="38.0" layoutY="39.0" onAction="#filtrarListObservable" />
-            <Button fx:id="btPreviousDay" layoutX="14.0" layoutY="39.0" mnemonicParsing="false" onAction="#previousDay" text="&lt;" />
-            <Button fx:id="btNextDay" layoutX="212.0" layoutY="39.0" mnemonicParsing="false" onAction="#nextDay" text="&gt;" />
-            <Label layoutX="39.0" layoutY="14.0" text="Data">
+            <DatePicker fx:id="dpDateFiltro" layoutX="42.0" layoutY="38.0" onAction="#filtrarListObservable" />
+            <Button fx:id="btPreviousDay" layoutX="14.0" layoutY="37.0" mnemonicParsing="false" onAction="#previousDay" prefHeight="17.0" prefWidth="6.0" text="&lt;" />
+            <Button fx:id="btNextDay" layoutX="217.0" layoutY="37.0" mnemonicParsing="false" onAction="#nextDay" prefHeight="17.0" prefWidth="26.0" text="&gt;" />
+            <Label layoutX="39.0" layoutY="13.0" text="Data">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <ComboBox fx:id="cbSalaFiltro" layoutX="285.0" layoutY="39.0" prefWidth="150.0" />
-            <ComboBox fx:id="cbTipoAulaFiltro" layoutX="444.0" layoutY="39.0" prefWidth="150.0" />
+            <ComboBox fx:id="cbSalaFiltro" layoutX="285.0" layoutY="38.0" prefWidth="150.0" />
+            <ComboBox fx:id="cbTipoAulaFiltro" layoutX="444.0" layoutY="38.0" prefWidth="150.0" />
             <Label layoutX="12.0" layoutY="-10.0" prefHeight="20.0" prefWidth="78.0" style="-fx-background-color: #ffffff;" text=" Lista Aulas " textAlignment="CENTER">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Button fx:id="btGerirTipoAula1" layoutX="620.0" layoutY="28.0" mnemonicParsing="false" onAction="#limparSelecao" prefHeight="30.0" prefWidth="113.0" stylesheets="@../../Styles.css" text="Limpar Seleção" />
+            <Button fx:id="btGerirTipoAula1" layoutX="624.0" layoutY="36.0" mnemonicParsing="false" onAction="#limparSelecao" prefHeight="30.0" prefWidth="113.0" text="Limpar Seleção" />
          </children>
       </Pane>
    </children>

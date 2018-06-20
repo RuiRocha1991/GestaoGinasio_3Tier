@@ -1,37 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="452.0" prefWidth="796.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestaoginasiofx.views.FXMLIniciarSessaoController">
+<AnchorPane id="AnchorPane" prefHeight="629.0" prefWidth="1098.0" styleClass="AnchorPane" stylesheets="@../Styles.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestaoginasiofx.views.FXMLIniciarSessaoController">
    <children>
-      <ImageView fitHeight="486.0" fitWidth="796.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../picture/Inicio.PNG" />
-         </image>
-      </ImageView>
-      <Pane id="paneInicial" layoutX="225.0" layoutY="80.0" prefHeight="298.0" prefWidth="448.0" style="-fx-background-color: #ffffff;">
+      <Pane id="paneInicial" layoutX="362.0" layoutY="191.0" prefHeight="247.0" prefWidth="374.0" style="-fx-background-color: rgba(0,0,0,0.6);">
          <children>
-            <TextField fx:id="txtUtilizador" layoutX="177.0" layoutY="50.0" prefHeight="25.0" prefWidth="236.0" />
-            <TextField fx:id="txtSenha" layoutX="177.0" layoutY="99.0" prefHeight="25.0" prefWidth="236.0" />
-            <Button fx:id="btIniciarSessao" layoutX="274.0" layoutY="177.0" mnemonicParsing="false" onAction="#iniciarSessao" prefHeight="30.0" prefWidth="139.0" stylesheets="@../../Styles.css" text="Iniciar Sessão" />
-            <Button fx:id="btCancelar" layoutX="115.0" layoutY="177.0" mnemonicParsing="false" onAction="#cancelar" prefHeight="30.0" prefWidth="71.0" stylesheets="@../../Styles.css" text="Cancelar" />
-            <Label layoutX="31.0" layoutY="53.0" prefHeight="17.0" prefWidth="128.0" text="Utilizador ou Email: ">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <Label layoutX="31.0" layoutY="102.0" prefHeight="17.0" prefWidth="128.0" text="Senha: ">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
+            <TextField fx:id="txtUtilizador" layoutX="94.0" layoutY="49.0" prefHeight="25.0" prefWidth="236.0" />
+            <TextField fx:id="txtSenha" layoutX="94.0" layoutY="113.0" prefHeight="25.0" prefWidth="236.0" />
+            <Button fx:id="btIniciarSessao" layoutX="225.0" layoutY="179.0" mnemonicParsing="false" onAction="#iniciarSessao" prefHeight="30.0" prefWidth="105.0" stylesheets="@../Styles.css" text="Iniciar Sessão" />
+            <Button fx:id="btCancelar" layoutX="45.0" layoutY="179.0" mnemonicParsing="false" onAction="#cancelar" prefHeight="30.0" prefWidth="105.0" stylesheets="@../Styles.css" text="Cancelar" />
+            <ImageView fitHeight="45.0" fitWidth="75.0" layoutX="45.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../picture/user.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="45.0" layoutY="103.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../picture/key.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
    </children>
