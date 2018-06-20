@@ -12,6 +12,7 @@ import java.time.LocalTime;
 import java.util.Set;
 import gestaoginasiohibernate.model.Aula;
 import gestaoginasiohibernate.model.Aulaindividual;
+import gestaoginasiohibernate.model.Avaliacaofisica;
 import gestaoginasiohibernate.model.Colaborador;
 import gestaoginasiohibernate.model.Professor;
 import java.util.ArrayList;
@@ -36,6 +37,11 @@ public class ProfessorService {
                     return false;
                 }
             }
+            for(Avaliacaofisica av: PersonalTrainerService.getAvaliacaoFisicasData(professor.getPersonaltrainer(), date)){
+                if(LocalTime.parse(av.getHora()).equals(time)){
+                    return false;
+                }
+            }
         }
         return true;
     }
@@ -51,11 +57,20 @@ public class ProfessorService {
             }
         }
        
-        if(colaborador.getProfessor().getPersonaltrainer()!=null && colaborador.getProfessor().getPersonaltrainer().getAulaindividuals()!=null){
-            for(Aulaindividual aula:(Set<Aulaindividual>) colaborador.getProfessor().getPersonaltrainer().getAulaindividuals()){
-                AulaProfessor ap= new AulaProfessor(aula.getIdaula(),LocalDate.parse(aula.getData().toString()),LocalTime.parse(aula.getHora()),aula.getContrato().getUtente().getNome(),"Espaço Comum",
-                                    "Individual", 1, String.valueOf(aula.getDuracao()));
-                listAulas.add(ap);
+        if(colaborador.getProfessor().getPersonaltrainer()!=null ){
+            if(colaborador.getProfessor().getPersonaltrainer().getAulaindividuals()!=null){
+                for(Aulaindividual aula:(Set<Aulaindividual>) colaborador.getProfessor().getPersonaltrainer().getAulaindividuals()){
+                    AulaProfessor ap= new AulaProfessor(aula.getIdaula(),LocalDate.parse(aula.getData().toString()),LocalTime.parse(aula.getHora()),aula.getContrato().getUtente().getNome(),"Espaço Comum",
+                                        "Individual", 1, String.valueOf(aula.getDuracao()));
+                    listAulas.add(ap);
+                }
+            }
+            if(colaborador.getProfessor().getPersonaltrainer().getAvaliacaofisicas()!=null){
+                for(Avaliacaofisica av:(Set<Avaliacaofisica>) colaborador.getProfessor().getPersonaltrainer().getAvaliacaofisicas()){
+                     AulaProfessor ap= new AulaProfessor(av.getCod(),LocalDate.parse(av.getData().toString()),LocalTime.parse(av.getHora()),av.getContrato().getUtente().getNome(),"Espaço Comum",
+                                        "Avaliacao", 1, String.valueOf("1"));
+                    listAulas.add(ap);
+                }
             }
         }
         return listAulas;

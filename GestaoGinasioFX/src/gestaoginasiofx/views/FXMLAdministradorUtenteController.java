@@ -90,6 +90,7 @@ public class FXMLAdministradorUtenteController implements Initializable {
         this.rbDesativos.setToggleGroup(this.toggleGroup);
         this.rbTodos.setToggleGroup(this.toggleGroup);
         this.rbTodos.setSelected(true);
+        this.btCriarContrato.setText("Criar Utente");
         this.initializaTable();
     }    
  
@@ -183,9 +184,10 @@ public class FXMLAdministradorUtenteController implements Initializable {
         catch (IOException e) {
             e.printStackTrace();
         }
-        this.utenteObservableList.clear();
-        this.initialize(null, null);
+        this.utenteObservableListFiltro.clear();
         this.clearFields();
+        this.initialize(null, null);
+        
     }
     
     @FXML 
@@ -210,6 +212,10 @@ public class FXMLAdministradorUtenteController implements Initializable {
         catch (IOException e) {
             e.printStackTrace();
         }
+        this.utenteObservableListFiltro.clear();
+        this.pagamentoObservableList.clear();
+        this.clearFields();
+        this.initialize(null, null);
     }
     
     

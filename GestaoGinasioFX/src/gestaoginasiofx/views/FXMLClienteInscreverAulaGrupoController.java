@@ -165,46 +165,11 @@ public class FXMLClienteInscreverAulaGrupoController implements Initializable {
     
     @FXML 
     private void filtrarListObservable(){
-        List<Aula> lista= new ArrayList<>();
         if(!this.observableListAulasFiltro.isEmpty()){
            this.observableListAulasFiltro.clear();
         }
         this.dataSelected=this.dpDate.getValue();
-        if(this.dataSelected!=null){
-            for(Aula a :this.observableListAulas){
-                if(a.getData().toString().equals(this.dataSelected.toString())){
-                    if(this.salaSelected!=null && this.tipoAulaSelected!=null){
-                        if(a.getSala().equals(this.salaSelected) && a.getTipoaula().equals(this.tipoAulaSelected)){
-                            lista.add(a);
-                        }
-                    }else{
-                        if(this.salaSelected!=null){
-                            if(a.getSala().equals(this.salaSelected)){
-                               lista.add(a);
-                            }
-                        }
-                        if(this.tipoAulaSelected!=null){
-                            if(this.tipoAulaSelected.equals(a.getTipoaula())){
-                                lista.add(a);
-                            }
-                        }
-                        if(this.salaSelected==null && this.tipoAulaSelected==null){
-                            lista.add(a);
-                        }
-                    }
-                }
-            }
-        }
-       if(this.dataSelected.equals(LocalDate.now())){
-            for(Aula a :lista){
-                if( LocalTime.parse(a.getHora()).isAfter(LocalTime.now())){
-                    this.observableListAulasFiltro.add(a);
-                }
-            }
-        }else{
-           this.observableListAulasFiltro.setAll(lista);
-       }
-
+        this.observableListAulasFiltro=FXCollections.observableArrayList(AulaService.filtrarAulas(this.observableListAulas, dataSelected, salaSelected, tipoAulaSelected));
         this.tbAulas.setItems(this.observableListAulasFiltro);
         this.tbAulas.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             this.aulaSelected=newValue;

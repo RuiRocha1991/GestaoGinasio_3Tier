@@ -43,11 +43,13 @@ public class LoginService {
                     return true;
                 }else{
                     if((c.getMesultimopagamento()>=(LocalDate.now().getMonthValue()-1)
-                            && c.getAnoultimopagamento()==LocalDate.now().getYear()) && LocalDate.now().getDayOfMonth()<10){
+                            && c.getAnoultimopagamento()==LocalDate.now().getYear()) && 
+                            LocalDate.now().getDayOfMonth()<10){
                         return true;
                     }else{
                         if((c.getMesultimopagamento()== 12
-                            && c.getAnoultimopagamento()==LocalDate.now().getYear()-1) && LocalDate.now().getMonthValue()==1 &&LocalDate.now().getDayOfMonth()<10){
+                            && c.getAnoultimopagamento()==LocalDate.now().getYear()-1) && 
+                                LocalDate.now().getMonthValue()==1 &&LocalDate.now().getDayOfMonth()<10){
                             return true;
                         }
                     }

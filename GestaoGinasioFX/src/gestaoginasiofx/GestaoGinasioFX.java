@@ -11,6 +11,7 @@ import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
@@ -23,9 +24,10 @@ public class GestaoGinasioFX extends Application {
      @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("views/FXMLDocument.fxml"));
-        
+        Image image= new Image("/gestaoginasiofx/picture/Icon.png");
+        stage.setTitle("GYM ESTG - Getão do seu Ginásio");
         Scene scene = new Scene(root);
-        
+        stage.getIcons().add(image);
         stage.setScene(scene);
         stage.show();
     }
