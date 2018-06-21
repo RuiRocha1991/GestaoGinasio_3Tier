@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="587.0" prefWidth="771.0" styleClass="pane" stylesheets="@../Styles.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestaoginasiofx.views.FXMLAdministradorAulasGrupoController">
+<AnchorPane id="AnchorPane" prefHeight="587.0" prefWidth="771.0" styleClass="inicialPane" stylesheets="@../Styles.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestaoginasiofx.views.FXMLAdministradorAulasGrupoController">
    <children>
       <Pane layoutX="121.0" layoutY="14.0" prefHeight="207.0" prefWidth="511.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;">
          <children>
@@ -21,10 +21,10 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <ComboBox fx:id="cbTipoAula" layoutX="78.0" layoutY="123.0" prefWidth="150.0" />
-            <ComboBox fx:id="cbHoras" layoutX="78.0" layoutY="90.0" prefWidth="150.0" />
-            <ComboBox fx:id="cbSala" layoutX="347.0" layoutY="21.0" prefWidth="150.0" />
-            <TextField fx:id="txtDescricao" layoutX="78.0" layoutY="20.0" prefHeight="25.0" prefWidth="150.0" />
+            <ComboBox fx:id="cbTipoAula" layoutX="78.0" layoutY="123.0" prefWidth="150.0" promptText="Selecionar Tipo Aula" />
+            <ComboBox fx:id="cbHoras" layoutX="78.0" layoutY="90.0" prefWidth="150.0" promptText="Selecionar Hora" />
+            <ComboBox fx:id="cbSala" layoutX="347.0" layoutY="21.0" prefWidth="150.0" promptText="Selecionar Sala" />
+            <TextField fx:id="txtDescricao" layoutX="78.0" layoutY="20.0" prefHeight="25.0" prefWidth="150.0" promptText="Nome Aula" />
             <Spinner fx:id="spDuracaoHoras" layoutX="348.0" layoutY="89.0" />
             <Spinner fx:id="spDuracaoSemanas" layoutX="348.0" layoutY="123.0" />
             <Label layoutX="11.0" layoutY="24.0" text="Descrição" />
@@ -36,7 +36,7 @@
             <Label layoutX="242.0" layoutY="127.0" text="Duração Semanas" />
             <DatePicker fx:id="dpDate" layoutX="78.0" layoutY="55.0" prefHeight="25.0" prefWidth="150.0" />
             <Label layoutX="11.0" layoutY="59.0" text="Data" />
-            <ComboBox fx:id="cbProfessor" layoutX="347.0" layoutY="55.0" prefWidth="150.0" />
+            <ComboBox fx:id="cbProfessor" layoutX="347.0" layoutY="55.0" prefWidth="150.0" promptText="Selecionar Professor" />
             <Button layoutX="11.0" layoutY="171.0" mnemonicParsing="false" onAction="#deleteAula" prefHeight="30.0" prefWidth="113.0" text="Eliminar Aula" />
             <Button fx:id="btAddAula" layoutX="384.0" layoutY="171.0" mnemonicParsing="false" onAction="#updateData" prefHeight="30.0" prefWidth="113.0" text="Atualizar Aula" />
             <Button fx:id="btGerirTipoAula" layoutX="129.0" layoutY="171.0" mnemonicParsing="false" onAction="#OpenWindowTipoAula" prefHeight="30.0" prefWidth="113.0" text="Gerir Tipo Aula" />
@@ -74,8 +74,8 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <ComboBox fx:id="cbSalaFiltro" layoutX="285.0" layoutY="38.0" prefWidth="150.0" />
-            <ComboBox fx:id="cbTipoAulaFiltro" layoutX="444.0" layoutY="38.0" prefWidth="150.0" />
+            <ComboBox fx:id="cbSalaFiltro" layoutX="285.0" layoutY="38.0" prefWidth="150.0" promptText="Filtrar por Sala" />
+            <ComboBox fx:id="cbTipoAulaFiltro" layoutX="444.0" layoutY="38.0" prefWidth="150.0" promptText="Filtrar por Tipo Aula" />
             <Label layoutX="12.0" layoutY="-10.0" prefHeight="20.0" prefWidth="78.0" style="-fx-background-color: #ffffff;" text=" Lista Aulas " textAlignment="CENTER">
                <font>
                   <Font size="14.0" />

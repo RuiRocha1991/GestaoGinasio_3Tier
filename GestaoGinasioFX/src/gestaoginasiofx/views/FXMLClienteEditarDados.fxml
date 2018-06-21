@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="650.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestaoginasiofx.views.FXMLClienteEditarDadosController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="650.0" styleClass="inicialPane" stylesheets="@../Styles.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestaoginasiofx.views.FXMLClienteEditarDadosController">
    <children>
       <Label layoutX="211.0" layoutY="10.0" text="Menu Utente :">
          <font>
@@ -23,18 +23,18 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="txtNif" editable="false" layoutX="223.0" layoutY="48.0" prefHeight="25.0" prefWidth="325.0" />
-            <TextField fx:id="txtNome" editable="false" layoutX="223.0" layoutY="83.0" prefHeight="25.0" prefWidth="325.0" />
-            <TextField fx:id="txtEmail" layoutX="223.0" layoutY="118.0" prefHeight="25.0" prefWidth="325.0" />
-            <TextField fx:id="txtTelefone" layoutX="223.0" layoutY="152.0" prefHeight="25.0" prefWidth="325.0" />
-            <TextField fx:id="txtMorada" layoutX="223.0" layoutY="222.0" prefHeight="25.0" prefWidth="325.0" />
+            <TextField fx:id="txtNif" editable="false" layoutX="223.0" layoutY="48.0" prefHeight="25.0" prefWidth="325.0" promptText="NIF" />
+            <TextField fx:id="txtNome" editable="false" layoutX="223.0" layoutY="83.0" prefHeight="25.0" prefWidth="325.0" promptText="Nome Completo" />
+            <TextField fx:id="txtEmail" layoutX="223.0" layoutY="118.0" prefHeight="25.0" prefWidth="325.0" promptText="Email" />
+            <TextField fx:id="txtTelefone" layoutX="223.0" layoutY="152.0" prefHeight="25.0" prefWidth="325.0" promptText="Telefone" />
+            <TextField fx:id="txtMorada" layoutX="223.0" layoutY="222.0" prefHeight="25.0" prefWidth="325.0" promptText="Morada" />
             <DatePicker fx:id="dtData" editable="false" layoutX="223.0" layoutY="187.0" prefHeight="25.0" prefWidth="325.0" />
-            <TextField fx:id="txtLocalidade" layoutX="223.0" layoutY="257.0" prefHeight="25.0" prefWidth="325.0" />
-            <TextField fx:id="txtCodPostal" layoutX="223.0" layoutY="292.0" prefHeight="25.0" prefWidth="325.0" />
-            <TextField fx:id="txtTipoContrato" editable="false" layoutX="223.0" layoutY="325.0" prefHeight="25.0" prefWidth="325.0" />
-            <TextField fx:id="txtMensalidade" editable="false" layoutX="223.0" layoutY="360.0" prefHeight="25.0" prefWidth="325.0" />
-            <Button fx:id="btGravar" layoutX="495.0" layoutY="496.0" mnemonicParsing="false" onAction="#updateDataUtente" prefHeight="30.0" prefWidth="106.0" stylesheets="@../../Styles.css" text="Gravar" />
-            <Button fx:id="btCancelar" layoutX="14.0" layoutY="496.0" mnemonicParsing="false" onAction="#comeBackInicial" prefHeight="30.0" stylesheets="@../../Styles.css" text="Cancelar" />
+            <TextField fx:id="txtLocalidade" layoutX="223.0" layoutY="257.0" prefHeight="25.0" prefWidth="325.0" promptText="Localidade" />
+            <TextField fx:id="txtCodPostal" layoutX="223.0" layoutY="292.0" prefHeight="25.0" prefWidth="325.0" promptText="Codigo Postal" />
+            <TextField fx:id="txtTipoContrato" editable="false" layoutX="223.0" layoutY="325.0" prefHeight="25.0" prefWidth="325.0" promptText="Tipo Contrato" />
+            <TextField fx:id="txtMensalidade" editable="false" layoutX="223.0" layoutY="360.0" prefHeight="25.0" prefWidth="325.0" promptText="Mensalidade" />
+            <Button fx:id="btGravar" layoutX="495.0" layoutY="496.0" mnemonicParsing="false" onAction="#updateDataUtente" prefHeight="30.0" prefWidth="106.0" text="Gravar" />
+            <Button fx:id="btCancelar" layoutX="14.0" layoutY="496.0" mnemonicParsing="false" onAction="#comeBackInicial" prefHeight="30.0" text="Cancelar" />
             <Label layoutX="75.0" layoutY="51.0" text="NIF:">
                <font>
                   <Font size="14.0" />
@@ -95,8 +95,8 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <PasswordField fx:id="txtNovaSenha" layoutX="223.0" layoutY="396.0" prefHeight="25.0" prefWidth="325.0" />
-            <PasswordField fx:id="txtConfirmaSenha" layoutX="223.0" layoutY="431.0" prefHeight="25.0" prefWidth="325.0" />
+            <PasswordField fx:id="txtNovaSenha" layoutX="223.0" layoutY="396.0" prefHeight="25.0" prefWidth="325.0" promptText="Nova Senha" />
+            <PasswordField fx:id="txtConfirmaSenha" layoutX="223.0" layoutY="431.0" prefHeight="25.0" prefWidth="325.0" promptText="Confirmar Senha" />
          </children>
       </Pane>
       <TextField fx:id="txtNomeCabecalho" editable="false" layoutX="326.0" layoutY="11.0" prefHeight="25.0" prefWidth="158.0" />

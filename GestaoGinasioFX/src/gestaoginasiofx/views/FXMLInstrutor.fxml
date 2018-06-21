@@ -7,16 +7,16 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1008.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestaoginasiofx.views.FXMLInstrutorController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="875.0" styleClass="inicialPane" stylesheets="@../Styles.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestaoginasiofx.views.FXMLInstrutorController">
    <top>
-      <Pane prefHeight="50.0" prefWidth="1140.0" style="-fx-border-color: #000000; -fx-background-color: #a4a4a4;" BorderPane.alignment="CENTER">
+      <Pane prefHeight="50.0" prefWidth="1140.0" styleClass="paneLateral" BorderPane.alignment="CENTER">
          <children>
             <TextField fx:id="txtNome" editable="false" layoutX="6.0" layoutY="10.0" prefHeight="30.0" prefWidth="343.0">
                <font>
                   <Font size="14.0" />
                </font>
             </TextField>
-            <TextField fx:id="txtMenu" editable="false" layoutX="362.0" layoutY="10.0" prefHeight="30.0" prefWidth="633.0">
+            <TextField fx:id="txtMenu" editable="false" layoutX="362.0" layoutY="10.0" prefHeight="30.0" prefWidth="502.0">
                <font>
                   <Font size="14.0" />
                </font>
@@ -25,17 +25,17 @@
       </Pane>
    </top>
    <left>
-      <Pane minHeight="-Infinity" minWidth="-Infinity" prefHeight="545.0" prefWidth="145.0" style="-fx-border-color: #000000; -fx-background-color: #a4a4a4;">
+      <Pane minHeight="-Infinity" minWidth="-Infinity" prefHeight="545.0" prefWidth="142.0" styleClass="paneLateral">
          <BorderPane.margin>
             <Insets />
          </BorderPane.margin>
          <children>
-            <Button fx:id="btNotaAvaria" layoutX="17.0" layoutY="25.0" mnemonicParsing="false" onAction="#switchCenter" prefHeight="40.0" prefWidth="110.0" stylesheets="@../../Styles.css" text="Notas Avaria" />
-            <Button fx:id="btHorario" layoutX="17.0" layoutY="87.0" mnemonicParsing="false" onAction="#switchCenter" prefHeight="40.0" prefWidth="110.0" stylesheets="@../../Styles.css" text="Horário" />
-            <Button fx:id="btDadosPessoais" layoutX="17.0" layoutY="422.0" mnemonicParsing="false" onAction="#switchCenter" prefHeight="40.0" prefWidth="110.0" stylesheets="@../../Styles.css" text="Dados Pessoais" />
-            <Button fx:id="btCloseSession" layoutX="17.0" layoutY="480.0" mnemonicParsing="false" onAction="#closeSession" prefHeight="40.0" prefWidth="110.0" stylesheets="@../../Styles.css" text="Terminar Sessão" />
-            <Button fx:id="btPlanosTreino" layoutX="17.0" layoutY="148.0" mnemonicParsing="false" onAction="#switchCenter" prefHeight="40.0" prefWidth="110.0" stylesheets="@../../Styles.css" text="Planos Treino" />
-            <Button fx:id="btAvaliacaoFisica" layoutX="17.0" layoutY="208.0" mnemonicParsing="false" onAction="#switchCenter" prefHeight="40.0" prefWidth="110.0" stylesheets="@../../Styles.css" text="Avaliação Fisica" />
+            <Button fx:id="btNotaAvaria" layoutX="11.0" layoutY="25.0" mnemonicParsing="false" onAction="#switchCenter" prefHeight="40.0" prefWidth="120.0" stylesheets="@../../Styles.css" text="Notas Avaria" />
+            <Button fx:id="btHorario" layoutX="11.0" layoutY="85.0" mnemonicParsing="false" onAction="#switchCenter" prefHeight="40.0" prefWidth="120.0" stylesheets="@../../Styles.css" text="Horário" />
+            <Button fx:id="btDadosPessoais" layoutX="11.0" layoutY="422.0" mnemonicParsing="false" onAction="#switchCenter" prefHeight="40.0" prefWidth="120.0" stylesheets="@../../Styles.css" text="Dados Pessoais" />
+            <Button fx:id="btCloseSession" layoutX="11.0" layoutY="480.0" mnemonicParsing="false" onAction="#closeSession" prefHeight="40.0" prefWidth="120.0" stylesheets="@../../Styles.css" text="Terminar Sessão" />
+            <Button fx:id="btPlanosTreino" layoutX="11.0" layoutY="145.0" mnemonicParsing="false" onAction="#switchCenter" prefHeight="40.0" prefWidth="120.0" stylesheets="@../../Styles.css" text="Planos Treino" />
+            <Button fx:id="btAvaliacaoFisica" layoutX="11.0" layoutY="205.0" mnemonicParsing="false" onAction="#switchCenter" prefHeight="40.0" prefWidth="120.0" stylesheets="@../../Styles.css" text="Avaliação Fisica" />
          </children>
       </Pane>
    </left>

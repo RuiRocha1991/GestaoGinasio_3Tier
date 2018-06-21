@@ -9,21 +9,20 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="477.0" prefWidth="610.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestaoginasiofx.views.FXMLRecessionistaCriarContratosController">
+<AnchorPane id="AnchorPane" prefHeight="477.0" prefWidth="610.0" styleClass="inicialPane" stylesheets="@../Styles.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestaoginasiofx.views.FXMLRecessionistaCriarContratosController">
    <children>
-      <Pane layoutX="14.0" layoutY="14.0" prefHeight="448.0" prefWidth="582.0" style="-fx-border-color: #000000; -fx-background-color: #ffffff;">
+      <Pane layoutX="14.0" layoutY="14.0" prefHeight="448.0" prefWidth="582.0" styleClass="pane">
          <children>
-            <TextField fx:id="txtNIF" editable="false" layoutX="187.0" layoutY="39.0" prefHeight="25.0" prefWidth="219.0" />
-            <TextField fx:id="txtNome" editable="false" layoutX="187.0" layoutY="73.0" prefHeight="25.0" prefWidth="219.0" />
-            <TextField fx:id="txtEmail" layoutX="187.0" layoutY="109.0" prefHeight="25.0" prefWidth="219.0" />
-            <TextField fx:id="txtTelefone" layoutX="187.0" layoutY="145.0" prefHeight="25.0" prefWidth="219.0" />
+            <TextField fx:id="txtNIF" editable="false" layoutX="187.0" layoutY="39.0" prefHeight="25.0" prefWidth="219.0" promptText="000000000" />
+            <TextField fx:id="txtNome" editable="false" layoutX="187.0" layoutY="73.0" prefHeight="25.0" prefWidth="219.0" promptText="Nome Completo" />
+            <TextField fx:id="txtEmail" layoutX="187.0" layoutY="109.0" prefHeight="25.0" prefWidth="219.0" promptText="email@exemplo.pt" />
+            <TextField fx:id="txtTelefone" layoutX="187.0" layoutY="145.0" prefHeight="25.0" prefWidth="219.0" promptText="000000000" />
             <DatePicker fx:id="dpDateNascimento" editable="false" layoutX="188.0" layoutY="180.0" prefHeight="25.0" prefWidth="217.0" />
-            <TextField fx:id="txtMorada" layoutX="187.0" layoutY="217.0" prefHeight="25.0" prefWidth="219.0" />
-            <TextField fx:id="txtLocalidade" layoutX="187.0" layoutY="255.0" prefHeight="25.0" prefWidth="219.0" />
-            <TextField fx:id="txtCodPostal" layoutX="188.0" layoutY="291.0" prefHeight="25.0" prefWidth="117.0" />
-            <ComboBox fx:id="cbTipoContrato" layoutX="188.0" layoutY="328.0" prefHeight="25.0" prefWidth="217.0" />
-            <TextField fx:id="txtMensalidade" editable="false" layoutX="187.0" layoutY="367.0" prefHeight="25.0" prefWidth="219.0" />
-            <Button layoutX="436.0" layoutY="328.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="124.0" text="Atualizar Dados " />
+            <TextField fx:id="txtMorada" layoutX="187.0" layoutY="217.0" prefHeight="25.0" prefWidth="219.0" promptText="Morada" />
+            <TextField fx:id="txtLocalidade" layoutX="187.0" layoutY="255.0" prefHeight="25.0" prefWidth="219.0" promptText="Localidade" />
+            <TextField fx:id="txtCodPostal" layoutX="188.0" layoutY="291.0" prefHeight="25.0" prefWidth="117.0" promptText="0000-000" />
+            <ComboBox fx:id="cbTipoContrato" layoutX="188.0" layoutY="328.0" prefHeight="25.0" prefWidth="217.0" promptText="Selecionar Tipo Contrato" />
+            <TextField fx:id="txtMensalidade" editable="false" layoutX="187.0" layoutY="367.0" prefHeight="25.0" prefWidth="219.0" promptText="Mensalidade" />
             <Label layoutX="42.0" layoutY="42.0" prefHeight="20.0" prefWidth="24.0" text="NIF">
                <font>
                   <Font size="14.0" />
@@ -74,8 +73,8 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <Button fx:id="btPagamento" layoutX="436.0" layoutY="370.0" mnemonicParsing="false" onAction="#OpenWindowPagamento" prefHeight="25.0" prefWidth="124.0" text="Receber Pagamento" />
-            <Button fx:id="btConcluir" layoutX="436.0" layoutY="412.0" mnemonicParsing="false" onAction="#concluirRegisto" prefHeight="25.0" prefWidth="124.0" text="Concluir Registo" />
+            <Button fx:id="btPagamento" layoutX="434.0" layoutY="368.0" mnemonicParsing="false" onAction="#OpenWindowPagamento" prefHeight="27.0" prefWidth="137.0" text="Receber Pagamento" />
+            <Button fx:id="btConcluir" layoutX="434.0" layoutY="410.0" mnemonicParsing="false" onAction="#concluirRegisto" prefHeight="27.0" prefWidth="137.0" text="Concluir Registo" />
             <Label layoutX="42.0" layoutY="-10.0" prefHeight="20.0" prefWidth="108.0" style="-fx-background-color: #ffffff;" text="Dados do Cliente">
                <font>
                   <Font size="14.0" />

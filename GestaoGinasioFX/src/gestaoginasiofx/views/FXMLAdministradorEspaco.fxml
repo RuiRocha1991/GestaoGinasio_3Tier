@@ -10,12 +10,12 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="540.0" prefWidth="818.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestaoginasiofx.views.FXMLAdministradorEspacoController">
+<AnchorPane id="AnchorPane" prefHeight="540.0" prefWidth="818.0" styleClass="inicialPane" stylesheets="@../Styles.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestaoginasiofx.views.FXMLAdministradorEspacoController">
    <children>
-      <Pane layoutX="11.0" layoutY="11.0" prefHeight="517.0" prefWidth="797.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;">
+      <Pane layoutX="11.0" layoutY="11.0" prefHeight="517.0" prefWidth="797.0" styleClass="pane">
          <children>
 
-            <TableView fx:id="tbEspacos" layoutX="14.0" layoutY="224.0" prefHeight="286.0" prefWidth="401.0" stylesheets="@../../Styles.css">
+            <TableView fx:id="tbEspacos" layoutX="14.0" layoutY="224.0" prefHeight="286.0" prefWidth="401.0">
               <columns>
                 <TableColumn fx:id="colDescicao" prefWidth="162.0" text="Descrição" />
                 <TableColumn fx:id="colTipoEspaco" prefWidth="91.0" text="Tipo" />
@@ -27,7 +27,7 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <TableView fx:id="tbEquipamento" layoutX="439.0" layoutY="33.0" prefHeight="477.0" prefWidth="350.0" stylesheets="@../../Styles.css">
+            <TableView fx:id="tbEquipamento" layoutX="439.0" layoutY="33.0" prefHeight="477.0" prefWidth="350.0">
                <columns>
                   <TableColumn fx:id="colDescicaoEqui" prefWidth="135.0" text="Descrição" />
                   <TableColumn fx:id="colCategoria" prefWidth="118.0" text="Categoria" />
@@ -39,14 +39,14 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <Pane layoutX="14.0" layoutY="23.0" prefHeight="169.0" prefWidth="401.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;">
+            <Pane layoutX="14.0" layoutY="23.0" prefHeight="169.0" prefWidth="401.0" styleClass="pane">
                <children>
                   <Label layoutX="52.0" layoutY="24.0" text="Descrição: " />
                   <Label layoutX="45.0" layoutY="65.0" text="Tipo Espaço: " />
-                  <TextField fx:id="txtDescricao" layoutX="137.0" layoutY="20.0" onKeyPressed="#clearBackground" onKeyReleased="#clearBackground" prefHeight="25.0" prefWidth="219.0" />
-                  <ComboBox fx:id="cbTipoEspaco" layoutX="137.0" layoutY="61.0" onMouseClicked="#clearBackground" prefHeight="25.0" prefWidth="219.0" />
-                  <Button layoutX="255.0" layoutY="124.0" mnemonicParsing="false" onAction="#updateData" prefHeight="32.0" prefWidth="114.0" stylesheets="@../../Styles.css" text="Gravar" />
-                  <Button layoutX="32.0" layoutY="124.0" mnemonicParsing="false" onAction="#clearField" prefHeight="32.0" prefWidth="114.0" stylesheets="@../../Styles.css" text="Limpar Seleção" />
+                  <TextField fx:id="txtDescricao" layoutX="137.0" layoutY="20.0" onKeyPressed="#clearBackground" onKeyReleased="#clearBackground" prefHeight="25.0" prefWidth="219.0" promptText="Nome Espaço" />
+                  <ComboBox fx:id="cbTipoEspaco" layoutX="137.0" layoutY="61.0" onMouseClicked="#clearBackground" prefHeight="25.0" prefWidth="219.0" promptText="Selecionar Espaço" />
+                  <Button layoutX="255.0" layoutY="124.0" mnemonicParsing="false" onAction="#updateData" prefHeight="32.0" prefWidth="114.0" text="Gravar" />
+                  <Button layoutX="32.0" layoutY="124.0" mnemonicParsing="false" onAction="#clearField" prefHeight="32.0" prefWidth="114.0" text="Limpar Seleção" />
                   <Label layoutX="12.0" layoutY="-10.0" style="-fx-background-color: #ffffff;" text=" Inserir / Editar Espaço " />
                </children>
             </Pane>

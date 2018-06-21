@@ -25,7 +25,7 @@ public class GestaoGinasioFX extends Application {
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("views/FXMLDocument.fxml"));
         Image image= new Image("/gestaoginasiofx/picture/Icon.png");
-        stage.setTitle("GYM ESTG - Getão do seu Ginásio");
+        stage.setTitle("GYM ESTG - Gestão do seu Ginásio");
         Scene scene = new Scene(root);
         stage.setResizable(false);
         stage.getIcons().add(image);

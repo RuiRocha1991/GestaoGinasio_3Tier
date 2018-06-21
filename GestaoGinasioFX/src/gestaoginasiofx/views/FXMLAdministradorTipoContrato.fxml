@@ -10,11 +10,11 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="546.0" prefWidth="892.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestaoginasiofx.views.FXMLAdministradorTipoContratoController">
+<AnchorPane id="AnchorPane" prefHeight="546.0" prefWidth="561.0" styleClass="inicialPane" stylesheets="@../Styles.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestaoginasiofx.views.FXMLAdministradorTipoContratoController">
    <children>
-      <Pane layoutX="11.0" layoutY="11.0" prefHeight="524.0" prefWidth="870.0" style="-fx-border-color: #000000; -fx-background-color: #ffffff;">
+      <Pane layoutX="14.0" layoutY="11.0" prefHeight="524.0" prefWidth="530.0" styleClass="pane">
          <children>
-            <Pane layoutX="214.0" layoutY="22.0" prefHeight="200.0" prefWidth="499.0" style="-fx-border-color: #000000; -fx-background-color: #ffffff;">
+            <Pane layoutX="14.0" layoutY="19.0" prefHeight="179.0" prefWidth="499.0" styleClass="pane">
                <children>
                   <Label layoutX="12.0" layoutY="-12.0" style="-fx-background-color: #ffffff;" text=" Criar /  Editar Tipo Contrato ">
                      <font>
@@ -24,20 +24,25 @@
                   <Label layoutX="99.0" layoutY="39.0" text="Descrição: " />
                   <Label layoutX="99.0" layoutY="75.0" text="Mensalidade: " />
                   <Label layoutX="99.0" layoutY="107.0" text="Ativo: " />
-                  <TextField fx:id="txtDescricao" layoutX="173.0" layoutY="35.0" onKeyPressed="#clearBackgroundField" onKeyReleased="#clearBackgroundField" prefHeight="25.0" prefWidth="227.0" />
-                  <TextField fx:id="txtMensalidade" layoutX="173.0" layoutY="71.0" onKeyPressed="#clearBackgroundField" onKeyReleased="#clearBackgroundField" prefHeight="25.0" prefWidth="227.0" />
+                  <TextField fx:id="txtDescricao" layoutX="173.0" layoutY="35.0" onKeyPressed="#clearBackgroundField" onKeyReleased="#clearBackgroundField" prefHeight="25.0" prefWidth="227.0" promptText="Nome Contrato" />
+                  <TextField fx:id="txtMensalidade" layoutX="173.0" layoutY="71.0" onKeyPressed="#clearBackgroundField" onKeyReleased="#clearBackgroundField" prefHeight="25.0" prefWidth="227.0" promptText="45.90" />
                   <CheckBox fx:id="cbAtivo" layoutX="173.0" layoutY="107.0" mnemonicParsing="false" />
-                  <Button fx:id="btGravar" layoutX="365.0" layoutY="161.0" mnemonicParsing="false" onAction="#updateData" prefHeight="30.0" prefWidth="120.0" stylesheets="@../../Styles.css" text="Gravar" />
-                  <Button fx:id="btLimpaSelecao" layoutX="14.0" layoutY="161.0" mnemonicParsing="false" onAction="#clearSelectionAndFields" prefHeight="30.0" prefWidth="120.0" stylesheets="@../../Styles.css" text="Limpar Seleção" />
+                  <Button fx:id="btGravar" layoutX="365.0" layoutY="137.0" mnemonicParsing="false" onAction="#updateData" prefHeight="30.0" prefWidth="120.0" text="Gravar" />
+                  <Button fx:id="btLimpaSelecao" layoutX="14.0" layoutY="137.0" mnemonicParsing="false" onAction="#clearSelectionAndFields" prefHeight="30.0" prefWidth="120.0" text="Limpar Seleção" />
                </children>
             </Pane>
-            <TableView fx:id="tbTiposContrato" layoutX="215.0" layoutY="242.0" prefHeight="266.0" prefWidth="499.0">
+            <TableView fx:id="tbTiposContrato" layoutX="15.0" layoutY="233.0" prefHeight="272.0" prefWidth="499.0">
                <columns>
                   <TableColumn fx:id="colDescricao" prefWidth="236.0" text="Descrição" />
                   <TableColumn fx:id="colMensalidade" prefWidth="181.0" text="Mensalidade" />
                   <TableColumn fx:id="colAtivo" prefWidth="60.0" text="Ativo" />
                </columns>
             </TableView>
+            <Label layoutX="209.0" layoutY="208.0" text="Tipos de Contrato">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
    </children>

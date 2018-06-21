@@ -27,6 +27,7 @@ import gestaoginasiobll.services.LoginService;
 import gestaoginasiobll.exception.PagamentoEmAtrasoException;
 import gestaoginasiobll.exception.UtilizadorInvalidoException;
 import gestaoginasiofx.Notificacao;
+import javafx.scene.control.PasswordField;
 
 /**
  * FXML Controller class
@@ -37,7 +38,7 @@ public class FXMLIniciarSessaoController implements Initializable {
     @FXML private Button btIniciarSessao;
     @FXML private Button btCancelar;
     @FXML private TextField txtUtilizador;
-    @FXML private TextField txtSenha;
+    @FXML private PasswordField txtSenha;
 
     
 //    final Float[] values = new Float[] {-1.0f, 0f, 0.6f, 1.0f};

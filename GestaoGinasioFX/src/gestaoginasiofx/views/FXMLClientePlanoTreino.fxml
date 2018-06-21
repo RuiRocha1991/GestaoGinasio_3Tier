@@ -9,14 +9,14 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestaoginasiofx.views.FXMLClientePlanoTreinoController">
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="600.0" styleClass="inicialPane" stylesheets="@../Styles.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestaoginasiofx.views.FXMLClientePlanoTreinoController">
    <children>
       <Label layoutX="217.0" layoutY="10.0" text="Plano de Treino">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Pane layoutX="14.0" layoutY="50.0" prefHeight="160.0" prefWidth="572.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;">
+      <Pane layoutX="14.0" layoutY="50.0" prefHeight="160.0" prefWidth="572.0" styleClass="pane">
          <children>
             <Label layoutX="18.0" layoutY="-9.0" style="-fx-background-color: #ffffff;" text=" Detalhes Plano de Treino " />
             <Label layoutX="164.0" layoutY="45.0" text="Descrição" />
@@ -33,7 +33,7 @@
             <ListView fx:id="lvPlanoTreino" layoutX="18.0" layoutY="36.0" prefHeight="111.0" prefWidth="125.0" />
          </children>
       </Pane>
-      <Pane layoutX="14.0" layoutY="223.0" prefHeight="227.0" prefWidth="572.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;">
+      <Pane layoutX="14.0" layoutY="223.0" prefHeight="227.0" prefWidth="572.0" styleClass="pane">
          <children>
             <Label layoutX="44.0" layoutY="14.0" text="Dias Semana">
                <font>
@@ -45,7 +45,7 @@
             <TextArea fx:id="txtDescriçaoDia" editable="false" layoutX="180.0" layoutY="38.0" prefHeight="169.0" prefWidth="328.0" />
          </children>
       </Pane>
-      <Button fx:id="btCancelar" layoutX="14.0" layoutY="461.0" mnemonicParsing="false" onAction="#comeBackInicial" prefHeight="30.0" prefWidth="95.0" stylesheets="@../../Styles.css" text="Voltar" />
-      <Button fx:id="btNovoPlano" layoutX="417.0" layoutY="460.0" mnemonicParsing="false" onAction="#openNovoPlanoTreino" prefHeight="30.0" prefWidth="177.0" stylesheets="@../../Styles.css" text="Pedir Plano Treino" />
+      <Button fx:id="btCancelar" layoutX="14.0" layoutY="461.0" mnemonicParsing="false" onAction="#comeBackInicial" prefHeight="30.0" prefWidth="95.0" text="Voltar" />
+      <Button fx:id="btNovoPlano" layoutX="417.0" layoutY="460.0" mnemonicParsing="false" onAction="#openNovoPlanoTreino" prefHeight="30.0" prefWidth="177.0" text="Pedir Plano Treino" />
    </children>
 </AnchorPane>

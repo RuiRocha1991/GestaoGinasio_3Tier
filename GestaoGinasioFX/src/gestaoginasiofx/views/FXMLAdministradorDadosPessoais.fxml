@@ -8,15 +8,15 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestaoginasiofx.views.FXMLAdministradorDadosPessoaisController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="900.0" styleClass="inicialPane" stylesheets="@../Styles.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestaoginasiofx.views.FXMLAdministradorDadosPessoaisController">
    <children>
-      <Pane layoutX="246.0" layoutY="125.0" prefHeight="312.0" prefWidth="408.0" style="-fx-border-color: #000000; -fx-background-color: #ffffff;">
+      <Pane layoutX="246.0" layoutY="125.0" prefHeight="312.0" prefWidth="408.0" styleClass="pane">
          <children>
-            <PasswordField fx:id="txtSenha" layoutX="178.0" layoutY="158.0" />
-            <PasswordField fx:id="txtNovaSenha" layoutX="178.0" layoutY="195.0" />
-            <PasswordField fx:id="txtSenhaConfirma" layoutX="178.0" layoutY="230.0" />
-            <Button layoutX="212.0" layoutY="273.0" mnemonicParsing="false" onAction="#updateColaborador" prefHeight="30.0" prefWidth="117.0" stylesheets="@../../Styles.css" text="Guardar" />
-            <Label layoutX="137.0" layoutY="14.0" text="Dados Pessoais">
+            <PasswordField fx:id="txtSenha" layoutX="178.0" layoutY="158.0" promptText="Senha atual" />
+            <PasswordField fx:id="txtNovaSenha" layoutX="178.0" layoutY="195.0" promptText="Nova Senha" />
+            <PasswordField fx:id="txtSenhaConfirma" layoutX="178.0" layoutY="230.0" promptText="Confirmar Nova Senha" />
+            <Button layoutX="212.0" layoutY="273.0" mnemonicParsing="false" onAction="#updateColaborador" prefHeight="30.0" prefWidth="117.0" text="Guardar" />
+            <Label layoutX="151.0" layoutY="14.0" text="Dados Pessoais">
                <font>
                   <Font size="18.0" />
                </font>
@@ -25,11 +25,11 @@
             <Label layoutX="52.0" layoutY="93.0" text="Utilizador:" />
             <Label layoutX="52.0" layoutY="162.0" text="Senha: " />
             <Label layoutX="52.0" layoutY="199.0" text="Nova Senha: " />
-            <TextField fx:id="txtNome" editable="false" layoutX="179.0" layoutY="53.0" />
-            <TextField fx:id="txtUtilizador" editable="false" layoutX="179.0" layoutY="89.0" />
+            <TextField fx:id="txtNome" editable="false" focusTraversable="false" layoutX="179.0" layoutY="53.0" />
+            <TextField fx:id="txtUtilizador" editable="false" focusTraversable="false" layoutX="179.0" layoutY="89.0" />
             <Label layoutX="52.0" layoutY="234.0" text="Confirmar nova Senha:" />
             <Label layoutX="52.0" layoutY="128.0" text="Tipo Funcionário" />
-            <TextField fx:id="txtTipoFuncionario" editable="false" layoutX="178.0" layoutY="124.0" />
+            <TextField fx:id="txtTipoFuncionario" editable="false" focusTraversable="false" layoutX="178.0" layoutY="124.0" />
          </children>
       </Pane>
    </children>

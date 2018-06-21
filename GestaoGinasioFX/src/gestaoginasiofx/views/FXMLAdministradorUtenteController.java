@@ -149,7 +149,7 @@ public class FXMLAdministradorUtenteController implements Initializable {
                     fxmlLoader.setLocation(getClass().getResource("FXMLRecessionistaEditClientes.fxml"));
                     Scene scene = new Scene(fxmlLoader.load());
                     Stage stage = new Stage();
-                    stage.setTitle("New Window");
+                    stage.setTitle("Editar Contrato");
                     stage.setScene(scene);
                     FXMLRecessionistaEditClientesController controller= fxmlLoader.getController();
                     controller.setContrato(this.selectedContrato);
@@ -161,7 +161,7 @@ public class FXMLAdministradorUtenteController implements Initializable {
                     fxmlLoader.setLocation(getClass().getResource("FXMLRecessionistaCriarContratos.fxml"));
                     Scene scene = new Scene(fxmlLoader.load());
                     Stage stage = new Stage();
-                    stage.setTitle("New Window");
+                    stage.setTitle("Criar Contrato");
                     stage.setScene(scene);
                     FXMLRecessionistaCriarContratosController controller= fxmlLoader.getController();
                     controller.setUtente(this.selectedUtente);

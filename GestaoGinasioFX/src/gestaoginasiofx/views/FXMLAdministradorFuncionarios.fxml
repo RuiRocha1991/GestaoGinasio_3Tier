@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane id="AnchorPane" prefHeight="542.0" prefWidth="879.0" stylesheets="@../Styles.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestaoginasiofx.views.FXMLAdministradorFuncionariosController">
+<AnchorPane id="AnchorPane" prefHeight="542.0" prefWidth="879.0" styleClass="inicialPane" stylesheets="@../Styles.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestaoginasiofx.views.FXMLAdministradorFuncionariosController">
    <children>
       <Pane layoutX="14.0" layoutY="14.0" prefHeight="296.0" prefWidth="328.0" style="-fx-border-color: #000000; -fx-background-color: #ffffff;">
          <children>
@@ -45,7 +45,7 @@
                </columns>
             </TableView>
             <Button fx:id="btGravar1" layoutX="15.0" layoutY="472.0" mnemonicParsing="false" onAction="#clearFields" prefHeight="30.0" prefWidth="117.0" text="Limpar Selação" />
-            <ImageView fitHeight="25.0" fitWidth="24.0" layoutX="19.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="25.0" fitWidth="24.0" layoutX="19.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../picture/search.png" />
                </image>

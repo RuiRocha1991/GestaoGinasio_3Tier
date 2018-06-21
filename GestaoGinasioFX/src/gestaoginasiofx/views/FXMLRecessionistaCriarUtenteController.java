@@ -107,6 +107,7 @@ public class FXMLRecessionistaCriarUtenteController implements Initializable {
                             , this.txtCodPostal.getText(), this.txtMorada.getText(), this.txtLocalidade.getText()
                             , this.txtEmail.getText(), this.txtTelefone.getText(), this.dpDateNascimento.getValue(), this.tipoContrato, this.txtSenha.getText());
                     Notificacao.successNotification("Criar Utente", "Criado Utente com Sucesso");
+                    this.btCriarUtente.setDisable(true);
                     this.btPagamento.setDisable(false);
                 } catch (NumericException ex) {
                     ShowMessage.showError("NIF inválido ou Telefone", "O Numero Identificação Fiscal ou Telefone não estão corretos.");
@@ -148,7 +149,9 @@ public class FXMLRecessionistaCriarUtenteController implements Initializable {
                 stage.showAndWait();
                 this.initialize(null, null);
                 this.btConcluir.setDisable(false);
-                this.btPagamento.setDisable(false);
+                this.btPagamento.setDisable(true);
+                this.btCriarUtente.setDisable(true);
+                
            }
         }
         catch (IOException e) {

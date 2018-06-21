@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="335.0" prefWidth="629.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestaoginasiofx.views.FXMLGerirEquipamentoController">
+<AnchorPane id="AnchorPane" prefHeight="335.0" prefWidth="629.0" styleClass="inicialPane" stylesheets="@../Styles.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestaoginasiofx.views.FXMLGerirEquipamentoController">
    <children>
-      <Pane layoutX="14.0" layoutY="40.0" prefHeight="238.0" prefWidth="262.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;">
+      <Pane layoutX="14.0" layoutY="40.0" prefHeight="238.0" prefWidth="262.0" styleClass="pane">
          <children>
             <Label layoutX="11.0" layoutY="-10.0" style="-fx-background-color: #ffffff;" text=" Gerir Equipamento ">
                <font>
@@ -24,12 +24,12 @@
             <Label layoutX="11.0" layoutY="79.0" text="Categoria" />
             <Label layoutX="11.0" layoutY="114.0" text="Espaço" />
             <Label layoutX="11.0" layoutY="145.0" text="Ativo" />
-            <TextField fx:id="txtDescricao" layoutX="72.0" layoutY="41.0" prefHeight="25.0" prefWidth="176.0" />
-            <ComboBox fx:id="cbCategoria" layoutX="72.0" layoutY="75.0" prefHeight="25.0" prefWidth="176.0" />
-            <ComboBox fx:id="cbEspaco" layoutX="72.0" layoutY="110.0" prefHeight="25.0" prefWidth="176.0" />
+            <TextField fx:id="txtDescricao" layoutX="72.0" layoutY="41.0" prefHeight="25.0" prefWidth="176.0" promptText="Nome Equipamento" />
+            <ComboBox fx:id="cbCategoria" layoutX="72.0" layoutY="75.0" prefHeight="25.0" prefWidth="176.0" promptText="Selecionar Categoria" />
+            <ComboBox fx:id="cbEspaco" layoutX="72.0" layoutY="110.0" prefHeight="25.0" prefWidth="176.0" promptText="Selecionar Espaço" />
             <CheckBox fx:id="ckAtivo" layoutX="73.0" layoutY="145.0" mnemonicParsing="false" />
-            <Button fx:id="btGravar" layoutX="167.0" layoutY="199.0" mnemonicParsing="false" onAction="#atualizarLista" prefHeight="30.0" prefWidth="81.0" stylesheets="@../../Styles.css" text="Gravar" />
-            <Button fx:id="btGerirCategorias" layoutX="13.0" layoutY="199.0" mnemonicParsing="false" onAction="#gerirCategoriasEquipamentos" prefHeight="30.0" stylesheets="@../../Styles.css" text="Gerir Categoria" />
+            <Button fx:id="btGravar" layoutX="144.0" layoutY="199.0" mnemonicParsing="false" onAction="#atualizarLista" prefHeight="30.0" prefWidth="104.0" text="Gravar" />
+            <Button fx:id="btGerirCategorias" layoutX="13.0" layoutY="199.0" mnemonicParsing="false" onAction="#gerirCategoriasEquipamentos" prefHeight="30.0" text="Gerir Categoria" />
          </children>
       </Pane>
       <TableView fx:id="tbEquipamentos" layoutX="286.0" layoutY="41.0" prefHeight="284.0" prefWidth="329.0">
@@ -45,6 +45,6 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Button fx:id="btCancelar" layoutX="28.0" layoutY="296.0" mnemonicParsing="false" onAction="#closeWindow" prefHeight="30.0" stylesheets="@../../Styles.css" text="Voltar" />
+      <Button fx:id="btCancelar" layoutX="28.0" layoutY="296.0" mnemonicParsing="false" onAction="#closeWindow" prefHeight="30.0" prefWidth="104.0" text="Voltar" />
    </children>
 </AnchorPane>

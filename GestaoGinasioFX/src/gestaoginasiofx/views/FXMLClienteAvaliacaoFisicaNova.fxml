@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="371.0" prefWidth="682.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestaoginasiofx.views.FXMLClienteAvaliacaoFisicaNovaController">
+<AnchorPane id="AnchorPane" prefHeight="371.0" prefWidth="682.0" styleClass="inicialPane" stylesheets="@../Styles.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestaoginasiofx.views.FXMLClienteAvaliacaoFisicaNovaController">
    <children>
-      <Button layoutX="17.0" layoutY="327.0" mnemonicParsing="false" onAction="#comeBackInicial" prefHeight="30.0" prefWidth="117.0" stylesheets="@../../Styles.css" text="Cancelar" />
+      <Button layoutX="17.0" layoutY="327.0" mnemonicParsing="false" onAction="#comeBackInicial" prefHeight="30.0" prefWidth="117.0" text="Cancelar" />
       <Label layoutX="261.0" layoutY="14.0" prefHeight="35.0" prefWidth="233.0" text="Nova Avaliação Fisica">
          <font>
             <Font size="24.0" />
@@ -37,13 +37,13 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <Button layoutX="20.0" layoutY="249.0" mnemonicParsing="false" onAction="#addAvaliacaoFisica" prefHeight="30.0" prefWidth="160.0" stylesheets="@../../Styles.css" text="Pedir Avaliação Física" />
+            <Button layoutX="20.0" layoutY="249.0" mnemonicParsing="false" onAction="#addAvaliacaoFisica" prefHeight="30.0" prefWidth="160.0" text="Pedir Avaliação Física" />
             <Label layoutX="18.0" layoutY="99.0" prefHeight="20.0" prefWidth="225.0" text="Descrição:">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="txtDescricao" layoutX="18.0" layoutY="119.0" prefHeight="25.0" prefWidth="225.0" />
+            <TextField fx:id="txtDescricao" layoutX="18.0" layoutY="119.0" prefHeight="25.0" prefWidth="225.0" promptText="Descrição Avaliação Física" />
          </children>
       </Pane>
    </children>

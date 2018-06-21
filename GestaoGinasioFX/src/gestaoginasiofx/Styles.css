@@ -10,15 +10,16 @@ and open the template in the editor.
 
 .button {
     -fx-font-weight: bold;
-    /*-fx-background-color: #5B5A5A;*/
     -fx-background-color: #63a4ff;
     -fx-background-radius: 5;
     -fx-fontsize: 22;
-    -fx-text-fill: white;
+    -fx-text-fill: black;
     -fx-border-color: black;
     -fx-border-radius: 5;
     -fx-border-width: 1;
 }
+
+
 
 .button:hover {
     -fx-font-weight: bold;
@@ -45,10 +46,10 @@ and open the template in the editor.
 
 .button:focused{
     -fx-font-weight: bold;
-    -fx-background-color: #8199f9;
+    -fx-background-color: #b3e5fc;
     -fx-background-radius: 5;
     -fx-fontsize: 22;
-    -fx-text-fill: #5B5A5A;
+    -fx-text-fill: black;
     -fx-border-color: #5B5A5A;
     -fx-border-radius: 5;
     -fx-border-width: 3;
@@ -56,18 +57,16 @@ and open the template in the editor.
 }
 
 .table-view{
-   -fx-background-color: #CAC8C8;
+   -fx-background-color: #e3f2fd;
 }
 
 .table-view:focused{
-    -fx-background-color: #CAC8C8;
+    -fx-background-color: #e3f2fd;
 }
 
-/* Spaltenköpfe
-    Struktur column-header-background -> column-header */
 
 .table-view .column-header-background{
-    -fx-background-color: linear-gradient(#131313 0%, #424141 100%);
+    -fx-background-color: linear-gradient(#283593 0%, #001064 100%);
 }
 
 .table-view .column-header-background .label{
@@ -80,19 +79,16 @@ and open the template in the editor.
 }
 
 .table-view .table-cell{
-    /*-fx-text-fill: #5B5A5A;*/
     -fx-text-fill: #131313;
 }
 
 .table-row-cell{
- /*   -fx-background-color: -fx-table-cell-border-color, #616161;*/
     -fx-background-color: -fx-table-cell-border-color, #d0d5ed;
     -fx-background-insets: 0, 0 0 1 0;
     -fx-padding: 0.0em; /* 0 */
 }
 
 .table-row-cell:odd{
-    /* -fx-background-color: -fx-table-cell-border-color, #424242;*/
     -fx-background-color: -fx-table-cell-border-color, #eaebef;
     -fx-background-insets: 0, 0 0 1 0;
     -fx-padding: 0.0em; /* 0 */  
@@ -100,7 +96,14 @@ and open the template in the editor.
 
 .table-row-cell:selected {
     -fx-font-weight: bold;
-    -fx-background-color: #8199f9;
+    -fx-background-color: linear-gradient(#328BDB 0%, #207BCF 25%, #1973C9 75%, #0A65BF 100%);
+    -fx-background-insets: 0;
+    -fx-background-radius: 1;
+}
+
+.table-row-cell:hover {
+    -fx-font-weight: bold;
+    -fx-background-color: #42a5f5;
     -fx-background-insets: 0;
     -fx-background-radius: 1;
 }
@@ -123,6 +126,7 @@ and open the template in the editor.
 
 .pane{
     -fx-background-color: #ffffff;
+    -fx-border-color: #000000
 }
 .AnchorPane{
     -fx-background-image: url("picture/Inicio.png");
@@ -132,15 +136,6 @@ and open the template in the editor.
     -fx-background-image: url("picture/background3.jpg");
     -fx-background-size: cover ;
 }
-
-/*.text-field {
-    -fx-background-color: -fx-text-box-border, -fx-background ;
-    -fx-background-insets: 0, 0 0 1 0 ;
-    -fx-background-radius: 0 ;
-}
-.text-field:focused {
-    -fx-background-color: -fx-focus-color, -fx-background ;
-}*/
 
 .paneLogin{
     -fx-background-color:  rgba(0,0,0,0.6);
@@ -156,3 +151,26 @@ and open the template in the editor.
 .root{
     -fx-background: #ffffff;
 }
+
+
+
+.radio-button:selected .radio{
+    /*-fx-border-color: #15171c;*/
+    -fx-border-color: #001064;
+    -fx-border-radius: 130px;
+}
+
+.list-cell:filled:selected:focused, .list-cell:filled:selected {
+    /* 3:, 4: */
+    -fx-background-color: linear-gradient(#328BDB 0%, #207BCF 25%, #1973C9 75%, #0A65BF 100%);
+    -fx-text-fill: white; /* 5 */
+}
+.list-cell { -fx-text-fill: black; /* 5 */ }
+.list-cell:odd { -fx-background-color: #d0d5ed; /* 1 */ }
+.list-cell:even { -fx-background-color: #eaebef; /* for information */ }
+.list-cell:filled:hover { 
+    -fx-background-color: #42a5f5; /* 2 */
+    -fx-text-fill: black; /* 5 */
+    -fx-font-weight: bold;
+}
+

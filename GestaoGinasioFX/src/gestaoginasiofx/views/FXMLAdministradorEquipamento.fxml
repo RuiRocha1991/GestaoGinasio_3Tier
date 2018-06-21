@@ -6,45 +6,15 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="567.0" prefWidth="900.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestaoginasiofx.views.FXMLAdministradorEquipamentoController">
+<AnchorPane id="AnchorPane" prefHeight="573.0" prefWidth="903.0" styleClass="inicialPane" stylesheets="@../Styles.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestaoginasiofx.views.FXMLAdministradorEquipamentoController">
    <children>
-      <ListView fx:id="lvCategorias" layoutX="17.0" layoutY="28.0" prefHeight="206.0" prefWidth="140.0" />
-      <Label layoutX="56.0" layoutY="6.0" prefHeight="17.0" prefWidth="63.0" text="Categorias" />
-      <ListView fx:id="lvEspacos" layoutX="167.0" layoutY="28.0" prefHeight="206.0" prefWidth="140.0" />
-      <Label layoutX="212.0" layoutY="4.0" prefHeight="17.0" prefWidth="51.0" text="Espaços">
-         <font>
-            <Font size="14.0" />
-         </font></Label>
-      <TableView fx:id="tbEquipamentos" layoutX="319.0" layoutY="28.0" prefHeight="206.0" prefWidth="408.0">
-         <columns>
-            <TableColumn fx:id="colDescricao" prefWidth="144.0" text="Descrição" />
-            <TableColumn fx:id="colCategoria" prefWidth="117.0" text="Categoria" />
-            <TableColumn fx:id="colAtivo" prefWidth="55.0" text="Ativo" />
-            <TableColumn fx:id="colTotalDespesas" prefWidth="90.0" text="Total Despesas" />
-         </columns>
-      </TableView>
-      <Pane layoutX="736.0" layoutY="28.0" prefHeight="130.0" prefWidth="150.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;">
+      <Pane layoutX="11.0" layoutY="260.0" prefHeight="304.0" prefWidth="882.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;">
          <children>
-            <Label layoutX="10.0" layoutY="-8.0" prefHeight="17.0" prefWidth="112.0" style="-fx-background-color: #ffffff;" text=" Total Despesas Por: " />
-            <Label layoutX="53.0" layoutY="11.0" prefHeight="17.0" prefWidth="45.0" text="Espaço" />
-            <Label layoutX="11.0" layoutY="70.0" prefHeight="17.0" prefWidth="129.0" text="Categoria Equipamento" />
-            <TextField fx:id="txtTotDespesasEspaco" editable="false" layoutX="9.0" layoutY="35.0" prefHeight="25.0" prefWidth="129.0" />
-            <TextField fx:id="txtTotDespesasCategoria" editable="false" layoutX="11.0" layoutY="95.0" prefHeight="25.0" prefWidth="129.0" />
-         </children>
-      </Pane>
-      <Label layoutX="320.0" layoutY="4.0" prefHeight="17.0" prefWidth="121.0" text="Lista Equipamentos">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Pane layoutX="18.0" layoutY="245.0" prefHeight="304.0" prefWidth="870.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;">
-         <children>
-            <TableView fx:id="tbNotasAvaria" layoutX="11.0" layoutY="49.0" prefHeight="245.0" prefWidth="850.0">
+            <TableView fx:id="tbNotasAvaria" layoutX="11.0" layoutY="49.0" prefHeight="245.0" prefWidth="861.0">
                <columns>
                   <TableColumn fx:id="colNotaData" prefWidth="94.0" text="Data" />
                   <TableColumn fx:id="colNotaEquipamento" prefWidth="125.0" text="Equipamento" />
@@ -53,8 +23,8 @@
                   <TableColumn fx:id="colNotaEstado" prefWidth="135.0" text="Estado" />
                </columns>
             </TableView>
-            <Button fx:id="btResolverNotaAvaria" layoutX="692.0" layoutY="12.0" mnemonicParsing="false" onAction="#gerirNotasAvaria" prefHeight="30.0" prefWidth="164.0" stylesheets="@../../Styles.css" text="Resolver Nota Avaria" />
-            <Pane layoutX="415.0" layoutY="10.0" prefHeight="33.0" prefWidth="258.0" style="-fx-border-color: #000000; -fx-background-color: #ffffff;">
+            <Button fx:id="btResolverNotaAvaria" layoutX="732.0" layoutY="12.0" mnemonicParsing="false" onAction="#gerirNotasAvaria" prefHeight="30.0" prefWidth="140.0" text="Resolver Nota Avaria" />
+            <Pane layoutX="415.0" layoutY="10.0" prefHeight="33.0" prefWidth="258.0" styleClass="pane">
                <children>
                   <Label layoutX="13.0" layoutY="-7.0" prefHeight="17.0" prefWidth="39.0" style="-fx-background-color: #ffffff;" text=" Filtrar " />
                   <RadioButton fx:id="rbAtivoNota" layoutX="14.0" layoutY="10.0" mnemonicParsing="false" onAction="#tbAtivoSelected" text="Por resolver" />
@@ -65,7 +35,32 @@
             <Label layoutX="11.0" layoutY="-9.0" prefHeight="17.0" prefWidth="98.0" style="-fx-background-color: #ffffff;" text=" Notas de Avaria " />
          </children>
       </Pane>
-      <Button fx:id="btGerirEquipamentos" layoutX="736.0" layoutY="167.0" mnemonicParsing="false" onAction="#gerirEquipamentos" prefHeight="30.0" prefWidth="150.0" stylesheets="@../../Styles.css" text="Gerir Equipamento" />
-      <Button fx:id="btLimparSelecao" layoutX="736.0" layoutY="207.0" mnemonicParsing="false" onAction="#ClearFields" prefHeight="30.0" prefWidth="150.0" stylesheets="@../../Styles.css" text="Limpar Seleção" />
+      <Pane layoutX="11.0" layoutY="11.0" prefHeight="236.0" prefWidth="882.0" styleClass="pane">
+         <children>
+            <ListView fx:id="lvCategorias" layoutX="14.0" layoutY="22.0" prefHeight="206.0" prefWidth="140.0" />
+            <Label layoutX="53.0" prefHeight="17.0" prefWidth="63.0" text="Categorias" />
+            <ListView fx:id="lvEspacos" layoutX="164.0" layoutY="22.0" prefHeight="206.0" prefWidth="140.0" />
+            <Label layoutX="209.0" layoutY="-2.0" prefHeight="17.0" prefWidth="51.0" text="Espaços">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TableView fx:id="tbEquipamentos" layoutX="316.0" layoutY="22.0" prefHeight="206.0" prefWidth="408.0">
+               <columns>
+                  <TableColumn fx:id="colDescricao" prefWidth="144.0" text="Descrição" />
+                  <TableColumn fx:id="colCategoria" prefWidth="117.0" text="Categoria" />
+                  <TableColumn fx:id="colAtivo" prefWidth="55.0" text="Ativo" />
+                  <TableColumn fx:id="colTotalDespesas" prefWidth="90.0" text="Total Despesas" />
+               </columns>
+            </TableView>
+            <Label layoutX="317.0" layoutY="-2.0" prefHeight="17.0" prefWidth="121.0" text="Lista Equipamentos">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Button fx:id="btGerirEquipamentos" layoutX="732.0" layoutY="156.0" mnemonicParsing="false" onAction="#gerirEquipamentos" prefHeight="30.0" prefWidth="140.0" text="Gerir Equipamento" />
+            <Button fx:id="btLimparSelecao" layoutX="732.0" layoutY="196.0" mnemonicParsing="false" onAction="#ClearFields" prefHeight="30.0" prefWidth="140.0" text="Limpar Seleção" />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

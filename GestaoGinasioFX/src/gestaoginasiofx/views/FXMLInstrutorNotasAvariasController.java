@@ -6,7 +6,6 @@
 package gestaoginasiofx.views;
 
 import gestaoginasiofx.FillListView;
-import gestaoginasiofx.Toast;
 import gestaoginasiohibernate.model.Categoriaequipamento;
 import gestaoginasiohibernate.model.Equipamento;
 import gestaoginasiohibernate.model.Espaco;
@@ -23,7 +22,6 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
@@ -32,7 +30,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
-import javafx.stage.Stage;
 import projetogestaoginasio.ShowMessage;
 import gestaoginasiobll.services.EquipamentoService;
 import gestaoginasiobll.services.NotaAvariaService;
@@ -54,7 +51,6 @@ public class FXMLInstrutorNotasAvariasController implements Initializable {
     @FXML private TextField txtProcura;
     @FXML private DatePicker dpDate;
     @FXML private TextArea txtDescricao;
-    @FXML private ImageView imSearch;
     
     @FXML private ListView lvCategoria;
     @FXML private ListView lvEspaco;
@@ -74,18 +70,6 @@ public class FXMLInstrutorNotasAvariasController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         this.dpDate.setValue(LocalDate.now());
-        this.txtProcura.focusedProperty().addListener(new ChangeListener<Boolean>(){
-            @Override
-            public void changed(ObservableValue<? extends Boolean> arg0, Boolean oldPropertyValue, Boolean newPropertyValue){
-                if (newPropertyValue){
-                    imSearch.setVisible(false);
-                }else{
-                    if(txtProcura.getText().length()<=0){
-                        imSearch.setVisible(true);
-                    }
-                }
-            }
-        });
         this.fillTableAndList();
     }    
     
@@ -160,7 +144,6 @@ public class FXMLInstrutorNotasAvariasController implements Initializable {
         this.lvCategoria.getSelectionModel().clearSelection();
         this.lvEspaco.getSelectionModel().clearSelection();
         this.tbEquipamentos.getSelectionModel().clearSelection();
-        this.imSearch.setVisible(true);
         this.equipamentoSelected=null;
         this.espacoSelected=null;
         this.categoriaSelected=null;
