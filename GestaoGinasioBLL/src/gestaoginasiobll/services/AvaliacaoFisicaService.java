@@ -49,4 +49,8 @@ public class AvaliacaoFisicaService {
         avaliacao.setPeso(peso);
         HibernateGenericLib.saveObject(avaliacao);
     }
+    
+    public static void deleteAvaliacaoFisica(Avaliacaofisica avaliacao){
+        HibernateGenericLib.deleteObject(avaliacao);
+    }
 }

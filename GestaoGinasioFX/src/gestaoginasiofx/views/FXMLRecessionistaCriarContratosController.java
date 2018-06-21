@@ -102,6 +102,7 @@ public class FXMLRecessionistaCriarContratosController implements Initializable 
                 fxmlLoader.setLocation(getClass().getResource("FXMLRecessionistaPagamentos.fxml"));
                 Scene scene = new Scene(fxmlLoader.load());
                 Stage stage = new Stage();
+                stage.setResizable(false);
                 stage.setTitle("Receber Pagamento");
                 stage.setScene(scene);
                 FXMLRecessionistaPagamentosController controller= fxmlLoader.getController();

@@ -15,7 +15,7 @@
    <children>
       <Pane layoutX="9.0" layoutY="9.0" prefHeight="489.0" prefWidth="444.0" styleClass="pane" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="8.0">
          <children>
-            <Button fx:id="btGravar" layoutX="290.0" layoutY="413.0" mnemonicParsing="false" onAction="#saveChange" prefHeight="25.0" prefWidth="110.0" text="Atualizar Dados" />
+            <Button fx:id="btGravar" layoutX="280.0" layoutY="413.0" mnemonicParsing="false" onAction="#saveChange" prefHeight="27.0" prefWidth="120.0" text="Atualizar Dados" />
             <Label layoutX="49.0" layoutY="16.0" prefHeight="20.0" prefWidth="24.0" text="NIF">
                <font>
                   <Font size="14.0" />
@@ -73,14 +73,14 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <ComboBox fx:id="cbTipoContrato" layoutX="185.0" layoutY="291.0" prefHeight="25.0" prefWidth="214.0" />
+            <ComboBox fx:id="cbTipoContrato" layoutX="185.0" layoutY="291.0" prefHeight="25.0" prefWidth="214.0" promptText="Selecionar Tipo Contrato" />
             <Label layoutX="49.0" layoutY="259.0" prefHeight="17.0" prefWidth="128.0" text="Mensalidade Atual">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
             <TextField fx:id="txtMensalidadeAtual" editable="false" layoutX="185.0" layoutY="257.0" prefHeight="25.0" prefWidth="214.0" />
-            <Button fx:id="btLimparSelecao" layoutX="47.0" layoutY="413.0" mnemonicParsing="false" onAction="#limparSelecao" prefHeight="25.0" prefWidth="110.0" text="Limpar Seleção" />
+            <Button fx:id="btLimparSelecao" layoutX="47.0" layoutY="413.0" mnemonicParsing="false" onAction="#limparSelecao" prefHeight="27.0" prefWidth="120.0" text="Limpar Seleção" />
             <PasswordField fx:id="txtSenha" layoutX="185.0" layoutY="187.0" prefHeight="25.0" prefWidth="214.0" />
             <PasswordField fx:id="txtNovaSenha" layoutX="185.0" layoutY="222.0" prefHeight="25.0" prefWidth="214.0" />
          </children>

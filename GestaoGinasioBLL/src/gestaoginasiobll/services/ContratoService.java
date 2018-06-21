@@ -18,6 +18,7 @@ import gestaoginasiobll.exception.NumericException;
 import gestaoginasiobll.exception.PassInvalidaException;
 import gestaoginasiohibernate.model.Aula;
 import gestaoginasiohibernate.model.Aulaindividual;
+import gestaoginasiohibernate.model.Avaliacaofisica;
 import gestaoginasiohibernate.model.Contrato;
 import gestaoginasiohibernate.model.Inscricao;
 import gestaoginasiohibernate.model.Pagamento;
@@ -90,6 +91,14 @@ public class ContratoService {
                     a.getValor().toString(), String.valueOf(a.getDuracao()));
             listAulas.add(ac);
         }
+        
+        for(Avaliacaofisica av:(Set<Avaliacaofisica>) contrato.getAvaliacaofisicas()){
+            AulaContrato ac= new AulaContrato(av.getCod(),LocalDate.parse(av.getData().toString()), LocalTime.parse(av.getHora())
+                    , "", "Avaliação Física",av.getPersonaltrainer().getProfessor().getColaborador().getNome(), 
+                    "0", "1");
+            listAulas.add(ac);
+        }
+        
         return listAulas;
     }
     
@@ -106,7 +115,7 @@ public class ContratoService {
         AulaIndividualService.deleteAulaIndividual(aula);
     }
      
-     public static void removeInscricao(Set<Inscricao> inscricoes,int id){
+    public static void removeInscricao(Set<Inscricao> inscricoes,int id){
         Inscricao inscricao=null;
         for(Inscricao a : inscricoes){
             if(a.getId().getAula()==id){
@@ -120,6 +129,21 @@ public class ContratoService {
         InscricaoService.deleteInscricao(inscricao);
     }
      
+    public static void removeAvaliacaoFisica(Set<Avaliacaofisica> avaliacoes,int id){
+        Avaliacaofisica avaliacao=null;
+        for(Avaliacaofisica a : avaliacoes){
+            if(a.getCod()==id){
+                avaliacao=a;
+                a.getPersonaltrainer().getAvaliacaofisicas().remove(a);
+                a.getContrato().getAvaliacaofisicas().remove(a);
+                avaliacoes.remove(a);
+                
+                break;
+            }
+        }
+        AvaliacaoFisicaService.deleteAvaliacaoFisica(avaliacao);
+    }
+    
     public static List<Contrato> getListContratoActive(){
         List<Contrato> lista= HibernateGenericLib.executeHQLQuery("from Contrato where ativo=1");
         return lista;

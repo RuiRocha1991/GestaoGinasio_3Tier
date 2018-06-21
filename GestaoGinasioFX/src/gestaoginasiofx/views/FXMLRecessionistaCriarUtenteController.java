@@ -24,7 +24,6 @@ import gestaoginasiofx.FillComboBox;
 import gestaoginasiofx.Notificacao;
 import gestaoginasiohibernate.model.Contrato;
 import gestaoginasiohibernate.model.Tipocontrato;
-import gestaoginasiohibernate.model.Utente;
 import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;

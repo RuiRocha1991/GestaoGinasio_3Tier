@@ -149,6 +149,7 @@ public class FXMLAdministradorUtenteController implements Initializable {
                     fxmlLoader.setLocation(getClass().getResource("FXMLRecessionistaEditClientes.fxml"));
                     Scene scene = new Scene(fxmlLoader.load());
                     Stage stage = new Stage();
+                    stage.setResizable(false);
                     stage.setTitle("Editar Contrato");
                     stage.setScene(scene);
                     FXMLRecessionistaEditClientesController controller= fxmlLoader.getController();
@@ -161,6 +162,7 @@ public class FXMLAdministradorUtenteController implements Initializable {
                     fxmlLoader.setLocation(getClass().getResource("FXMLRecessionistaCriarContratos.fxml"));
                     Scene scene = new Scene(fxmlLoader.load());
                     Stage stage = new Stage();
+                    stage.setResizable(false);
                     stage.setTitle("Criar Contrato");
                     stage.setScene(scene);
                     FXMLRecessionistaCriarContratosController controller= fxmlLoader.getController();
@@ -174,6 +176,7 @@ public class FXMLAdministradorUtenteController implements Initializable {
                 fxmlLoader.setLocation(getClass().getResource("FXMLRecessionistaCriarUtente.fxml"));
                 Scene scene = new Scene(fxmlLoader.load());
                 Stage stage = new Stage();
+                stage.setResizable(false);
                 stage.setTitle("Criar Novo Utente");
                 stage.setScene(scene);
                 stage.initModality(Modality.APPLICATION_MODAL);
@@ -200,6 +203,7 @@ public class FXMLAdministradorUtenteController implements Initializable {
                 fxmlLoader.setLocation(getClass().getResource("FXMLRecessionistaPagamentos.fxml"));
                 Scene scene = new Scene(fxmlLoader.load());
                 Stage stage = new Stage();
+                stage.setResizable(false);
                 stage.setTitle("Receber Pagamento");
                 stage.setScene(scene);
                 FXMLRecessionistaPagamentosController controller= fxmlLoader.getController();

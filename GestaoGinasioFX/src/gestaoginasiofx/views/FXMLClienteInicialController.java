@@ -34,6 +34,7 @@ import gestaoginasiobll.services.ContratoService;
 import projetogestaoginasio.ShowMessage;
 import gestaoginasiobll.services.UtenteService;
 import gestaoginasiofx.Notificacao;
+import java.time.LocalTime;
 
 
 /**
@@ -204,22 +205,30 @@ public class FXMLClienteInicialController implements Initializable {
             if(this.aulaSelected.getData().isAfter(LocalDate.now())){
                 this.btCancelarAula.setDisable(false);
             }else{
-                this.btCancelarAula.setDisable(true);
+                if(this.aulaSelected.getData().isEqual(LocalDate.now())&& this.aulaSelected.getHora().isAfter(LocalTime.now())){
+                    this.btCancelarAula.setDisable(false);
+                }else{
+                    this.btCancelarAula.setDisable(true);
+                }
             }
         }
         
     }
     @FXML
     private void cancelarAula(){
-       
         if(this.aulaSelected!=null){
             if(ShowMessage.showConfirmation("Eliminar Inscrição", "Tem a certeza que quer eliminar a inscrição?")){
                 if(this.aulaSelected.getTipoaula().equals("Individual")){
                     ContratoService.removeAulaIndividual(this.contrato.getAulaindividuals(),this.aulaSelected.getCodigo());
                     Notificacao.successNotification("Aula Individual", "Cancelada Aula Individual.");
                 }else{
-                    ContratoService.removeInscricao(this.contrato.getInscricaos(),this.aulaSelected.getCodigo());
-                    Notificacao.successNotification("Aula de Grupo", "Cancelada Aula de Grupo.");
+                    if(this.aulaSelected.getTipoaula().equals("Avaliação Física")){
+                        ContratoService.removeInscricao(this.contrato.getInscricaos(),this.aulaSelected.getCodigo());
+                        Notificacao.successNotification("Avaliação Física", "Cancelada Avaliação Física.");
+                    }else{
+                        ContratoService.removeInscricao(this.contrato.getInscricaos(),this.aulaSelected.getCodigo());
+                        Notificacao.successNotification("Aula de Grupo", "Cancelada Aula de Grupo.");
+                    }
                 }
                 this.aulasList.remove(this.aulaSelected);
                 this.aulasFiltradasObservableList.remove(this.aulaSelected);
