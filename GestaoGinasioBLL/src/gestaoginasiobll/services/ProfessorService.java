@@ -24,6 +24,13 @@ import java.util.List;
  * @author Rui
  */
 public class ProfessorService {
+    /**
+     * Verifica a disponibilidade de um professor dada uma data e uma hora
+     * @param professor professor que pretende verificar a disponibilidade.
+     * @param date data que pretende ver a disponibilidade
+     * @param time hora que pretende ver a disponibilidade
+     * @return return true se disponivel, false de indisponivel
+     */
      public static boolean verificaDisponibilidadeDataHoras(Professor professor,LocalDate date, LocalTime time){
         for(Aula a: (Set<Aula>)professor.getAulas()){
             if(LocalDate.parse(a.getData().toString()).isEqual(date)&& 
@@ -46,6 +53,12 @@ public class ProfessorService {
         return true;
     }
      
+     
+    /**
+     * Metodo que devolve todas as aulas de um professor
+     * @param colaborador colaborador que pretende receber a lista das aulas
+     * @return devolve uma lista com as aulas de um professor, aulas individuais, em grupo e avaliações fisicas.
+     */ 
     public static List<AulaProfessor> getAulasProfessor(Colaborador colaborador){
         List<AulaProfessor> listAulas = new ArrayList<>();
         if(colaborador.getProfessor().getAulas()!=null){
@@ -76,6 +89,13 @@ public class ProfessorService {
         return listAulas;
     }
     
+    
+    /**
+     * Método que devolve as aulas de um colaborador dado uma data
+     * @param colaborador colaborador que pretende receber as aulas
+     * @param date data que pretende filtrar as aulas
+     * @return devolve lista do professor de uma determinada data
+     */
     public static List<AulaProfessor> getAulasDate(Colaborador colaborador, LocalDate date){
         List<AulaProfessor> listAulas=getAulasProfessor(colaborador);
         List<AulaProfessor> list=new ArrayList<>();
@@ -87,6 +107,12 @@ public class ProfessorService {
         return list;
     }
     
+    /**
+     * Método que devolve as horas de um professor dado uma data
+     * @param colaborador professor que pretende saber as horas disponiveis
+     * @param date data em que pretende saber da disponibilidade
+     * @return devolve uma lista de horas que o professor se encontra disponivel.
+     */
      public static List<LocalTime> getTimeFromDate(Colaborador colaborador, LocalDate date){
         List<LocalTime> listTimes= new ArrayList<>(Arrays.asList(Dados.getHoras()));
         List<AulaProfessor> listAulas = getAulasDate(colaborador, date);

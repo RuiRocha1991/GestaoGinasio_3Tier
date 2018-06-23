@@ -20,7 +20,12 @@ import java.util.Set;
  * @author Rui
  */
 public class PlanoTreinoService {
-    
+    /**
+     * Método que cria um novo plano de treino.
+     * @param contrato contrato que pretende pedir o novo plano de treino
+     * @param personalTrainer personal trainer selecionado para realizar o plano de treino
+     * @param descricao descrição do novo plano de treino
+     */
     public static void createPlanoTreino(Contrato contrato, Personaltrainer personalTrainer, String descricao){
         Planotreino newpt= new Planotreino();
         newpt.setContrato(contrato);
@@ -32,6 +37,14 @@ public class PlanoTreinoService {
         HibernateGenericLib.saveObject(newpt);
     }
     
+    /**
+     * Método que adiciona as linhas  ao plano de treino
+     * @param plano plano que quer adicionar as linhas
+     * @param dia dia da semana para elaborar um determinado conjunto de exercicios
+     * @param descricao descrição dos exercicios que tem de realizar
+     * @return devolve a linha plano de treino acabada de criar
+     * @throws DiaExistenteException lança excepção se o dia que pretende adicionar já se encontrar registado
+     */
     public static Linhaplanotreino createLinhaPlanoTreino(Planotreino plano, String dia, String descricao) throws DiaExistenteException{
         Linhaplanotreino linha = new Linhaplanotreino();
         if(!plano.getLinhaplanotreinos().isEmpty()){
@@ -49,10 +62,19 @@ public class PlanoTreinoService {
         return linha;
     }
     
+    /**
+     * Método que remove linhas do plano de treino
+     * @param linha linha que pretende remover
+     * @param plano plano onde a linha se encontra.
+     */
     public static void removeLinhaPlanoTreino(Linhaplanotreino linha, Planotreino plano){
         plano.getLinhaplanotreinos().remove(linha);
     }
     
+    /**
+     * Método que adiciona as linhas do plano de treino na base de dados.
+     * @param plano recebe o plano e grava todas as linhas.
+     */
     public static void saveLinhasPlanoTreino(Planotreino plano){
         for(Linhaplanotreino linha: (Set<Linhaplanotreino>)plano.getLinhaplanotreinos()){
             HibernateGenericLib.saveObject(linha);

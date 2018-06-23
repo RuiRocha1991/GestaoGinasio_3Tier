@@ -18,6 +18,11 @@ import java.util.Date;
  * @author Rui
  */
 public class InscricaoService {
+    /**
+     * Método que cria uma inscrição numa aula de grupo
+     * @param aula aula em que pretende criar a inscrição
+     * @param contrato contrato que pretentde criar a inscrição
+     */
     public static void createInscricao(Aula aula, Contrato contrato) {
         Inscricao insc= new Inscricao();
         InscricaoId id = new InscricaoId();
@@ -33,6 +38,10 @@ public class InscricaoService {
         HibernateGenericLib.saveObject(insc);
     }
     
+    /**
+     * Método que elimina uma determinada inscrição
+     * @param inscricao que pretende que seja eliminada do sistema.
+     */
     public static void deleteInscricao(Inscricao inscricao){
         HibernateGenericLib.deleteObject(inscricao);
     }

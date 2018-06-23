@@ -28,7 +28,9 @@ public class ValidarStrings {
     private static final String VALMENSALIDADE="[0-9]*\\.?[0-9]*";
   
 
-    
+    /**
+     * Metodo que cria um objeto para poder validar Strings
+     */
     
 	public ValidarStrings() {
 		this.email = Pattern.compile(EMAIL_PATTERN);

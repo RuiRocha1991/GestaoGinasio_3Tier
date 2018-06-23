@@ -31,6 +31,8 @@ import gestaoginasiobll.exception.FieldsEmptyException;
 import gestaoginasiobll.exception.NumericException;
 import gestaoginasiobll.exception.PasswordInvalidException;
 import gestaoginasiofx.Notificacao;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
 
 
 /**
@@ -52,7 +54,7 @@ public class FXMLAdministradorFuncionariosController implements Initializable {
     @FXML TableView<Colaborador> tblColaborador;
     @FXML private TableColumn<Colaborador, String> colNome;
     @FXML private TableColumn<Colaborador, String> colUtilizador;
-    @FXML private TableColumn<Colaborador, Integer> colPreco;
+    @FXML private TableColumn<Colaborador, String> colPreco;
     @FXML private TableColumn<Colaborador, String> colTipoFuncionario;
  
     private ObservableList<Colaborador> colaboradorObservableList;
@@ -76,7 +78,16 @@ public class FXMLAdministradorFuncionariosController implements Initializable {
     private void initializaTable() {
         this.colNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
         this.colUtilizador.setCellValueFactory(new PropertyValueFactory<>("utilizador"));
-        this.colPreco.setCellValueFactory(new PropertyValueFactory<>("precohora"));
+        this.colPreco.setCellValueFactory((TableColumn.CellDataFeatures<Colaborador, String> param) -> {
+            Colaborador colaborador= param.getValue();
+            ObservableValue<String>ov=null;
+            if(colaborador.getProfessor()!=null && colaborador.getProfessor().getPersonaltrainer()!=null){
+                ov=new SimpleStringProperty(String.valueOf(colaborador.getProfessor().getPersonaltrainer().getPrecohora()));
+            }else{
+                ov=new SimpleStringProperty("0");
+            }
+            return ov;
+        });
         this.colTipoFuncionario.setCellValueFactory(new PropertyValueFactory<>("tipofuncionario"));
         List<Colaborador> listColaborador= ColaboradorService.getAllColaboradores();
         this.colaboradorObservableList=FXCollections.observableArrayList(listColaborador);

@@ -20,6 +20,13 @@ import gestaoginasiobll.exception.PagamentoEmAtrasoException;
  * @author Rui
  */
 public class LoginService {
+    /**
+     * função que devolve o utente para realizar o login, se existir.
+     * @param user nome do utilizador que vai ser procurado na base de dados
+     * @param senha senha do utilizador que vai ser procurado na base de dados
+     * @return devolve o utente se todos os parametros estiverem corretos.
+     * @throws PagamentoEmAtrasoException lança a excepção se o utente estiver com pagamentos em atraso.
+     */
     public static Utente getUtenteLogin(String user, String senha) throws PagamentoEmAtrasoException{
         Utente utente=null;
         List<Utente> utentes= (List<Utente>)HibernateGenericLib.executeHQLQuery("from Utente Where Email='"+ user +"'and Senha='"+senha+"'");
@@ -35,6 +42,11 @@ public class LoginService {
         return null;
     }
     
+    /**
+     * Método que verifica se um determinado utente tem contratos ativos e com os pagamentos em dia
+     * @param contratos lista de todos os contratos possiveis de um determinado utente
+     * @return devolve true se estiver com os pagamentos em dia false se estiver com pagamentos em atraso.
+     */
     private static boolean verificaSituacaoUtente(Set<Contrato> contratos){
         for(Contrato c: contratos){
             if(c.getAtivo()=='1'){
@@ -59,7 +71,14 @@ public class LoginService {
         return false;
     }
     
-    public static Colaborador getColaboradorLogin(String user, String senha) throws PagamentoEmAtrasoException, UtilizadorInvalidoException{
+    /**
+     * Devolve o colaborador que com o utilizador e senha que recebe por parametro
+     * @param user utilizador que pretende procurar no sistema
+     * @param senha senha do utilizador que vai ser procurado no sistema
+     * @return devolve o colaborador que tem o user e senha recebidos como parametro
+     * @throws UtilizadorInvalidoException lança a excepção se nao encontrar nenhum utilizador com estes parametros.
+     */
+    public static Colaborador getColaboradorLogin(String user, String senha) throws UtilizadorInvalidoException{
         Colaborador colaborador=null;
         List<Colaborador> colaboradores = (List<Colaborador>) HibernateGenericLib.executeHQLQuery("from Colaborador Where Utilizador='"+ user +"'and Senha='"+senha+"'");
         if(colaboradores.size()>0){
