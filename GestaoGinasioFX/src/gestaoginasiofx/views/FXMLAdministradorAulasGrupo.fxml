@@ -12,9 +12,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="587.0" prefWidth="771.0" styleClass="inicialPane" stylesheets="@../Styles.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestaoginasiofx.views.FXMLAdministradorAulasGrupoController">
+<AnchorPane id="AnchorPane" prefHeight="587.0" prefWidth="922.0" styleClass="inicialPane" stylesheets="@../Styles.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestaoginasiofx.views.FXMLAdministradorAulasGrupoController">
    <children>
-      <Pane layoutX="121.0" layoutY="14.0" prefHeight="207.0" prefWidth="511.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;">
+      <Pane layoutX="206.0" layoutY="14.0" prefHeight="207.0" prefWidth="511.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;">
          <children>
             <Label layoutX="11.0" layoutY="-11.0" style="-fx-background-color: #ffffff;" text=" Criar/ Editar / Eliminar Aula ">
                <font>
@@ -23,26 +23,26 @@
             </Label>
             <ComboBox fx:id="cbTipoAula" layoutX="78.0" layoutY="123.0" prefWidth="150.0" promptText="Selecionar Tipo Aula" />
             <ComboBox fx:id="cbHoras" layoutX="78.0" layoutY="90.0" prefWidth="150.0" promptText="Selecionar Hora" />
-            <ComboBox fx:id="cbSala" layoutX="347.0" layoutY="21.0" prefWidth="150.0" promptText="Selecionar Sala" />
+            <ComboBox fx:id="cbSala" layoutX="347.0" layoutY="90.0" prefWidth="150.0" promptText="Selecionar Sala" />
             <TextField fx:id="txtDescricao" layoutX="78.0" layoutY="20.0" prefHeight="25.0" prefWidth="150.0" promptText="Nome Aula" />
-            <Spinner fx:id="spDuracaoHoras" layoutX="348.0" layoutY="89.0" />
-            <Spinner fx:id="spDuracaoSemanas" layoutX="348.0" layoutY="123.0" />
             <Label layoutX="11.0" layoutY="24.0" text="Descrição" />
             <Label layoutX="11.0" layoutY="125.0" text="Tipo Aula" />
-            <Label layoutX="284.0" layoutY="59.0" text="Professor" />
+            <Label layoutX="284.0" layoutY="128.0" text="Professor" />
             <Label layoutX="11.0" layoutY="94.0" text="Hora" />
-            <Label layoutX="309.0" layoutY="25.0" text="Sala" />
-            <Label layoutX="258.0" layoutY="93.0" text="Duração Horas" />
-            <Label layoutX="242.0" layoutY="127.0" text="Duração Semanas" />
+            <Label layoutX="309.0" layoutY="94.0" text="Sala" />
             <DatePicker fx:id="dpDate" layoutX="78.0" layoutY="55.0" prefHeight="25.0" prefWidth="150.0" />
             <Label layoutX="11.0" layoutY="59.0" text="Data" />
-            <ComboBox fx:id="cbProfessor" layoutX="347.0" layoutY="55.0" prefWidth="150.0" promptText="Selecionar Professor" />
+            <ComboBox fx:id="cbProfessor" layoutX="347.0" layoutY="124.0" prefWidth="150.0" promptText="Selecionar Professor" />
             <Button layoutX="11.0" layoutY="171.0" mnemonicParsing="false" onAction="#deleteAula" prefHeight="30.0" prefWidth="113.0" text="Eliminar Aula" />
             <Button fx:id="btAddAula" layoutX="384.0" layoutY="171.0" mnemonicParsing="false" onAction="#updateData" prefHeight="30.0" prefWidth="113.0" text="Atualizar Aula" />
             <Button fx:id="btGerirTipoAula" layoutX="129.0" layoutY="171.0" mnemonicParsing="false" onAction="#OpenWindowTipoAula" prefHeight="30.0" prefWidth="113.0" text="Gerir Tipo Aula" />
+            <Spinner fx:id="spDuracaoHoras" layoutX="348.0" layoutY="20.0" />
+            <Spinner fx:id="spDuracaoSemanas" layoutX="348.0" layoutY="55.0" />
+            <Label layoutX="256.0" layoutY="24.0" text="Duração Horas" />
+            <Label layoutX="242.0" layoutY="59.0" text="Duração Semanas" />
          </children>
       </Pane>
-      <Pane layoutX="14.0" layoutY="231.0" prefHeight="334.0" prefWidth="751.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;">
+      <Pane layoutX="14.0" layoutY="231.0" prefHeight="334.0" prefWidth="895.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;">
          <children>
             <Label layoutX="285.0" layoutY="13.0" text="Sala ">
                <font>
@@ -54,7 +54,7 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <TableView fx:id="tbAulas" layoutX="14.0" layoutY="68.0" prefHeight="254.0" prefWidth="724.0">
+            <TableView fx:id="tbAulas" layoutX="14.0" layoutY="68.0" prefHeight="254.0" prefWidth="870.0">
                <columns>
                   <TableColumn fx:id="colDate" prefWidth="83.0" text="Data" />
                   <TableColumn fx:id="colTime" prefWidth="63.0" text="Hora" />
@@ -63,7 +63,9 @@
                   <TableColumn fx:id="colDescricao" prefWidth="148.0" text="Descrição" />
                   <TableColumn fx:id="colProfessor" prefWidth="90.0" text="Professor" />
                   <TableColumn fx:id="colDuracao" prefWidth="79.0" text="Duração" />
-                  <TableColumn fx:id="colVagas" prefWidth="78.0" text="Inscritos" />
+                  <TableColumn fx:id="colInscritos" prefWidth="78.0" text="Inscritos" />
+                  <TableColumn fx:id="colDisponibilidade" prefWidth="75.0" text="Disponiveis" />
+                  <TableColumn fx:id="colVagas" prefWidth="75.0" text="Vagas" />
                </columns>
             </TableView>
             <DatePicker fx:id="dpDateFiltro" layoutX="42.0" layoutY="38.0" onAction="#filtrarListObservable" />

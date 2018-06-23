@@ -8,6 +8,35 @@ and open the template in the editor.
     Author     : ASUS
 */
 
+.toggle-button {
+    -fx-font-weight: bold;
+    -fx-background-color: #63a4ff;
+    -fx-fontsize: 22;
+    -fx-text-fill: black;
+
+
+}
+.toggle-button:selected {
+    -fx-background-color: #b3e5fc;
+    -fx-fontsize: 22;
+    -fx-text-fill: black;
+}
+.toggle-button:selected:focused {
+    -fx-font-weight: bold;
+    -fx-background-color: #b3e5fc;
+    -fx-fontsize: 22;
+    -fx-text-fill: black;
+}
+
+.toggle-button:hover {
+    -fx-font-weight: bold;
+    -fx-background-color: white;
+    -fx-fontsize: 22;
+    -fx-text-fill: black;
+}
+
+
+
 .button {
     -fx-font-weight: bold;
     -fx-background-color: #63a4ff;
