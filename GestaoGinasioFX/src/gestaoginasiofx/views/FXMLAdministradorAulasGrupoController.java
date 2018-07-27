@@ -151,7 +151,6 @@ public class FXMLAdministradorAulasGrupoController implements Initializable {
     }
     
     private void addAula(){
-        Date date = java.sql.Date.valueOf(this.dpDate.getValue());
         LocalDate localDate=this.dpDate.getValue();
         String descricaoAula=this.txtDescricao.textProperty().getValue();
         int duracaoHoras=(int)this.spDuracaoHoras.getValue();
@@ -160,11 +159,11 @@ public class FXMLAdministradorAulasGrupoController implements Initializable {
         Sala sala=this.selectedSala;
         Tipoaula tipoAula=this.selectedTipoAula;
         int duracaoSemanas=(int)this.spDuracaoSemanas.getValue();
-        this.observableListAulas.addAll(AulaService.addAula(date,localDate,duracaoSemanas, descricaoAula,duracaoHoras, horaAula, professor, 
+        this.observableListAulas.addAll(AulaService.addAula(localDate,localDate,duracaoSemanas, descricaoAula,duracaoHoras, horaAula, professor, 
                 sala,tipoAula));
     }    
     private void updateAula(){
-        Date date = java.sql.Date.valueOf(this.dpDate.getValue());
+        Date date = Date.valueOf(this.dpDate.getValue());
         this.selectedAula.setData(date);
         this.selectedAula.setDescricao(this.txtDescricao.textProperty().getValue());
         this.selectedAula.setDuracao((int)this.spDuracaoHoras.getValue());

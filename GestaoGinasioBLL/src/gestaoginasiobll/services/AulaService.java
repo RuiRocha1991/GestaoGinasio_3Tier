@@ -17,6 +17,7 @@ import gestaoginasiohibernate.model.Professor;
 import gestaoginasiohibernate.model.Sala;
 import gestaoginasiohibernate.model.Tipoaula;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  *
@@ -38,13 +39,13 @@ public class AulaService {
      * @param tipoAula Tipo de aula que vai ser criada
      * @return Todas as aulas criadas para adicionar na lista do observable.
      */
-    public static List<Aula> addAula(Date dataAula, LocalDate dateSelected,int duracaoSemanas, String descricaoAula,
+    public static List<Aula> addAula(LocalDate dataAula, LocalDate dateSelected,int duracaoSemanas, String descricaoAula,
             int duracaoHoras, String horaAula, Professor professor, Sala sala, Tipoaula tipoAula){
         List<Aula> listaAulas = new ArrayList<>();
         LocalDate localDate=dateSelected;
         for(int i=0; i<duracaoSemanas; i++){
             Aula newAula = new Aula();
-            newAula.setData(dataAula);
+            newAula.setData(Date.valueOf(dataAula));
             newAula.setDescricao(descricaoAula);
             newAula.setDuracao(duracaoHoras);
             newAula.setHora(horaAula);
@@ -57,7 +58,7 @@ public class AulaService {
             listaAulas.add(newAula);
             HibernateGenericLib.saveObject(newAula);
             localDate=localDate.plusDays(7);
-            dataAula = java.sql.Date.valueOf(localDate);
+            dataAula = localDate;
         }
         return listaAulas;
     }
@@ -98,9 +99,7 @@ public class AulaService {
      * @return lista de aulas de grupo desde a data atual.
      */
     public static List<Aula> getAllAulasToDate(){
-        LocalDate localDate= LocalDate.now();
-        Date date=Date.valueOf(localDate.toString());
-        List aulasList= HibernateGenericLib.executeHQLQuery("from Aula where data>='"+date+"'");
+        List aulasList= HibernateGenericLib.executeHQLQuery("from Aula Where DATA>='"+Date.valueOf(LocalDate.now())+"'");
         return aulasList;
     }
     

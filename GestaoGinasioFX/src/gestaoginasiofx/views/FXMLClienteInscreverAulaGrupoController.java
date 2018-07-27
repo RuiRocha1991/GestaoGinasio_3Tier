@@ -157,7 +157,7 @@ public class FXMLClienteInscreverAulaGrupoController implements Initializable {
             ov=new SimpleStringProperty(String.valueOf(vagas));
             return ov;
         });
-        List aulasList= AulaService.getAllAulasToDate();
+        List aulasList= AulaService.getAulasAll();
         this.observableListAulas=FXCollections.observableArrayList(aulasList);
         this.observableListAulasFiltro=FXCollections.observableArrayList(aulasList);
         this.filtrarListObservable();
