@@ -2,8 +2,8 @@
 
 <?import java.lang.String?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
@@ -28,14 +28,14 @@
    <left>
       <Pane id="PaneLateral" minHeight="-Infinity" minWidth="-Infinity" prefHeight="568.0" prefWidth="142.0" styleClass="paneLateral">
          <children>
-            <ToggleButton fx:id="btUtente" mnemonicParsing="false" onAction="#switchCenter" prefHeight="40.0" prefWidth="142.0" text="Utentes" />
-            <ToggleButton fx:id="btDadosPessoais" layoutY="488.0" mnemonicParsing="false" onAction="#switchCenter" prefHeight="40.0" prefWidth="142.0" text="Dados Pessoais" />
-            <ToggleButton fx:id="btCloseSession" layoutY="527.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="142.0" text="Terminar Sessão" />
-            <ToggleButton fx:id="btFuncionario" layoutY="199.0" mnemonicParsing="false" onAction="#switchCenter" prefHeight="40.0" prefWidth="142.0" text="Funcionários" />
-            <ToggleButton fx:id="btEspaco" layoutY="159.0" mnemonicParsing="false" onAction="#switchCenter" prefHeight="40.0" prefWidth="142.0" text="Espaços" />
-            <ToggleButton fx:id="btAula" layoutY="119.0" mnemonicParsing="false" onAction="#switchCenter" prefHeight="40.0" prefWidth="142.0" text="Aulas" />
-            <ToggleButton fx:id="btEquipamento" layoutY="79.0" mnemonicParsing="false" onAction="#switchCenter" prefHeight="40.0" prefWidth="142.0" text="Equipamentos" />
-            <ToggleButton fx:id="btTipoContrato" layoutY="39.0" mnemonicParsing="false" onAction="#switchCenter" prefHeight="40.0" prefWidth="142.0" text="Tipos Contratos" />
+            <Button fx:id="btUtente" layoutX="11.0" layoutY="13.0" mnemonicParsing="false" onAction="#switchCenter" prefHeight="40.0" prefWidth="120.0" text="Utentes" />
+            <Button fx:id="btTipoContrato" layoutX="11.0" layoutY="63.0" mnemonicParsing="false" onAction="#switchCenter" prefHeight="40.0" prefWidth="120.0" text="Tipos Contratos" />
+            <Button fx:id="btEquipamento" layoutX="11.0" layoutY="113.0" mnemonicParsing="false" onAction="#switchCenter" prefHeight="40.0" prefWidth="120.0" text="Equipamentos" />
+            <Button fx:id="btAula" layoutX="12.0" layoutY="162.0" mnemonicParsing="false" onAction="#switchCenter" prefHeight="40.0" prefWidth="120.0" text="Aulas" />
+            <Button fx:id="btEspaco" layoutX="11.0" layoutY="212.0" mnemonicParsing="false" onAction="#switchCenter" prefHeight="40.0" prefWidth="120.0" text="Espaços" />
+            <Button fx:id="btFuncionario" layoutX="11.0" layoutY="262.0" mnemonicParsing="false" onAction="#switchCenter" prefHeight="40.0" prefWidth="120.0" text="Funcionários" />
+            <Button fx:id="btDadosPessoais" layoutX="11.0" layoutY="463.0" mnemonicParsing="false" onAction="#switchCenter" prefHeight="40.0" prefWidth="120.0" text="Dados Pessoais" />
+            <Button fx:id="btCloseSession" layoutX="11.0" layoutY="514.0" mnemonicParsing="false" onAction="#closeSession" prefHeight="40.0" prefWidth="120.0" text="Terminar Sessão" />
          </children>
          <BorderPane.margin>
             <Insets />

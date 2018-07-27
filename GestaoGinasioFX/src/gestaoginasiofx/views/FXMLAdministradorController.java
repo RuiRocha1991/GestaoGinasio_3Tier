@@ -16,9 +16,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleButton;
-import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -31,17 +30,14 @@ import javafx.stage.Stage;
  * @author Rui
  */
 public class FXMLAdministradorController implements Initializable {
-    @FXML private ToggleButton btCloseSession;
-    @FXML private ToggleButton btUtente;
-    @FXML private ToggleButton btTipoContrato;
-    @FXML private ToggleButton btEquipamento;
-    @FXML private ToggleButton btAula;
-    @FXML private ToggleButton btEspaco;
-    @FXML private ToggleButton btFuncionario;
-    @FXML private ToggleButton btDadosPessoais;
-
-    
-    @FXML private ToggleGroup toggleGroupNota;
+    @FXML private Button btCloseSession;
+    @FXML private Button btUtente;
+    @FXML private Button btTipoContrato;
+    @FXML private Button btEquipamento;
+    @FXML private Button btAula;
+    @FXML private Button btEspaco;
+    @FXML private Button btFuncionario;
+    @FXML private Button btDadosPessoais;
     @FXML private TextField txtNome;
     @FXML private TextField txtMenu;
     private static Colaborador COLABORADOR;
@@ -52,15 +48,7 @@ public class FXMLAdministradorController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       this.toggleGroupNota= new ToggleGroup();
-       this.btAula.setToggleGroup(this.toggleGroupNota);
-       this.btCloseSession.setToggleGroup(this.toggleGroupNota);
-       this.btDadosPessoais.setToggleGroup(this.toggleGroupNota);
-       this.btEquipamento.setToggleGroup(this.toggleGroupNota);
-       this.btEspaco.setToggleGroup(this.toggleGroupNota);
-       this.btFuncionario.setToggleGroup(this.toggleGroupNota);
-       this.btTipoContrato.setToggleGroup(this.toggleGroupNota);
-       this.btUtente.setToggleGroup(this.toggleGroupNota);
+      
     }      
     
      private void initializePane(){
@@ -106,7 +94,7 @@ public class FXMLAdministradorController implements Initializable {
    @FXML
     private void switchCenter(ActionEvent event) throws IOException{
       
-        switch(((ToggleButton)event.getSource()).getId()){
+        switch(((Button)event.getSource()).getId()){
             case "btUtente":
                 switchCenterPane("FXMLAdministradorUtente.fxml");
                 this.txtMenu.setText("Menu: Utentes");

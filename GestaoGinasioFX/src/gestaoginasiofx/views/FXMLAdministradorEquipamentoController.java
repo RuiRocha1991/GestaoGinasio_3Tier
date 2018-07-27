@@ -287,6 +287,7 @@ public class FXMLAdministradorEquipamentoController implements Initializable {
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.initOwner(this.btGerirEquipamentos.getScene().getWindow());
             stage.showAndWait();
+            this.equipamentoObservableListFiltro.clear();
             this.initialize(null, null);
         }
         catch (IOException e) {

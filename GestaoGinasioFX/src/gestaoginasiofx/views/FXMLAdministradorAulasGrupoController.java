@@ -84,8 +84,6 @@ public class FXMLAdministradorAulasGrupoController implements Initializable {
     @FXML private TableColumn<Aula, String> colProfessor;
     @FXML private TableColumn<Aula, String> colDuracao;
     @FXML private TableColumn<Aula, String> colVagas;
-    @FXML private TableColumn<Aula, String> colInscritos;
-    @FXML private TableColumn<Aula, String> colDisponibilidade;
     
     /**
      * Initializes the controller class.
@@ -221,25 +219,10 @@ public class FXMLAdministradorAulasGrupoController implements Initializable {
         });
         this.colDescricao.setCellValueFactory(new PropertyValueFactory<>("descricao"));
         this.colDuracao.setCellValueFactory(new PropertyValueFactory<>("duracao"));
-        this.colInscritos.setCellValueFactory((TableColumn.CellDataFeatures<Aula, String> param) -> {
-            Aula aula= param.getValue();
-            ObservableValue<String>ov=null;
-            int inscritos=aula.getInscritos();
-            ov=new SimpleStringProperty(String.valueOf(inscritos));
-            return ov;
-        });
-        this.colDisponibilidade.setCellValueFactory((TableColumn.CellDataFeatures<Aula, String> param) -> {
-            Aula aula= param.getValue();
-            ObservableValue<String>ov=null;
-            int inscritos=aula.getInscritos();
-            int vagas= aula.getSala().getNumerovagas();
-            ov=new SimpleStringProperty(String.valueOf(vagas-inscritos));
-            return ov;
-        });
         this.colVagas.setCellValueFactory((TableColumn.CellDataFeatures<Aula, String> param) -> {
             Aula aula= param.getValue();
             ObservableValue<String>ov=null;
-            int vagas= aula.getSala().getNumerovagas();
+            int vagas=aula.getInscritos();
             ov=new SimpleStringProperty(String.valueOf(vagas));
             return ov;
         });

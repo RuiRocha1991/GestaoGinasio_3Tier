@@ -9,7 +9,9 @@ import gestaoginasiobll.exception.EmailInvalidException;
 import gestaoginasiobll.exception.EmailRepetidoException;
 import gestaoginasiobll.exception.NIFRepetidoException;
 import gestaoginasiobll.exception.NumericException;
+import gestaoginasiobll.services.AulaService;
 import gestaoginasiobll.services.UtenteService;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -23,15 +25,7 @@ public class GestaoGinasioBLL {
      * @param args the command line arguments
      */
 //    public static void main(String[] args) {
-//        try {
-//            // TODO code application logic here
-//            UtenteService.validarEmail("rasdasdiipvc.pt");
-//            System.out.println("correto");
-//        } catch (EmailInvalidException ex) {
-//            System.out.println("invalido");
-//        } catch (EmailRepetidoException ex) {
-//            System.out.println("repetido");
-//        }
+//        
 //    }
     
 }

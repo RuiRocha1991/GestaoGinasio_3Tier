@@ -45,7 +45,7 @@
                         <TableColumn fx:id="colAtivo" prefWidth="53.0" text="Ativo" />
                      </columns>
                   </TableView>
-                  <TextField fx:id="txtProcura" layoutX="34.0" layoutY="41.0" onKeyPressed="#searchToDescricao" onKeyReleased="#searchToDescricao" prefHeight="25.0" prefWidth="318.0" />
+                  <TextField fx:id="txtProcura" layoutX="34.0" layoutY="41.0" onKeyPressed="#searchToDescricao" onKeyReleased="#searchToDescricao" prefHeight="25.0" prefWidth="318.0" promptText="Pesquisar por descrição" />
                   <Pane layoutX="13.0" layoutY="14.0" prefHeight="25.0" prefWidth="339.0" style="-fx-background-color: #ffffff;">
                      <children>
                         <Label layoutX="98.0" prefHeight="25.0" prefWidth="132.0" text="Lista Equipamentos">
